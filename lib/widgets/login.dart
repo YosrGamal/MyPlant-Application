@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore
 
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
