@@ -14,19 +14,18 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
+        body: SafeArea(
+            child: Column(
       children: <Widget>[
-        Container(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
-                child: Text('MyPlant',
-                    style:
-                        TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
-              )
-            ],
-          ),
+        Stack(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
+              child: Text('MyPlant',
+                  style:
+                      TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
+            )
+          ],
         ),
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
@@ -55,9 +54,24 @@ class _LoginState extends State<Login> {
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.green))),
                 ),
-                Container(
-                  alignment: Alignment(1.0, 0.0),
-                  padding: EdgeInsets.only(top: 15.0, left: 20.0),
+
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                          Color.fromARGB(255, 59, 122, 61)),
+                    ),
+                    child: Text('Login'),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/home',
+                      );
+                    },
+                  ),
+                ),
+                Center(
                   child: InkWell(
                     child: Text(
                       'Forgot Password?',
@@ -72,6 +86,6 @@ class _LoginState extends State<Login> {
               ],
             ))
       ],
-    ));
+    )));
   }
 }
