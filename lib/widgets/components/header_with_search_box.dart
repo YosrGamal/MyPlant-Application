@@ -83,15 +83,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              height: size.height,
-              width: size.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/Bg.png"),
-                    fit: BoxFit.contain),
-              ),
-            ),
+           
           ],
         ),
       ],
