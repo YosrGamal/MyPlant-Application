@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
-              child: Text('MyPlant',
+              child: Text('Login',
                   style:
                       TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
             )
@@ -36,47 +36,66 @@ class _LoginState extends State<Login> {
                 TextField(
                   // ignore: prefer_const_constructors
                   decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: Color(0XFFD3D3D3),
                       labelText: 'Email',
                       labelStyle: TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green))),
+                          borderSide: BorderSide(color: Colors.grey))),
                 ),
+                SizedBox(
+                  height: 20.0,
+                ),
+
                 TextField(
                   decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: Color(0XFFD3D3D3),
                       labelText: 'Password',
                       labelStyle: TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green))),
+                          borderSide: BorderSide(color: Colors.grey))),
                 ),
+                SizedBox(height: 20.0),
 
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                Container(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  width: MediaQuery.of(context).size.width,
+                  height: 60,
                   child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          Color.fromARGB(255, 59, 122, 61)),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      // ignore: deprecated_member_use
+                      primary: Color.fromARGB(255, 52, 78, 65),
+                      // ignore: deprecated_member_use
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
                     ),
                     child: Text('Login'),
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/home',
-                      );
-                    },
                   ),
                 ),
+                SizedBox(height: 20.0),
                 Center(
                   child: InkWell(
                     child: Text(
-                      'Forgot Password?',
+                      'Forgot my Password?',
                       style: TextStyle(
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 52, 78, 65),
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Montserrat',
                           decoration: TextDecoration.underline),
