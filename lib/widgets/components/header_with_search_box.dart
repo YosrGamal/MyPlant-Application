@@ -37,7 +37,8 @@ class HeaderWithSearchBar extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: defaultPadding, top: 170),
+                    padding:
+                        EdgeInsets.only(left: defaultPadding + 7, top: 180),
                     child: Row(
                       children: [
                         Text(
@@ -49,7 +50,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                                   color: Color.fromARGB(255, 28, 64, 30),
                                   fontFamily: 'Inter',
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30),
+                                  fontSize: 25),
                         ),
                       ],
                     ),
