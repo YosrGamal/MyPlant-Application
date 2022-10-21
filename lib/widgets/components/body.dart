@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
               padding: EdgeInsets.only(top: 250),
               height: MediaQuery.of(context).size.height - 50,
               width: double.infinity,
-              child: plantsGrid(),
+              child: const PlantsGrid(),
             ),
             HeaderWithSearchBar(size: size),
           ]),
