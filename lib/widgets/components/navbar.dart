@@ -54,14 +54,19 @@ class _NavbarState extends State<Navbar> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.home,
-                            color: currentTab == 0 ? icColor : bpColor,
+                          Tab(
+                            icon: currentTab == 0
+                                ? Image.asset(
+                                    "assets/images/icons/home fill.png")
+                                : Image.asset("assets/images/icons/home.png"),
+                            height: 30,
                           ),
                           Text(
                             'Home',
                             style: TextStyle(
-                                color: currentTab == 0 ? icColor : bpColor),
+                                color: currentTab == 0
+                                    ? Color(0XFFA0AE88)
+                                    : bpColor),
                           ),
                         ],
                       ),
@@ -78,14 +83,20 @@ class _NavbarState extends State<Navbar> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.home,
-                            color: currentTab == 1 ? icColor : bpColor,
+                          Tab(
+                            icon: currentTab == 1
+                                ? Image.asset(
+                                    "assets/images/icons/library fill.png")
+                                : Image.asset(
+                                    "assets/images/icons/library.png"),
+                            height: 30,
                           ),
                           Text(
                             'Library',
                             style: TextStyle(
-                                color: currentTab == 1 ? icColor : bpColor),
+                                color: currentTab == 1
+                                    ? Color(0XFFA0AE88)
+                                    : bpColor),
                           ),
                         ],
                       ),
@@ -102,14 +113,19 @@ class _NavbarState extends State<Navbar> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.home,
-                            color: currentTab == 2 ? icColor : bpColor,
+                          Tab(
+                            icon: currentTab == 2
+                                ? Image.asset(
+                                    "assets/images/icons/tasks fill.png")
+                                : Image.asset("assets/images/icons/tasks.png"),
+                            height: 30,
                           ),
                           Text(
                             'Tasks',
                             style: TextStyle(
-                                color: currentTab == 2 ? icColor : bpColor),
+                                color: currentTab == 2
+                                    ? Color(0XFFA0AE88)
+                                    : bpColor),
                           ),
                         ],
                       ),
@@ -126,14 +142,20 @@ class _NavbarState extends State<Navbar> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.settings,
-                            color: currentTab == 3 ? icColor : bpColor,
+                          Tab(
+                            icon: currentTab == 3
+                                ? Image.asset(
+                                    "assets/images/icons/settings fill.png")
+                                : Image.asset(
+                                    "assets/images/icons/settings.png"),
+                            height: 30,
                           ),
                           Text(
                             'Settings',
                             style: TextStyle(
-                                color: currentTab == 3 ? icColor : bpColor),
+                                color: currentTab == 3
+                                    ? Color(0XFFA0AE88)
+                                    : bpColor),
                           ),
                         ],
                       ),
