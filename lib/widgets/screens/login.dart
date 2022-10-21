@@ -77,7 +77,12 @@ class _LoginState extends State<Login> {
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/home',
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
                       primary: Color.fromARGB(255, 52, 78, 65),
