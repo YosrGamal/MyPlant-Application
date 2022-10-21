@@ -21,9 +21,9 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
-              child: Text('Login',
+              child: Text('Log in',
                   style:
-                      TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
+                      TextStyle(fontSize: 35.0, fontWeight: FontWeight.normal)),
             )
           ],
         ),
@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 100.0),
 
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
@@ -89,7 +89,7 @@ class _LoginState extends State<Login> {
                     child: Text('Login'),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 30.0),
                 Center(
                   child: InkWell(
                     child: Text(
