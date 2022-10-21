@@ -1,16 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/constants.dart';
 
-class Login extends StatefulWidget {
+class Login extends StatelessWidget {
   const Login({super.key});
 
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-//
-class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +39,7 @@ class _LoginState extends State<Login> {
                       fillColor: Color(0XFFD3D3D3),
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
@@ -64,7 +59,7 @@ class _LoginState extends State<Login> {
                       fillColor: Color(0XFFD3D3D3),
                       labelText: 'Password',
                       labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
@@ -85,7 +80,7 @@ class _LoginState extends State<Login> {
                     },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
-                      primary: Color.fromARGB(255, 52, 78, 65),
+                      primary: Color(0XFF588157),
                       // ignore: deprecated_member_use
                       onPrimary: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -102,8 +97,28 @@ class _LoginState extends State<Login> {
                       style: TextStyle(
                           color: Color.fromARGB(255, 52, 78, 65),
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           decoration: TextDecoration.underline),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 30.0),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/signup',
+                      );
+                    },
+                    child: Text(
+                      'Register?',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 52, 78, 65),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Inter',
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ),
