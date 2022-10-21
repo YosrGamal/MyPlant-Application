@@ -77,6 +77,19 @@ flutter:
     - assets/images/profilepic.png
     - assets/images/SnakePlant-Sansevieria.jpg
     - assets/images/Pothos.png
+    - assets/images/icons/home fill.png
+    - assets/images/icons/home.png
+    - assets/images/icons/library fill.png
+    - assets/images/icons/library.png
+    - assets/images/icons/settings fill.png
+    - assets/images/icons/settings.png
+    - assets/images/icons/tasks fill.png
+    - assets/images/icons/tasks.png
+    - assets/images/icons/water.png
+    - assets/images/icons/mist.png
+    - assets/images/icons/prune.png
+    - assets/images/icons/fertilizer.png
+
     
  
 
