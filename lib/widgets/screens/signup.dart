@@ -2,15 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _SignupState();
 }
 
-//
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,7 @@ class _LoginState extends State<Login> {
               padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
               child: Text('SignUp',
                   style:
-                      TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
+                      TextStyle(fontSize: 35.0, fontWeight: FontWeight.normal)),
             )
           ],
         ),
@@ -96,7 +95,12 @@ class _LoginState extends State<Login> {
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/',
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
                       primary: Color.fromARGB(255, 52, 78, 65),

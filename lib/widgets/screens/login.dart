@@ -1,16 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/constants.dart';
 
-class Login extends StatefulWidget {
+class Login extends StatelessWidget {
   const Login({super.key});
 
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-//
-class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +16,9 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
-              child: Text('Login',
+              child: Text('Log in',
                   style:
-                      TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold)),
+                      TextStyle(fontSize: 35.0, fontWeight: FontWeight.normal)),
             )
           ],
         ),
@@ -44,7 +39,7 @@ class _LoginState extends State<Login> {
                       fillColor: Color(0XFFD3D3D3),
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
@@ -64,13 +59,13 @@ class _LoginState extends State<Login> {
                       fillColor: Color(0XFFD3D3D3),
                       labelText: 'Password',
                       labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 100.0),
 
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
@@ -85,7 +80,7 @@ class _LoginState extends State<Login> {
                     },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
-                      primary: Color.fromARGB(255, 52, 78, 65),
+                      primary: Color(0XFF588157),
                       // ignore: deprecated_member_use
                       onPrimary: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -94,7 +89,7 @@ class _LoginState extends State<Login> {
                     child: Text('Login'),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 30.0),
                 Center(
                   child: InkWell(
                     child: Text(
@@ -102,8 +97,28 @@ class _LoginState extends State<Login> {
                       style: TextStyle(
                           color: Color.fromARGB(255, 52, 78, 65),
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           decoration: TextDecoration.underline),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 30.0),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/signup',
+                      );
+                    },
+                    child: Text(
+                      'Register?',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 52, 78, 65),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Inter',
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ),
