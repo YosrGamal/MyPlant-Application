@@ -2,8 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/navbar.dart';
-import 'package:my_plant_application/widgets/routes.dart';
+// import 'package:my_plant_application/widgets/components/navbar.dart';
+// import 'package:my_plant_application/widgets/routes.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/widgets/screens/login.dart';
+import 'package:my_plant_application/widgets/screens/plant_details.dart';
+import 'package:my_plant_application/widgets/screens/signup.dart';
+import 'package:my_plant_application/widgets/screens/home.dart';
+import 'package:my_plant_application/widgets/screens/library.dart';
+import 'package:my_plant_application/widgets/screens/settings.dart';
+import 'package:my_plant_application/widgets/screens/task.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +22,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: bgColor,
@@ -22,7 +31,44 @@ class MyApp extends StatelessWidget {
         primaryColorLight: icColor,
         textTheme: Theme.of(context).textTheme.apply(bodyColor: tColor),
       ),
-      home: Navbar(),
     );
   }
 }
+
+final GoRouter _router = GoRouter(
+  routes: <GoRoute>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return Login();
+      },
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (BuildContext context, GoRouterState state) {
+        return Home();
+      },
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (BuildContext context, GoRouterState state) {
+        return Signup();
+      },
+    ),
+    GoRoute(
+      path: '/library',
+      builder: (BuildContext context, GoRouterState state) {
+        return Library();
+      },
+    ),
+    GoRoute(
+      path: '/plantdetail/:plantid/:name/:path',
+      builder: (BuildContext context, GoRouterState state) {
+        return PlantDetail(
+            assetPath: state.params['path']!,
+            plantname: state.params['name']!,
+            plantid: state.params['plantid']);
+      },
+    ),
+  ],
+);
