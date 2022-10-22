@@ -66,7 +66,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 239, 237, 237),
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(40),
                       ),
                       child: TextField(
                         decoration: InputDecoration(
@@ -83,7 +83,6 @@ class HeaderWithSearchBar extends StatelessWidget {
                 ],
               ),
             ),
-           
           ],
         ),
       ],
