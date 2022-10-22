@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
+import 'package:my_plant_application/widgets/screens/library.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({this.shape = const CircularNotchedRectangle()});
@@ -20,16 +21,20 @@ class _NavbarState extends State<Navbar> {
   Widget currentScreen = Home();
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
       body: PageStorage(
         bucket: bucket,
         child: currentScreen,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: btColor,
-        onPressed: () {},
-        child: Icon(
-          Icons.camera_alt_rounded,
+      floatingActionButton: Visibility(
+        visible: !showFab,
+        child: FloatingActionButton(
+          backgroundColor: btColor,
+          onPressed: () {},
+          child: Icon(
+            Icons.camera_alt_rounded,
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -76,7 +81,7 @@ class _NavbarState extends State<Navbar> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen = Home();
+                          currentScreen = Library();
                           currentTab = 1;
                         });
                       },
