@@ -6,7 +6,6 @@ import 'package:my_plant_application/constants.dart';
 // import 'package:my_plant_application/widgets/routes.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
-import 'package:my_plant_application/widgets/screens/plant_details.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -59,15 +58,6 @@ final GoRouter _router = GoRouter(
       path: '/library',
       builder: (BuildContext context, GoRouterState state) {
         return Library();
-      },
-    ),
-    GoRoute(
-      path: '/plantdetail/:plantid/:name/:path',
-      builder: (BuildContext context, GoRouterState state) {
-        return PlantDetail(
-            assetPath: state.params['path']!,
-            plantname: state.params['name']!,
-            plantid: state.params['plantid']);
       },
     ),
   ],
