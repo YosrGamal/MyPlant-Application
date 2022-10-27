@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/components/plant_details.dart';
 
-class plantsGrid extends StatefulWidget {
-  const plantsGrid({super.key});
+class PlantsGrid extends StatefulWidget {
+  const PlantsGrid({super.key});
 
   @override
-  State<plantsGrid> createState() => _plantsGridState();
+  State<PlantsGrid> createState() => _PlantsGridState();
 }
 
-class _plantsGridState extends State<plantsGrid> {
+class _PlantsGridState extends State<PlantsGrid> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
-        SizedBox(height: 15.0),
+        const SizedBox(height: 15.0),
         Container(
-          padding: EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15.0),
           width: MediaQuery.of(context).size.width - 30,
           height: MediaQuery.of(context).size.width - 50,
           child: GridView.count(
@@ -46,7 +47,11 @@ Widget _buildCard(String name, String imgPath, bool isFavorite, context) {
   return Padding(
     padding: EdgeInsets.only(top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
     child: InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) =>
+                PlantDetail(assetPath: imgPath, plantname: name)));
+      },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
@@ -72,21 +77,22 @@ Widget _buildCard(String name, String imgPath, bool isFavorite, context) {
           Hero(
             tag: imgPath,
             child: Container(
-              height: 75.0,
-              width: 75.0,
+              height: 120.0,
+              width: 120.0,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                    image: AssetImage(imgPath), fit: BoxFit.contain),
+                    image: AssetImage(imgPath), fit: BoxFit.cover),
               ),
             ),
           ),
-          SizedBox(height: 7.0),
+          const SizedBox(height: 7.0),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               name,
-              style:
-                  TextStyle(color: tColor, fontFamily: 'Inter', fontSize: 14),
+              style: const TextStyle(
+                  color: tColor, fontFamily: 'Inter', fontSize: 14),
             ),
           )
         ]),

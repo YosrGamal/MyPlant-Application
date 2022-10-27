@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/components/librarytab.dart';
 
-class HeaderWithSearchBar extends StatelessWidget {
-  const HeaderWithSearchBar({
+class Headerlibrary extends StatelessWidget {
+  const Headerlibrary({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -24,48 +25,36 @@ class HeaderWithSearchBar extends StatelessWidget {
                     height: size.height * 0.6 - 10,
                     child: Row(
                       children: [
-                        Text(
-                          'Welcome,',
-                          style:
-                              Theme.of(context).textTheme.headline4?.copyWith(
-                                    color: Color.fromARGB(255, 28, 64, 30),
-                                    fontFamily: 'Inter',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 80),
+                          child: Text(
+                            'My Plants',
+                            style:
+                                Theme.of(context).textTheme.headline4?.copyWith(
+                                      color: tColor,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    padding:
-                        EdgeInsets.only(left: defaultPadding + 7, top: 180),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Explore',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline4
-                              ?.copyWith(
-                                  color: Color.fromARGB(255, 28, 64, 30),
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25),
-                        ),
-                      ],
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 150),
+                    child: TabLibrary(),
                   ),
                   Positioned(
                     bottom: 0,
                     left: 0,
-                    right: 0,
+                    right: 60,
                     child: Container(
                       alignment: Alignment.center,
                       height: 54,
                       margin: EdgeInsets.symmetric(horizontal: defaultPadding),
                       padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 239, 237, 237),
+                        color: bpColor,
                         borderRadius: BorderRadius.circular(40),
                       ),
                       child: TextField(
@@ -78,6 +67,15 @@ class HeaderWithSearchBar extends StatelessWidget {
                             enabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none),
                       ),
+                    ),
+                  ),
+                  Positioned(
+                    left: size.width - 70,
+                    top: 225,
+                    child: FloatingActionButton(
+                      backgroundColor: icColor,
+                      child: Icon(Icons.add),
+                      onPressed: () {},
                     ),
                   )
                 ],
