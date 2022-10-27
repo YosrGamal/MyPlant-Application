@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -73,10 +74,7 @@ class Login extends StatelessWidget {
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/home',
-                      );
+                      context.go('/home');
                     },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
@@ -106,10 +104,7 @@ class Login extends StatelessWidget {
                 Center(
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/signup',
-                      );
+                      context.go('/signup');
                     },
                     child: Text(
                       'Register?',
