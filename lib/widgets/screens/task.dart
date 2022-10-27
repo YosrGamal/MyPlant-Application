@@ -80,7 +80,111 @@ class _ReminderState extends State<Reminder> {
                   ),
                 ],
               )),
-    
+       Container(
+            margin: const EdgeInsets.only(top: 220),
+            padding: const EdgeInsets.only(left: 45, right: 45),
+            width: MediaQuery.of(context).size.width,
+            height: 45,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromARGB(255, 251, 252, 251),
+                onPrimary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+              child: const Text(
+                'Spider Plant',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 20.0,
+                    color: Color.fromARGB(255, 40, 65, 48)),
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.all(60),
+            height: 180,
+            width: 380,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/Plant down left.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 280),
+            padding: const EdgeInsets.only(left: 35, right: 35),
+            width: MediaQuery.of(context).size.width,
+            height: 45,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
+                primary: const Color.fromARGB(255, 251, 252, 251),
+                // ignore: deprecated_member_use
+                onPrimary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+              ),
+              child: const Text(
+                'Reminder',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontSize: 20.0,
+                    color: Color.fromARGB(255, 60, 100, 73)),
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 362),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/water.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 420),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/prune.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 474),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/mist.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 530),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/fertilizer.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }
