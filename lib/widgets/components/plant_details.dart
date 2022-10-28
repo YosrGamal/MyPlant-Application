@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 class PlantDetail extends StatelessWidget {
   final assetPath, plantname;
-  const PlantDetail({this.assetPath, this.plantname});
+  const PlantDetail({this.assetPath, this.plantname, super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +47,7 @@ class PlantDetail extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200, bottom: 50),
+            padding: const EdgeInsets.only(top: 200),
             child: Center(
               child: Container(
                 width: MediaQuery.of(context).size.width - 50,
@@ -59,14 +59,33 @@ class PlantDetail extends StatelessWidget {
                     context.go('/reminder');
                   },
                   style: ElevatedButton.styleFrom(
-                    // ignore: deprecated_member_use
-                    primary: btColor,
-                    // ignore: deprecated_member_use
-                    onPrimary: Colors.white,
+                    backgroundColor: btColor,
+                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(40)),
                   ),
-                  child: Text('Set Reminder'),
+                  child: const Text('Set Reminder'),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 5, bottom: 50),
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width - 50,
+                height: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25), color: btColor),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 187, 43, 32),
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                  child: const Text('Remove'),
                 ),
               ),
             ),
