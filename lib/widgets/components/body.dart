@@ -22,6 +22,7 @@ class Body extends StatelessWidget {
               ),
             ),
             Container(
+              // ignore: prefer_const_constructors
               padding: EdgeInsets.only(top: 250),
               height: MediaQuery.of(context).size.height - 50,
               width: double.infinity,
