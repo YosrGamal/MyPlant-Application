@@ -14,7 +14,7 @@ class Settings extends StatefulWidget {
 
 // ignore: camel_case_types
 class _SettingsState extends State<Settings> {
-  bool s1 = false;
+  bool s1 = false, s2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +40,10 @@ class _SettingsState extends State<Settings> {
             const Divider(height: 20, thickness: 1),
             const SizedBox(height: 20),
             BuildAccountOption(context, "Edit Profile"),
-            BuildAccountOption(context, "change password"),
+            BuildAccountOption(context, "Change password"),
             BuildAccountOption(context, "About Us"),
             BuildAccountOption(context, "Privacy Policy"),
+            BuildAccountOption(context, "How to use"),
             const Divider(height: 20, thickness: 1),
             SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
@@ -56,6 +57,27 @@ class _SettingsState extends State<Settings> {
                 'Push Notification',
                 style: TextStyle(
                     color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),
+            SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s2,
+              onChanged: (bool value) {
+                setState(() {
+                  s2 = value;
+                });
+              },
+              title: const Text(
+                'Wifi',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),
+            const Text(
+              "LogOut",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.normal,
               ),
             ),
           ],
