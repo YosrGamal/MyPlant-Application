@@ -56,9 +56,7 @@ class _SettingsState extends State<Settings> {
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey[600]),
-            )
-            // ignore: prefer_const_constructors
-            ,
+            ),
             const Icon(Icons.arrow_forward_ios, color: Colors.grey)
           ],
         ),
