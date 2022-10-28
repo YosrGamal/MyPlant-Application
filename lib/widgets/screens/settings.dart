@@ -13,6 +13,8 @@ class Settings extends StatefulWidget {
 
 // ignore: camel_case_types
 class _SettingsState extends State<Settings> {
+  bool s1 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +37,21 @@ class _SettingsState extends State<Settings> {
             BuildAccountOption(context, "change password"),
             BuildAccountOption(context, "About Us"),
             BuildAccountOption(context, "Privacy Policy"),
+            const Divider(height: 20, thickness: 1),
+            SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s1,
+              onChanged: (bool value) {
+                setState(() {
+                  s1 = value;
+                });
+              },
+              title: const Text(
+                'Water',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),
           ],
         ),
       ),
