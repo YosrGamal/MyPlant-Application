@@ -71,7 +71,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context.go('/tasks');
         break;
       case 3:
-        context.go('');
+        context.go('/settings');
         break;
       default:
     }

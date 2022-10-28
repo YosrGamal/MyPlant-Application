@@ -5,7 +5,8 @@ import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  final formKey = GlobalKey<FormState>();
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
