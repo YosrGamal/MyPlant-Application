@@ -45,17 +45,14 @@ class _TabLibraryState extends State<TabLibrary>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Colors.green,
+                  color: Color(0XFFA0AE88),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: [
-                  // first tab [you can add an icon using the icon property]
                   Tab(
                     text: 'Library',
                   ),
-
-                  // second tab [you can add an icon using the icon property]
                   Tab(
                     text: 'Collections',
                   ),
