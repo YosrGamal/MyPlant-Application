@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/body.dart';
+import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,6 +14,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Body(),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
