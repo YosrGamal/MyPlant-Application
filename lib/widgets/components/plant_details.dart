@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class PlantDetail extends StatelessWidget {
   final assetPath, plantname;
@@ -55,10 +56,7 @@ class PlantDetail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25), color: btColor),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/reminders',
-                    );
+                    context.go('/reminder');
                   },
                   style: ElevatedButton.styleFrom(
                     // ignore: deprecated_member_use

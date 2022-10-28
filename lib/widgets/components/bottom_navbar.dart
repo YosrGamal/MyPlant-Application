@@ -11,7 +11,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    final position = 0;
+    const position = 0;
     return BottomNavigationBar(
         currentIndex: position,
         onTap: (value) => _onTap(value),
@@ -71,7 +71,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context.go('/tasks');
         break;
       case 3:
-        context.go('/settings');
+        context.go('');
         break;
       default:
     }

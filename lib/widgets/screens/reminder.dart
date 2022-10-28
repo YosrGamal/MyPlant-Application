@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 
 class Reminder extends StatefulWidget {
   @override
@@ -185,12 +186,7 @@ class _ReminderState extends State<Reminder> {
           ),
         ]),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
-
-
-
-
-
-
