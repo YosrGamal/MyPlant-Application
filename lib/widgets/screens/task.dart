@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, duplicate_ignore
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 
 class Task extends StatefulWidget {
   const Task({super.key});
@@ -13,6 +14,7 @@ class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: Stack(children: <Widget>[
           Container(
@@ -25,6 +27,7 @@ class _TaskState extends State<Task> {
                   fit: BoxFit.contain),
             ),
           ),
+          // ignore: duplicate_ignore
           Container(
             // ignore: prefer_const_constructors
             padding: EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
