@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/switch_reminder.dart';
+import 'package:my_plant_application/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class BodyReminder extends StatefulWidget {
   @override
@@ -10,6 +12,17 @@ class _BodyReminderState extends State<BodyReminder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.green[800],
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          )),
       body: SafeArea(
         child: Stack(children: <Widget>[
           Container(
