@@ -89,7 +89,9 @@ class _ReminderState extends State<Reminder> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
                 primary: const Color.fromARGB(255, 251, 252, 251),
+                // ignore: deprecated_member_use
                 onPrimary: Colors.white,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
