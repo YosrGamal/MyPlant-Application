@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/widgets/components/header_with_search_box.dart';
 
