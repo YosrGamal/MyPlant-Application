@@ -45,7 +45,7 @@ class _TabReminderState extends State<TabReminder>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color.fromARGB(255, 85, 128, 86),
+                  color: Color.fromARGB(255, 95, 133, 97),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
