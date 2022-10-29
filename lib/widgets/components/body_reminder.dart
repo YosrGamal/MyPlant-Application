@@ -19,7 +19,7 @@ class _BodyReminderState extends State<BodyReminder> {
               color: Colors.green[800],
             ),
             onPressed: () {
-              context.go('/home');
+              context.go('/library');
             },
           )),
       body: SafeArea(
