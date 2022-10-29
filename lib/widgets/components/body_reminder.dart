@@ -1,6 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/switch_reminder.dart';
-import 'package:my_plant_application/widgets/components/reminder_tab.dart';
 
 import 'package:go_router/go_router.dart';
 
