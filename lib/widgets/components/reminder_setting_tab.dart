@@ -4,6 +4,7 @@ class TabReminderSetting extends StatefulWidget {
   const TabReminderSetting({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TabReminderSettingState createState() => _TabReminderSettingState();
 }
 
@@ -47,7 +48,7 @@ class _TabReminderSettingState extends State<TabReminderSetting>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color.fromARGB(255, 124, 161, 126),
+                  color: const Color.fromARGB(255, 124, 161, 126),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
