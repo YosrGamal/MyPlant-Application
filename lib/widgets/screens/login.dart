@@ -87,8 +87,8 @@ class Login extends StatelessWidget {
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
+                      context.go('/home');
                       if (formKey.currentState!.validate()) {
-                        context.go('/home');
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
