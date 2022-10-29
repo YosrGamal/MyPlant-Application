@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/model/logic.dart';
+import 'package:my_plant_application/model/plantlogic.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
 
 class ItemCard extends StatelessWidget {
