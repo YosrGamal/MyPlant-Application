@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TabTask extends StatefulWidget {
+  const TabTask({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _TabTaskState createState() => _TabTaskState();
 }
 
@@ -44,11 +47,11 @@ class _TabTaskState extends State<TabTask> with SingleTickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color.fromARGB(255, 124, 161, 126),
+                  color: const Color(0XFFA0AE88),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                tabs: const [
                   // first tab [you can add an icon using the icon property]
                   Tab(
                     text: 'Today',

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TabReminder extends StatefulWidget {
-  const TabReminder({super.key});
+class TabReminderSetting extends StatefulWidget {
+  const TabReminderSetting({super.key});
 
   @override
-  _TabReminderState createState() => _TabReminderState();
+  _TabReminderSettingState createState() => _TabReminderSettingState();
 }
 
-class _TabReminderState extends State<TabReminder>
+class _TabReminderSettingState extends State<TabReminderSetting>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
@@ -47,7 +47,7 @@ class _TabReminderState extends State<TabReminder>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: const Color.fromARGB(255, 124, 161, 126),
+                  color: Color.fromARGB(255, 124, 161, 126),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
