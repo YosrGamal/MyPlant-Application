@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/model/logic.dart';
+import 'package:my_plant_application/widgets/components/plant_details.dart';
 
-class Buildcard extends StatelessWidget {
-  final name, imgPath;
-  final String? plantid;
-  final bool? isFavorite;
-  const Buildcard(
-      {super.key,
-      required this.plantid,
-      required this.name,
-      required this.imgPath,
-      this.isFavorite});
+class ItemCard extends StatelessWidget {
+  final PlantModel plant;
+  final VoidCallback press;
+
+  const ItemCard({required this.plant, required this.press, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
-      child: InkWell(
-        onTap: () {
-          var id = plantid;
-          context.go(context.namedLocation('/plantdetail/$id/$name/$imgPath',
-              params: <String, String>{'imgPath': imgPath, 'name': name}));
-        },
+    return GestureDetector(
+      onTap: press,
+      child: Padding(
+        padding: EdgeInsets.only(top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
@@ -39,21 +31,21 @@ class Buildcard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  isFavorite!
+                  plant.isfavorite
                       ? Icon(Icons.favorite, color: Colors.red[800])
                       : Icon(Icons.favorite_border, color: Colors.red[800])
                 ],
               ),
             ),
             Hero(
-              tag: imgPath,
+              tag: plant.imageUrl,
               child: Container(
                 height: 120.0,
                 width: 120.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage(imgPath), fit: BoxFit.cover),
+                      image: AssetImage(plant.imageUrl), fit: BoxFit.cover),
                 ),
               ),
             ),
@@ -61,7 +53,7 @@ class Buildcard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                name,
+                plant.name,
                 style: const TextStyle(
                     color: tColor, fontFamily: 'Inter', fontSize: 14),
               ),
