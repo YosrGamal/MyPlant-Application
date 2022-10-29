@@ -26,12 +26,10 @@ class Login extends StatelessWidget {
         ),
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
-            child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
+            child: Form(
+                child: Column(
               children: <Widget>[
-                // ignore: prefer_const_constructors, duplicate_ignore
-                TextField(
-                  // ignore: prefer_const_constructors
+                TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -50,8 +48,7 @@ class Login extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-
-                TextField(
+                TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -68,7 +65,6 @@ class Login extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
                 SizedBox(height: 100.0),
-
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   width: MediaQuery.of(context).size.width,
@@ -119,7 +115,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ],
-            ))
+            )))
       ],
     )));
   }
