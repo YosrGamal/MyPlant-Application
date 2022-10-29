@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/switch_reminder.dart';
-import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class BodyReminder extends StatefulWidget {
@@ -20,7 +19,7 @@ class _BodyReminderState extends State<BodyReminder> {
               color: Colors.green[800],
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              context.go('/library');
             },
           )),
       body: SafeArea(

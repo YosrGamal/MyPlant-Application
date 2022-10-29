@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
+  bool isHiddenPassword = true;
   final _formKey = GlobalKey<FormState>();
   Login({super.key});
 
@@ -57,6 +58,9 @@ class Login extends StatelessWidget {
                       height: 20.0,
                     ),
                     TextFormField(
+                      obscureText: isHiddenPassword,
+
+                      ///to make the dots in the password
                       validator: (value) {
                         RegExp regex = RegExp(
                             r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
@@ -78,6 +82,10 @@ class Login extends StatelessWidget {
                           filled: true,
                           fillColor: Color(0XFFD3D3D3),
                           hintText: 'Password',
+                          // suffixIcon: InkWell(
+                          //   // onTap: togglePassword,
+                          //   child: Icon(Icons.visibility),
+                          // ),
                           labelStyle: TextStyle(
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.bold,
@@ -144,5 +152,11 @@ class Login extends StatelessWidget {
                 )))
       ],
     )));
+
+    // void togglePassword() {
+    //   setState(() {
+    //     isHiddenPassword=!isHiddenPassword;
+    // });
+    // }
   }
 }
