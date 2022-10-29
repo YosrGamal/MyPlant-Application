@@ -2,6 +2,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 
 // ignore: camel_case_types
@@ -33,9 +34,12 @@ class _SettingsState extends State<Settings> {
                     color: Color(0XFFA0AE88),
                   ),
                   const SizedBox(height: 40),
-                  const Text("Account Settings",
+                  const Text("Settings",
                       style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.normal)),
+                          fontFamily: 'Inter',
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: tColor)),
                 ]),
             const Divider(height: 20, thickness: 1),
             const SizedBox(height: 20),
