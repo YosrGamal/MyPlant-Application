@@ -10,6 +10,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +30,15 @@ class _SignupState extends State<Signup> {
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
             child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
               children: <Widget>[
-                // ignore: prefer_const_constructors, duplicate_ignore
-                TextField(
-                  // ignore: prefer_const_constructors
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter correct name';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -52,7 +57,14 @@ class _SignupState extends State<Signup> {
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter correct email';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -71,8 +83,16 @@ class _SignupState extends State<Signup> {
                 SizedBox(
                   height: 20.0,
                 ),
-
-                TextField(
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(value)) {
+                      return 'Please enter correct password';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -89,7 +109,6 @@ class _SignupState extends State<Signup> {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
                 SizedBox(height: 20.0),
-
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   width: MediaQuery.of(context).size.width,
@@ -129,8 +148,5 @@ class _SignupState extends State<Signup> {
             ))
       ],
     )));
-
-    ///this is a fucken widget
-    ///
   }
 }
