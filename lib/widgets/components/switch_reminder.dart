@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/reminder_tab.dart';
-import 'package:my_plant_application/widgets/components/setting_reminder.dart';
+//import 'package:my_plant_application/widgets/components/setting_reminder.dart';
 
 class Switchreminder extends StatefulWidget {
+  const Switchreminder({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SwitchreminderState createState() => _SwitchreminderState();
 }
 
@@ -14,11 +17,9 @@ class _SwitchreminderState extends State<Switchreminder> {
     return Scaffold(
       body: SafeArea(
         child: Stack(children: <Widget>[
+          const TabReminder(),
           Container(
-            child: TabReminder(),
-          ),
-          Container(
-              padding: EdgeInsets.only(top: 350, left: 50, right: 20),
+              padding: const EdgeInsets.only(top: 350, left: 50, right: 20),
               alignment: Alignment.topLeft,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +32,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         s1 = value;
                       });
                     },
-                    title: Text(
+                    title: const Text(
                       'Water',
                       style: TextStyle(
                           color: Color.fromARGB(255, 60, 100, 73),
@@ -39,14 +40,14 @@ class _SwitchreminderState extends State<Switchreminder> {
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Color.fromARGB(255, 67, 105, 68),
+                    activeColor: const Color.fromARGB(255, 67, 105, 68),
                     value: s2,
                     onChanged: (bool value) {
                       setState(() {
                         s2 = value;
                       });
                     },
-                    title: Text(
+                    title: const Text(
                       'Prune',
                       style: TextStyle(
                           color: Color.fromARGB(255, 60, 100, 73),
@@ -54,14 +55,14 @@ class _SwitchreminderState extends State<Switchreminder> {
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Color.fromARGB(255, 67, 105, 68),
+                    activeColor: const Color.fromARGB(255, 67, 105, 68),
                     value: s3,
                     onChanged: (bool value) {
                       setState(() {
                         s3 = value;
                       });
                     },
-                    title: Text(
+                    title: const Text(
                       'Mist',
                       style: TextStyle(
                           color: Color.fromARGB(255, 60, 100, 73),
@@ -69,14 +70,14 @@ class _SwitchreminderState extends State<Switchreminder> {
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: Color.fromARGB(255, 67, 105, 68),
+                    activeColor: const Color.fromARGB(255, 67, 105, 68),
                     value: s4,
                     onChanged: (bool value) {
                       setState(() {
                         s4 = value;
                       });
                     },
-                    title: Text(
+                    title: const Text(
                       'Fertilizer',
                       style: TextStyle(
                           color: Color.fromARGB(255, 60, 100, 73),
@@ -97,7 +98,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 416),
+            margin: const EdgeInsets.only(top: 409),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -108,7 +109,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 473),
+            margin: const EdgeInsets.only(top: 460),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -119,7 +120,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 525),
+            margin: const EdgeInsets.only(top: 505),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
