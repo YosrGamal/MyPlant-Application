@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/reminder_tab.dart';
+import 'package:my_plant_application/widgets/components/setting_reminder.dart';
 
 class Switchreminder extends StatefulWidget {
   @override
@@ -96,7 +97,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 410),
+            margin: const EdgeInsets.only(top: 416),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -107,7 +108,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 460),
+            margin: const EdgeInsets.only(top: 473),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -118,7 +119,7 @@ class _SwitchreminderState extends State<Switchreminder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 505),
+            margin: const EdgeInsets.only(top: 525),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
