@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
+import 'package:go_router/go_router.dart';
 
 // ignore: camel_case_types
 class Settings extends StatefulWidget {
@@ -68,11 +69,16 @@ class _SettingsState extends State<Settings> {
                     color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
             ),
-            const Text(
-              "LogOut",
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.normal,
+            InkWell(
+              onTap: () {
+                context.go('/');
+              },
+              child: const Text(
+                "LogOut",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
             ),
           ],
