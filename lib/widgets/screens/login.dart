@@ -5,7 +5,7 @@ import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   Login({super.key});
 
   @override
@@ -27,116 +27,121 @@ class Login extends StatelessWidget {
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
             child: Form(
+                key: _formKey,
                 child: Column(
-              children: <Widget>[
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter correct name';
-                    } else {
-                      return null;
-                    }
-                  },
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      filled: true,
-                      fillColor: Color(0XFFD3D3D3),
-                      labelText: 'Email',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                            .hasMatch(value)) {
-                      return 'Please enter correct password';
-                    } else {
-                      return null;
-                    }
-                  },
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      filled: true,
-                      fillColor: Color(0XFFD3D3D3),
-                      labelText: 'Password',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
-                ),
-                SizedBox(height: 100.0),
-                Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        context.go('/home');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      // ignore: deprecated_member_use
-                      primary: Color(0XFF588157),
-                      // ignore: deprecated_member_use
-                      onPrimary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                  children: <Widget>[
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter an email';
+                        } else {
+                          return null;
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color(0XFFD3D3D3),
+                          hintText: 'Email',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
                     ),
-                    child: Text('Login'),
-                  ),
-                ),
-                SizedBox(height: 30.0),
-                Center(
-                  child: InkWell(
-                    child: Text(
-                      'Forgot my Password?',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 52, 78, 65),
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Inter',
-                          decoration: TextDecoration.underline),
+                    SizedBox(
+                      height: 20.0,
                     ),
-                  ),
-                ),
-                SizedBox(height: 30.0),
-                Center(
-                  child: InkWell(
-                    onTap: () {
-                      context.go('/signup');
-                    },
-                    child: Text(
-                      'Register?',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 52, 78, 65),
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Inter',
-                        decoration: TextDecoration.underline,
+                    TextFormField(
+                      validator: (value) {
+                        RegExp regex = RegExp(
+                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
+                        if (value!.isEmpty) {
+                          return 'Please enter a password';
+                        } else {
+                          if (!regex.hasMatch(value)) {
+                            return 'Enter valid password';
+                          } else {
+                            return null;
+                          }
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color(0XFFD3D3D3),
+                          hintText: 'Password',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
+                    ),
+                    SizedBox(height: 100.0),
+                    Container(
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.go('/home');
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          // ignore: deprecated_member_use
+                          primary: Color(0XFF588157),
+                          // ignore: deprecated_member_use
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        child: Text('Login'),
                       ),
                     ),
-                  ),
-                ),
-              ],
-            )))
+                    SizedBox(height: 30.0),
+                    Center(
+                      child: InkWell(
+                        child: Text(
+                          'Forgot my Password?',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 52, 78, 65),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Inter',
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 30.0),
+                    Center(
+                      child: InkWell(
+                        onTap: () {
+                          context.go('/signup');
+                        },
+                        child: Text(
+                          'Register?',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 52, 78, 65),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Inter',
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )))
       ],
     )));
   }
