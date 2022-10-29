@@ -1,4 +1,4 @@
-import 'package:my_plant_application/model/logic.dart';
+import 'package:my_plant_application/model/plantlogic.dart';
 
 List<PlantModel> plants = [
   PlantModel(
