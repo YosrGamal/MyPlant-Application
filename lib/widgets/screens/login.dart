@@ -30,6 +30,13 @@ class Login extends StatelessWidget {
                 child: Column(
               children: <Widget>[
                 TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter correct name';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -49,6 +56,15 @@ class Login extends StatelessWidget {
                   height: 20.0,
                 ),
                 TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(value)) {
+                      return 'Please enter correct password';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -71,7 +87,12 @@ class Login extends StatelessWidget {
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.go('/home');
+                      if (formKey.currentState!.validate()) {
+                        context.go('/home');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
