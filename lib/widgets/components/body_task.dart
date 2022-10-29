@@ -36,7 +36,7 @@ class _BodyTaskState extends State<BodyTask> {
             // ignore: prefer_const_constructors
             padding: EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
             // ignore: prefer_const_constructors
-            child: Text(
+            child: const Text(
               "Tasks ",
               //textAlign: TextAlign.left,
               style: TextStyle(
@@ -89,7 +89,7 @@ class _BodyTaskState extends State<BodyTask> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
               ),
-              child: Text(
+              child: const Text(
                 'Water',
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -115,7 +115,7 @@ class _BodyTaskState extends State<BodyTask> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
               ),
-              child: Text(
+              child: const Text(
                 'Fertilizer',
                 textAlign: TextAlign.left,
                 style: TextStyle(
