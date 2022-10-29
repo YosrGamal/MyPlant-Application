@@ -37,8 +37,8 @@ class HeaderWithSearchBar extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding:
-                        EdgeInsets.only(left: defaultPadding + 7, top: 180),
+                    padding: const EdgeInsets.only(
+                        left: defaultPadding + 7, top: 180),
                     child: Row(
                       children: [
                         Text(

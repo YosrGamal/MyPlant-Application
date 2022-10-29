@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
 
-class TabLibrary extends StatefulWidget {
+class TabTask extends StatefulWidget {
+  const TabTask({super.key});
+
   @override
-  _TabLibraryState createState() => _TabLibraryState();
+  // ignore: library_private_types_in_public_api
+  _TabTaskState createState() => _TabTaskState();
 }
 
-class _TabLibraryState extends State<TabLibrary>
-    with SingleTickerProviderStateMixin {
+class _TabTaskState extends State<TabTask> with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
   @override
@@ -31,6 +32,7 @@ class _TabLibraryState extends State<TabLibrary>
           children: [
             // give the tab bar a height [can change hheight to preferred height]
             Container(
+              margin: const EdgeInsets.only(top: 100),
               height: 45,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -45,16 +47,19 @@ class _TabLibraryState extends State<TabLibrary>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color(0XFFA0AE88),
+                  color: const Color(0XFFA0AE88),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                tabs: const [
+                  // first tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Library',
+                    text: 'Today',
                   ),
+
+                  // second tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Collections',
+                    text: 'Upcoming',
                   ),
                 ],
               ),

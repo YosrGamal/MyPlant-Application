@@ -1,11 +1,13 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  bool isHiddenPassword = true;
+  final _formKey = GlobalKey<FormState>();
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,101 +27,136 @@ class Login extends StatelessWidget {
         ),
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
-            child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: <Widget>[
-                // ignore: prefer_const_constructors, duplicate_ignore
-                TextField(
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      filled: true,
-                      fillColor: Color(0XFFD3D3D3),
-                      labelText: 'Email',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
+            child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter an email';
+                        } else {
+                          return null;
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color(0XFFD3D3D3),
+                          hintText: 'Email',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    TextFormField(
+                      obscureText: isHiddenPassword,
 
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      filled: true,
-                      fillColor: Color(0XFFD3D3D3),
-                      labelText: 'Password',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey))),
-                ),
-                SizedBox(height: 100.0),
-
-                Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  width: MediaQuery.of(context).size.width,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.go('/home');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      // ignore: deprecated_member_use
-                      primary: Color(0XFF588157),
-                      // ignore: deprecated_member_use
-                      onPrimary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                      ///to make the dots in the password
+                      validator: (value) {
+                        RegExp regex = RegExp(
+                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
+                        if (value!.isEmpty) {
+                          return 'Please enter a password';
+                        } else {
+                          if (!regex.hasMatch(value)) {
+                            return 'Enter valid password';
+                          } else {
+                            return null;
+                          }
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color(0XFFD3D3D3),
+                          hintText: 'Password',
+                          // suffixIcon: InkWell(
+                          //   // onTap: togglePassword,
+                          //   child: Icon(Icons.visibility),
+                          // ),
+                          labelStyle: TextStyle(
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
                     ),
-                    child: Text('Login'),
-                  ),
-                ),
-                SizedBox(height: 30.0),
-                Center(
-                  child: InkWell(
-                    child: Text(
-                      'Forgot my Password?',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 52, 78, 65),
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Inter',
-                          decoration: TextDecoration.underline),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 30.0),
-                Center(
-                  child: InkWell(
-                    onTap: () {
-                      context.go('/signup');
-                    },
-                    child: Text(
-                      'Register?',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 52, 78, 65),
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Inter',
-                        decoration: TextDecoration.underline,
+                    SizedBox(height: 100.0),
+                    Container(
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            context.go('/home');
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          // ignore: deprecated_member_use
+                          primary: Color(0XFF588157),
+                          // ignore: deprecated_member_use
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        child: Text('Login'),
                       ),
                     ),
-                  ),
-                ),
-              ],
-            ))
+                    SizedBox(height: 30.0),
+                    Center(
+                      child: InkWell(
+                        child: Text(
+                          'Forgot my Password?',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 52, 78, 65),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Inter',
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 30.0),
+                    Center(
+                      child: InkWell(
+                        onTap: () {
+                          context.go('/signup');
+                        },
+                        child: Text(
+                          'Register?',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 52, 78, 65),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Inter',
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )))
       ],
     )));
+
+    // void togglePassword() {
+    //   setState(() {
+    //     isHiddenPassword=!isHiddenPassword;
+    // });
+    // }
   }
 }

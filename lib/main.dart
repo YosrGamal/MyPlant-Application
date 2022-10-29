@@ -6,6 +6,7 @@ import 'package:my_plant_application/constants.dart';
 // import 'package:my_plant_application/widgets/routes.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
+import 'package:my_plant_application/widgets/screens/reminder.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -58,6 +59,24 @@ final GoRouter _router = GoRouter(
       path: '/library',
       builder: (BuildContext context, GoRouterState state) {
         return Library();
+      },
+    ),
+    GoRoute(
+      path: '/tasks',
+      builder: (BuildContext context, GoRouterState state) {
+        return Task();
+      },
+    ),
+    GoRoute(
+      path: '/reminder',
+      builder: (BuildContext context, GoRouterState state) {
+        return Reminder();
+      },
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (BuildContext context, GoRouterState state) {
+        return Settings();
       },
     ),
   ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/components/adding_collection_body.dart';
+import 'package:my_plant_application/widgets/components/header_adding_collection.dart';
 import 'package:my_plant_application/widgets/components/librarytab.dart';
 
 class Headerlibrary extends StatelessWidget {
@@ -16,12 +18,12 @@ class Headerlibrary extends StatelessWidget {
         Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: defaultPadding * 2.5),
+              margin: const EdgeInsets.only(bottom: defaultPadding * 2.5),
               height: size.height * 0.4,
               child: Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: defaultPadding),
+                    padding: const EdgeInsets.only(left: defaultPadding),
                     height: size.height * 0.6 - 10,
                     child: Row(
                       children: [
@@ -75,7 +77,19 @@ class Headerlibrary extends StatelessWidget {
                     child: FloatingActionButton(
                       backgroundColor: icColor,
                       child: Icon(Icons.add),
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25.0))),
+                            builder: (BuildContext context) {
+                              return const SizedBox(
+                                child: AddingCollectionBody(),
+                              );
+                            });
+                      },
                     ),
                   )
                 ],

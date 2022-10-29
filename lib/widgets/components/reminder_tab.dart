@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
 
-class TabLibrary extends StatefulWidget {
+class TabReminder extends StatefulWidget {
+  const TabReminder({super.key});
+
   @override
-  _TabLibraryState createState() => _TabLibraryState();
+  _TabReminderState createState() => _TabReminderState();
 }
 
-class _TabLibraryState extends State<TabLibrary>
+class _TabReminderState extends State<TabReminder>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
@@ -31,6 +32,7 @@ class _TabLibraryState extends State<TabLibrary>
           children: [
             // give the tab bar a height [can change hheight to preferred height]
             Container(
+              margin: const EdgeInsets.only(top: 275),
               height: 45,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -45,16 +47,19 @@ class _TabLibraryState extends State<TabLibrary>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color(0XFFA0AE88),
+                  color: const Color.fromARGB(255, 124, 161, 126),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                tabs: const [
+                  // first tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Library',
+                    text: 'Reminder',
                   ),
+
+                  // second tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Collections',
+                    text: 'Note',
                   ),
                 ],
               ),
