@@ -16,7 +16,7 @@ class _SwitchreminderState extends State<Switchreminder> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.only(top: 285, left: 50, right: 20),
+        padding: const EdgeInsets.only(top: 290, left: 50, right: 20),
         alignment: Alignment.topLeft,
         child: ListView(
           children: [
