@@ -42,12 +42,17 @@ class _SwitchreminderState extends State<Switchreminder> {
                   s2 = value;
                 });
               },
-              title: const Text(
-                'Prune',
+              title: const  InkWell(
+              onTap: () {
+                context.go('/');
+              },
+              child: const Text(
+                "LogOut",
                 style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+                  fontSize: 25,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
-            ),
             SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s3,
