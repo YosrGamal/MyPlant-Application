@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/model/logic.dart';
+import 'package:my_plant_application/model/plantlogic.dart';
 
 class PlantDetail extends StatelessWidget {
   final PlantModel plant;
