@@ -15,14 +15,19 @@ class Settings extends StatefulWidget {
 
 // ignore: camel_case_types
 class _SettingsState extends State<Settings> {
-  bool s1 = false, s2 = false;
+  bool s1 = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomNavBar(),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/Plant down right.png"),
+              fit: BoxFit.contain),
+        ),
         child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
@@ -59,20 +64,6 @@ class _SettingsState extends State<Settings> {
               },
               title: const Text(
                 'Push Notification',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
-              ),
-            ),
-            SwitchListTile(
-              activeColor: const Color.fromARGB(255, 67, 105, 68),
-              value: s2,
-              onChanged: (bool value) {
-                setState(() {
-                  s2 = value;
-                });
-              },
-              title: const Text(
-                'Wifi',
                 style: TextStyle(
                     color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
