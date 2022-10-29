@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/reminder_tab.dart';
+import 'package:my_plant_application/widgets/components/setting_reminder.dart';
 
 class Switchreminder extends StatefulWidget {
   @override
@@ -91,40 +92,40 @@ class _SwitchreminderState extends State<Switchreminder> {
             width: 70,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/water.png"),
+                  image: AssetImage("assets/images/icons/water.png"),
                   fit: BoxFit.contain),
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 420),
+            margin: const EdgeInsets.only(top: 416),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/prune.png"),
+                  image: AssetImage("assets/images/icons/prune.png"),
                   fit: BoxFit.contain),
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 474),
+            margin: const EdgeInsets.only(top: 473),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/mist.png"),
+                  image: AssetImage("assets/images/icons/mist.png"),
                   fit: BoxFit.contain),
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 530),
+            margin: const EdgeInsets.only(top: 525),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/fertilizer.png"),
+                  image: AssetImage("assets/images/icons/fertilizer.png"),
                   fit: BoxFit.contain),
             ),
           ),

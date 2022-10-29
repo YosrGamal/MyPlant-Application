@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TabReminder extends StatefulWidget {
+class TabTask extends StatefulWidget {
   @override
-  _TabReminderState createState() => _TabReminderState();
+  _TabTaskState createState() => _TabTaskState();
 }
 
-class _TabReminderState extends State<TabReminder>
-    with SingleTickerProviderStateMixin {
+class _TabTaskState extends State<TabTask> with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
   @override
@@ -30,7 +29,7 @@ class _TabReminderState extends State<TabReminder>
           children: [
             // give the tab bar a height [can change hheight to preferred height]
             Container(
-              margin: const EdgeInsets.only(top: 275),
+              margin: const EdgeInsets.only(top: 100),
               height: 45,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -52,12 +51,12 @@ class _TabReminderState extends State<TabReminder>
                 tabs: [
                   // first tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Reminder',
+                    text: 'Today',
                   ),
 
                   // second tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Note',
+                    text: 'Upcoming',
                   ),
                 ],
               ),

@@ -26,12 +26,17 @@ class Login extends StatelessWidget {
         ),
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
-            child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
+            child: Form(
+                child: Column(
               children: <Widget>[
-                // ignore: prefer_const_constructors, duplicate_ignore
-                TextField(
-                  // ignore: prefer_const_constructors
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter correct name';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -50,8 +55,16 @@ class Login extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-
-                TextField(
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(value)) {
+                      return 'Please enter correct password';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -68,14 +81,18 @@ class Login extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
                 SizedBox(height: 100.0),
-
                 Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.go('/home');
+                      if (formKey.currentState!.validate()) {
+                        context.go('/home');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       // ignore: deprecated_member_use
@@ -119,7 +136,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ],
-            ))
+            )))
       ],
     )));
   }

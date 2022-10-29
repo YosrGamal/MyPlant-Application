@@ -2,6 +2,8 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 
 // ignore: camel_case_types
 class Settings extends StatefulWidget {
@@ -18,25 +20,39 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavBar(),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/Plant down right.png"),
+              fit: BoxFit.contain),
+        ),
         child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Row(
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
+                  const Icon(
+                    Icons.settings_outlined,
+                    color: Color(0XFFA0AE88),
+                  ),
                   const SizedBox(height: 40),
-                  const Text("Account Settings",
+                  const Text("Settings",
                       style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.normal)),
+                          fontFamily: 'Inter',
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: tColor)),
                 ]),
             const Divider(height: 20, thickness: 1),
             const SizedBox(height: 20),
             BuildAccountOption(context, "Edit Profile"),
-            BuildAccountOption(context, "change password"),
+            BuildAccountOption(context, "Change password"),
             BuildAccountOption(context, "About Us"),
             BuildAccountOption(context, "Privacy Policy"),
+            BuildAccountOption(context, "How to use"),
             const Divider(height: 20, thickness: 1),
             SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
@@ -47,9 +63,16 @@ class _SettingsState extends State<Settings> {
                 });
               },
               title: const Text(
-                'Water',
+                'Push Notification',
                 style: TextStyle(
                     color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),
+            const Text(
+              "LogOut",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.normal,
               ),
             ),
           ],
