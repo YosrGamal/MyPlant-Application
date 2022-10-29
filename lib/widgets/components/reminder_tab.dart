@@ -45,19 +45,19 @@ class _TabReminderState extends State<TabReminder>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color.fromARGB(255, 95, 133, 97),
+                  color: Color.fromARGB(255, 124, 161, 126),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: [
                   // first tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Library',
+                    text: 'Reminder',
                   ),
 
                   // second tab [you can add an icon using the icon property]
                   Tab(
-                    text: 'Collections',
+                    text: 'Note',
                   ),
                 ],
               ),
