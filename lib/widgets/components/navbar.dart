@@ -14,11 +14,11 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   int currentTab = 0;
   final List<Widget> screens = [
-    Home(),
+    const Home(),
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Home();
+  Widget currentScreen = const Home();
   @override
   Widget build(BuildContext context) {
     bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
@@ -32,7 +32,7 @@ class _NavbarState extends State<Navbar> {
         child: FloatingActionButton(
           backgroundColor: btColor,
           onPressed: () {},
-          child: Icon(
+          child: const Icon(
             Icons.camera_alt_rounded,
           ),
         ),
