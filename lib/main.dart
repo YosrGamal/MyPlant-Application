@@ -13,6 +13,7 @@ import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
 import 'package:my_plant_application/widgets/screens/settings.dart';
 import 'package:my_plant_application/widgets/screens/task.dart';
+import 'package:my_plant_application/widgets/components/body_reminder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,12 +67,6 @@ final GoRouter _router = GoRouter(
       path: '/tasks',
       builder: (BuildContext context, GoRouterState state) {
         return Task();
-      },
-    ),
-    GoRoute(
-      path: '/reminder',
-      builder: (BuildContext context, GoRouterState state) {
-        return Reminder();
       },
     ),
     GoRoute(
