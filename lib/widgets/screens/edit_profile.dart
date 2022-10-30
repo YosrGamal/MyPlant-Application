@@ -50,7 +50,7 @@ class EditProfileState extends State<EditProfile> {
               InkWell(
                   //instead of TextField
                   onTap: () {
-                    context.go('/settings');
+                    Navigator.pop(context);
                   },
                   child: const Padding(
                     padding: EdgeInsets.only(left: 20),
