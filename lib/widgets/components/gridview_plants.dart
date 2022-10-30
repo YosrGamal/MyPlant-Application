@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/data/plantsdata.dart';
 import 'package:my_plant_application/widgets/components/itemcard.dart';
-import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
 
 class PlantsGrid extends StatelessWidget {

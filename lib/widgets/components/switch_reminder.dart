@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/adding_collection_body.dart';
+import 'package:my_plant_application/widgets/components/body_setting_reminder.dart';
 
 // ignore: camel_case_types
 class Switchreminder extends StatefulWidget {
@@ -27,10 +27,6 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s1 = value;
-                });
-              },
-              title: InkWell(
-                onTap: () {
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -39,15 +35,15 @@ class _SwitchreminderState extends State<Switchreminder> {
                               top: Radius.circular(25.0))),
                       builder: (BuildContext context) {
                         return const SizedBox(
-                          child: AddingCollectionBody(),
+                          child: Settingreminder(),
                         );
                       });
-                },
-                child: const Text(
-                  'Water',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
-                ),
+                });
+              },
+              title: const Text(
+                'Water',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
             ),
             SwitchListTile(
@@ -56,6 +52,17 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s2 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
                 });
               },
               title: const Text(
@@ -70,6 +77,17 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s3 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
                 });
               },
               title: const Text(
@@ -84,6 +102,17 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s4 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
                 });
               },
               title: const Text(
