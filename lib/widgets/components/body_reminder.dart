@@ -14,17 +14,17 @@ class BodyReminder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //     backgroundColor: Colors.white,
-      //     leading: IconButton(
-      //       icon: Icon(
-      //         Icons.arrow_back,
-      //         color: Colors.green[800],
-      //       ),
-      //       onPressed: () {
-      //         context.go('/library');
-      //       },
-      //     )),
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.green[800],
+            ),
+            onPressed: () {
+              context.go('/library');
+            },
+          )),
       body: SafeArea(
         child: Stack(children: <Widget>[
           const Switchreminder(),
