@@ -5,6 +5,7 @@ import 'package:my_plant_application/constants.dart';
 // import 'package:my_plant_application/widgets/components/navbar.dart';
 // import 'package:my_plant_application/widgets/routes.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/widgets/screens/edit_profile.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
 import 'package:my_plant_application/widgets/screens/reminder.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
@@ -40,7 +41,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return Home();
+        return EditProfile();
       },
     ),
     GoRoute(
