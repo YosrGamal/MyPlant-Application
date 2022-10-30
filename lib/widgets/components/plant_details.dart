@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/widgets/components/body_reminder.dart';
 
 class PlantDetail extends StatelessWidget {
   final PlantModel plant;
@@ -57,7 +57,12 @@ class PlantDetail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25), color: btColor),
                 child: ElevatedButton(
                   onPressed: () {
-                    context.go('/reminder');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BodyReminder(
+                              name: plant.name, imgUrl: plant.imageUrl)),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: btColor,
