@@ -27,10 +27,6 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s1 = value;
-                });
-              },
-              title: InkWell(
-                onTap: () {
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -42,12 +38,12 @@ class _SwitchreminderState extends State<Switchreminder> {
                           child: Settingreminder(),
                         );
                       });
-                },
-                child: const Text(
-                  'Water',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
-                ),
+                });
+              },
+              title: const Text(
+                'Water',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
             ),
             SwitchListTile(
@@ -56,10 +52,6 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s2 = value;
-                });
-              },
-              title: InkWell(
-                onTap: () {
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -71,12 +63,12 @@ class _SwitchreminderState extends State<Switchreminder> {
                           child: Settingreminder(),
                         );
                       });
-                },
-                child: const Text(
-                  'Prune',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
-                ),
+                });
+              },
+              title: const Text(
+                'Prune',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
             ),
             SwitchListTile(
@@ -85,6 +77,17 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s3 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
                 });
               },
               title: const Text(
@@ -99,6 +102,17 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s4 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
                 });
               },
               title: const Text(

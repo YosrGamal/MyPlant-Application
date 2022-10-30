@@ -5,15 +5,12 @@ import 'package:my_plant_application/widgets/components/switch_reminder.dart';
 
 import 'package:go_router/go_router.dart';
 
-class BodyReminder extends StatefulWidget {
-  const BodyReminder({super.key});
+class BodyReminder extends StatelessWidget {
+  final String name;
+  final String imgUrl;
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _BodyReminderState createState() => _BodyReminderState();
-}
+  const BodyReminder({required this.name, required this.imgUrl, super.key});
 
-class _BodyReminderState extends State<BodyReminder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,10 +32,11 @@ class _BodyReminderState extends State<BodyReminder> {
             margin: const EdgeInsets.only(top: 25), //imagse
             height: 180,
             width: 380,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/Plant down left.png"),
-                  fit: BoxFit.contain),
+            child: Image.asset(
+              imgUrl,
+              fit: BoxFit.cover,
+              height: 100,
+              width: 20,
             ),
           ),
           Container(
@@ -54,10 +52,10 @@ class _BodyReminderState extends State<BodyReminder> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
               ),
-              child: const Text(
-                'Spider Plant',
+              child: Text(
+                name,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 20.0,
                     color: Color.fromARGB(255, 40, 65, 48)),
