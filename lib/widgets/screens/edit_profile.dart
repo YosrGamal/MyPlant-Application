@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
+import 'package:go_router/go_router.dart';
 
 // ignore: camel_case_types
 class EditProfile extends StatefulWidget {
@@ -48,32 +48,25 @@ class EditProfileState extends State<EditProfile> {
 
               InkWell(
                   //instead of TextField
-                  onTap: () {},
-                  child: const Text(
-                    '  Settings',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontFamily: 'Inter',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                  onTap: () {
+                    context.go('/settings');
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(
+                      'Settings',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontFamily: 'Inter',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )),
               const SizedBox(width: 220), //the space before settings
-
-              InkWell(
-                  //instead of TextField
-                  onTap: () {},
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontFamily: 'Inter',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  )),
             ],
           )),
           Container(
-            margin: EdgeInsets.only(top: 120),
+            margin: const EdgeInsets.only(top: 120),
             child: const Text('Edit Profile',
                 style: TextStyle(
                     fontSize: 30,

@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 import 'package:go_router/go_router.dart';
 
 // ignore: camel_case_types
@@ -90,7 +89,13 @@ class _SettingsState extends State<Settings> {
   // ignore: avoid_types_as_parameter_names
   GestureDetector BuildAccountOption(BuildContext context, String title) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (title == 'Edit Profile') {
+          context.go('/editprofile');
+        } else if (title == 'Change password') {
+          context.go('/changepassword');
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
         child: Row(
