@@ -19,7 +19,7 @@ class BodyReminder extends StatelessWidget {
               color: Colors.green[800],
             ),
             onPressed: () {
-              Navigator.pop(context);
+              context.go('/settings');
             },
           )),
       body: SafeArea(

@@ -27,7 +27,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   child: InkWell(
                       //instead of TextField
                       onTap: () {
-                        Navigator.pop(context);
+                        context.go('/settings');
                       },
                       child: const Text(
                         'Settings',
