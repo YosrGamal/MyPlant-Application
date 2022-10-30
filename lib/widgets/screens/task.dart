@@ -15,7 +15,7 @@ class _TaskState extends State<Task> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: BodyTask(),
-      bottomNavigationBar: BottomNavBar(),
+      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }
