@@ -1,8 +1,5 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/switch_reminder.dart';
-
 import 'package:go_router/go_router.dart';
 
 class BodyReminder extends StatelessWidget {
@@ -22,21 +19,19 @@ class BodyReminder extends StatelessWidget {
               color: Colors.green[800],
             ),
             onPressed: () {
-              context.go('/library');
+              Navigator.pop(context);
             },
           )),
       body: SafeArea(
         child: Stack(children: <Widget>[
           const Switchreminder(),
           Container(
-            margin: const EdgeInsets.only(top: 25), //imagse
-            height: 180,
-            width: 380,
+            padding: const EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
+            height: 210,
+            width: 340,
             child: Image.asset(
               imgUrl,
               fit: BoxFit.cover,
-              height: 100,
-              width: 20,
             ),
           ),
           Container(
@@ -47,7 +42,9 @@ class BodyReminder extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
                 primary: const Color.fromARGB(255, 251, 252, 251),
+                // ignore: deprecated_member_use
                 onPrimary: Colors.white,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),

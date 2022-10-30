@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/widgets/components/header_adding_collection.dart';
-import 'package:my_plant_application/widgets/components/header_with_search_box.dart';
+import 'package:my_plant_application/widgets/components/home_header.dart';
 
 class AddingCollectionBody extends StatelessWidget {
   const AddingCollectionBody({super.key});
