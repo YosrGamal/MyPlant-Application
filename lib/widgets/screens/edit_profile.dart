@@ -19,8 +19,9 @@ class EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: EdgeInsets.all(5),
+      minimum: const EdgeInsets.all(5),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: buildTop(),
       ),
     );
