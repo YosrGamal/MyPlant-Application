@@ -13,7 +13,8 @@ import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
 import 'package:my_plant_application/widgets/screens/settings.dart';
 import 'package:my_plant_application/widgets/screens/task.dart';
-import 'package:my_plant_application/widgets/components/body_reminder.dart';
+import 'package:my_plant_application/widgets/screens/edit_profile.dart';
+import 'package:my_plant_application/widgets/screens/change_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,13 +43,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return PerNavbar();
+        return Login();
       },
     ),
     GoRoute(
       path: '/home',
       builder: (BuildContext context, GoRouterState state) {
-        return Home();
+        return PerNavbar();
       },
     ),
     GoRoute(
@@ -73,6 +74,18 @@ final GoRouter _router = GoRouter(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {
         return Settings();
+      },
+    ),
+    GoRoute(
+      path: '/editprofile',
+      builder: (BuildContext context, GoRouterState state) {
+        return EditProfile();
+      },
+    ),
+    GoRoute(
+      path: '/changepassword',
+      builder: (BuildContext context, GoRouterState state) {
+        return ChangePasswordScreen();
       },
     ),
   ],

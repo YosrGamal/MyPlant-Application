@@ -4,10 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   bool isHiddenPassword = true;
+
   final formKey = GlobalKey<FormState>();
-  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +24,13 @@ class Login extends StatelessWidget {
       children: <Widget>[
         Stack(
           children: <Widget>[
+            const SizedBox(height: 150),
+            Image.asset('assets/images/app_logo.png', width: 170, height: 170),
             Container(
-              padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(35.0, 140.0, 0.0, 0.0),
               child: Text('Log in',
                   style:
-                      TextStyle(fontSize: 35.0, fontWeight: FontWeight.normal)),
+                      TextStyle(fontSize: 30.0, fontWeight: FontWeight.normal)),
             )
           ],
         ),
@@ -33,10 +42,15 @@ class Login extends StatelessWidget {
                   children: <Widget>[
                     TextFormField(
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter an email';
+                        RegExp regex = RegExp(r'^(?=.*?[@])');
+                        if (value!.isEmpty) {
+                          return 'Please enter a email';
                         } else {
-                          return null;
+                          if (!regex.hasMatch(value)) {
+                            return 'Enter valid mail includes @';
+                          } else {
+                            return null;
+                          }
                         }
                       },
                       decoration: InputDecoration(
@@ -58,9 +72,10 @@ class Login extends StatelessWidget {
                       height: 20.0,
                     ),
                     TextFormField(
-                      obscureText: true,
+                      obscureText: isHiddenPassword,
 
                       ///to make the dots in the password
+
                       validator: (value) {
                         RegExp regex = RegExp(
                             r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
@@ -80,12 +95,18 @@ class Login extends StatelessWidget {
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isHiddenPassword = !isHiddenPassword;
+                              });
+                            },
+                            child: Icon(isHiddenPassword
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
                           fillColor: Color(0XFFD3D3D3),
                           hintText: 'Password',
-                          // suffixIcon: InkWell(
-                          //   // onTap: togglePassword,
-                          //   child: Icon(Icons.visibility),
-                          // ),
                           labelStyle: TextStyle(
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.bold,
@@ -102,9 +123,6 @@ class Login extends StatelessWidget {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             context.go('/home');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
-                            );
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -152,11 +170,5 @@ class Login extends StatelessWidget {
                 )))
       ],
     )));
-
-    // void togglePassword() {
-    //   setState(() {
-    //     isHiddenPassword=!isHiddenPassword;
-    // });
-    // }
   }
 }

@@ -19,11 +19,13 @@ class _SignupState extends State<Signup> {
       children: <Widget>[
         Stack(
           children: <Widget>[
+            const SizedBox(height: 150),
+            Image.asset('assets/images/app_logo.png', width: 170, height: 170),
             Container(
-              padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
+              padding: EdgeInsets.fromLTRB(35.0, 140.0, 0.0, 0.0),
               child: Text('SignUp',
                   style:
-                      TextStyle(fontSize: 35.0, fontWeight: FontWeight.normal)),
+                      TextStyle(fontSize: 30.0, fontWeight: FontWeight.normal)),
             )
           ],
         ),

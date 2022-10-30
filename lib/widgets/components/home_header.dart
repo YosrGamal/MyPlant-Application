@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/model/userlogic.dart';
 
 class HeaderWithSearchBar extends StatelessWidget {
-  const HeaderWithSearchBar({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
   final Size size;
+  const HeaderWithSearchBar({required this.size, super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(

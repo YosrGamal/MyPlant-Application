@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
 import 'package:go_router/go_router.dart';
 
 // ignore: camel_case_types
@@ -22,6 +21,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       // bottomNavigationBar: const BottomNavBar(),
+
       body: Container(
         padding: const EdgeInsets.all(20),
         decoration: const BoxDecoration(
@@ -38,12 +38,13 @@ class _SettingsState extends State<Settings> {
                   const Icon(
                     Icons.settings_outlined,
                     color: Color(0XFFA0AE88),
+                    size: 28,
                   ),
                   const SizedBox(height: 40),
                   const Text("Settings",
                       style: TextStyle(
                           fontFamily: 'Inter',
-                          fontSize: 30,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold,
                           color: tColor)),
                 ]),
@@ -65,19 +66,21 @@ class _SettingsState extends State<Settings> {
               },
               title: const Text(
                 'Push Notification',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+                style: TextStyle(color: tColor, fontSize: 22),
               ),
             ),
-            InkWell(
-              onTap: () {
-                context.go('/');
-              },
-              child: const Text(
-                "LogOut",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.normal,
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: InkWell(
+                onTap: () {
+                  context.go('/');
+                },
+                child: const Text(
+                  "LogOut",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      color: tColor),
                 ),
               ),
             ),
@@ -90,7 +93,13 @@ class _SettingsState extends State<Settings> {
   // ignore: avoid_types_as_parameter_names
   GestureDetector BuildAccountOption(BuildContext context, String title) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (title == 'Edit Profile') {
+          context.go('/editprofile');
+        } else if (title == 'Change password') {
+          context.go('/changepassword');
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
         child: Row(
