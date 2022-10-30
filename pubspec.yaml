@@ -98,6 +98,9 @@ flutter:
     - assets/images/icons/prune.png
     - assets/images/icons/fertilizer.png
     - assets/images/app_logo.png
+    - assets/images/icons/sun.png
+    - assets/images/icons/evening.png
+
 
     
  
