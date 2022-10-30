@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -26,13 +25,15 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   alignment: Alignment.topLeft,
                   child: InkWell(
                       //instead of TextField
-                      onTap: () {},
+                      onTap: () {
+                        context.go('/settings');
+                      },
                       child: const Text(
                         'Settings',
                         style: TextStyle(
                             color: Color.fromARGB(255, 124, 161, 126),
                             fontFamily: 'Inter',
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold),
                       )),
                 ),
