@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/adding_collection_body.dart';
+import 'package:my_plant_application/widgets/components/body_setting_reminder.dart';
 
 // ignore: camel_case_types
 class Switchreminder extends StatefulWidget {
@@ -39,7 +39,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                               top: Radius.circular(25.0))),
                       builder: (BuildContext context) {
                         return const SizedBox(
-                          child: AddingCollectionBody(),
+                          child: Settingreminder(),
                         );
                       });
                 },
@@ -58,10 +58,25 @@ class _SwitchreminderState extends State<Switchreminder> {
                   s2 = value;
                 });
               },
-              title: const Text(
-                'Prune',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              title: InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          child: Settingreminder(),
+                        );
+                      });
+                },
+                child: const Text(
+                  'Prune',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+                ),
               ),
             ),
             SwitchListTile(

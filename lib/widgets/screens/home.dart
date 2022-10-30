@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Body(),
-      bottomNavigationBar: BottomNavBar(),
+      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }

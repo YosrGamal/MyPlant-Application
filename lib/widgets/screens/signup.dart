@@ -28,6 +28,7 @@ class _SignupState extends State<Signup> {
           ],
         ),
         Container(
+            key: formKey,
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
             child: Column(
               children: <Widget>[
@@ -60,7 +61,7 @@ class _SignupState extends State<Signup> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter correct email';
+                      return 'Please enter an email';
                     } else {
                       return null;
                     }
@@ -84,13 +85,18 @@ class _SignupState extends State<Signup> {
                   height: 20.0,
                 ),
                 TextFormField(
+                  obscureText: true,
                   validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                            .hasMatch(value)) {
-                      return 'Please enter correct password';
+                    RegExp regex = RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
+                    if (value!.isEmpty) {
+                      return 'Please enter a password';
                     } else {
-                      return null;
+                      if (!regex.hasMatch(value)) {
+                        return 'Please enter valid password';
+                      } else {
+                        return null;
+                      }
                     }
                   },
                   decoration: InputDecoration(
