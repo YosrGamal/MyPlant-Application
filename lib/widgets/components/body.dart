@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/data/userdata.dart';
-import 'package:my_plant_application/model/userlogic.dart';
 import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/widgets/components/home_header.dart';
 
