@@ -17,7 +17,7 @@ List<PlantModel> plants = [
       imageUrl: 'assets/images/spiderplant.jpg',
       isfavorite: true),
   PlantModel(
-      id: 3,
+      id: 4,
       name: 'Monstera Deliciosa',
       imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
       isfavorite: true)
