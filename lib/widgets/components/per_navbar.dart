@@ -41,7 +41,7 @@ class PerNavbar extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style15,
+      navBarStyle: NavBarStyle.style13,
     );
   }
 }

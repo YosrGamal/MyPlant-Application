@@ -59,7 +59,7 @@ class HeaderAddingCollections extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 30),
         Container(
           alignment: Alignment.center,
           height: 54,

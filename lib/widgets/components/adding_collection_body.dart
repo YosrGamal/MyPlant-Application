@@ -15,7 +15,7 @@ class AddingCollectionBody extends StatelessWidget {
           Stack(children: [
             Container(
               padding: EdgeInsets.only(top: 250),
-              height: MediaQuery.of(context).size.height - 50,
+              height: MediaQuery.of(context).size.height - 80,
               width: double.infinity,
               child: const PlantsGrid(),
             ),
