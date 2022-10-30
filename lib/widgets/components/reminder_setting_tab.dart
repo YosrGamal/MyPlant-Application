@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TabReminder extends StatefulWidget {
-  const TabReminder({super.key});
+class TabReminderSetting extends StatefulWidget {
+  const TabReminderSetting({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _TabReminderState createState() => _TabReminderState();
+  _TabReminderSettingState createState() => _TabReminderSettingState();
 }
 
-class _TabReminderState extends State<TabReminder>
+class _TabReminderSettingState extends State<TabReminderSetting>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 

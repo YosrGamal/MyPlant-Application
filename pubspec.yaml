@@ -37,7 +37,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   go_router: ^5.1.1
- 
+  favorite_button: ^0.0.4
+  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
 
@@ -81,6 +82,8 @@ flutter:
     - assets/images/profilepic.png
     - assets/images/SnakePlant-Sansevieria.jpg
     - assets/images/Pothos.png
+    - assets/images/spiderplant.jpg
+    - assets/images/MonsteraDeliciosa.jpg
     - assets/images/icons/home fill.png
     - assets/images/icons/home.png
     - assets/images/icons/library fill.png

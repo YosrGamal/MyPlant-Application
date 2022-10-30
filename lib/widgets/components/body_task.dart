@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
-import 'package:go_router/go_router.dart';
+//import 'package:my_plant_application/constants.dart';
+//import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/widgets/components/task_tab.dart';
 
 class BodyTask extends StatefulWidget {
+  const BodyTask({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _BodyTaskState createState() => _BodyTaskState();
 }
 
@@ -14,12 +17,10 @@ class _BodyTaskState extends State<BodyTask> {
     return Scaffold(
       body: SafeArea(
         child: Stack(children: <Widget>[
-          Container(
-            child: TabTask(),
-          ),
+          const TabTask(),
           Container(
             //alignment: Alignment.bottomLeft,
-            margin: const EdgeInsets.only(top: 300),
+            margin: const EdgeInsets.only(top: 350),
             padding: const EdgeInsets.all(40),
             decoration: const BoxDecoration(
               image: DecorationImage(

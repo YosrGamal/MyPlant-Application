@@ -1,10 +1,15 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/switch_reminder.dart';
-import 'package:my_plant_application/constants.dart';
+
 import 'package:go_router/go_router.dart';
 
 class BodyReminder extends StatefulWidget {
+  const BodyReminder({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _BodyReminderState createState() => _BodyReminderState();
 }
 
@@ -20,14 +25,12 @@ class _BodyReminderState extends State<BodyReminder> {
               color: Colors.green[800],
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              context.go('/library');
             },
           )),
       body: SafeArea(
         child: Stack(children: <Widget>[
-          Container(
-            child: Switchreminder(),
-          ),
+          const Switchreminder(),
           Container(
             margin: const EdgeInsets.only(top: 25), //imagse
             height: 180,
@@ -59,6 +62,50 @@ class _BodyReminderState extends State<BodyReminder> {
                     fontSize: 20.0,
                     color: Color.fromARGB(255, 40, 65, 48)),
               ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 297),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/icons/water.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 345),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/icons/prune.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 393),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/icons/mist.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 440),
+            padding: const EdgeInsets.all(60),
+            height: 30,
+            width: 70,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/icons/fertilizer.png"),
+                  fit: BoxFit.contain),
             ),
           ),
         ]),

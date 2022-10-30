@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:favorite_button/favorite_button.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
 
 class ItemCard extends StatelessWidget {
@@ -31,9 +32,17 @@ class ItemCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  plant.isfavorite
-                      ? Icon(Icons.favorite, color: Colors.red[800])
-                      : Icon(Icons.favorite_border, color: Colors.red[800])
+                  FavoriteButton(
+                    isFavorite: plant.isfavorite,
+                    iconSize: 40,
+                    iconColor: btColor,
+                    valueChanged: (isFavorite) {
+                      print('Is Favorite $isFavorite)');
+                    },
+                  ),
+                  // plant.isfavorite
+                  //     ? Icon(Icons.favorite, color: Colors.red[800])
+                  //     : Icon(Icons.favorite_border, color: Colors.red[800])
                 ],
               ),
             ),
