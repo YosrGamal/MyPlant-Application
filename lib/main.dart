@@ -71,12 +71,6 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/reminder',
-      builder: (BuildContext context, GoRouterState state) {
-        return Reminder();
-      },
-    ),
-    GoRoute(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {
         return Settings();

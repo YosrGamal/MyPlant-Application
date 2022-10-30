@@ -8,7 +8,7 @@ class Reminder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        // body: BodyReminder(name: n, imgUrl: img),
+        // body: BodyReminder(),
         );
   }
 }
