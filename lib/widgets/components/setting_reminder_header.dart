@@ -130,7 +130,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
                 child: const Text(
                   'Repeat',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73),
+                    color: Color.fromARGB(255, 231, 236, 233),
                     fontSize: 25,
                   ),
                 ),
