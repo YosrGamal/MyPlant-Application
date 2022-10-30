@@ -42,10 +42,15 @@ class _LoginState extends State<Login> {
                   children: <Widget>[
                     TextFormField(
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter an email';
+                        RegExp regex = RegExp(r'^(?=.*?[@])');
+                        if (value!.isEmpty) {
+                          return 'Please enter a email';
                         } else {
-                          return null;
+                          if (!regex.hasMatch(value)) {
+                            return 'Enter valid mail includes @';
+                          } else {
+                            return null;
+                          }
                         }
                       },
                       decoration: InputDecoration(
