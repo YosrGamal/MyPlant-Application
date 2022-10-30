@@ -2,12 +2,10 @@ import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
 import 'package:my_plant_application/widgets/screens/settings.dart';
 import 'package:my_plant_application/widgets/screens/task.dart';
+import 'package:my_plant_application/widgets/screens/camera.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-
-// final PersistentTabController _controller;
-// _controller = PersistentTabController(initialIndex: 0);
 
 class PerNavbar extends StatelessWidget {
   const PerNavbar({super.key});
@@ -16,9 +14,9 @@ class PerNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
-      // controller: _controller,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
+
+      screens: buildScreens(),
+      items: navBarsItems(),
       confineInSafeArea: true,
       backgroundColor: Colors.white, // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
@@ -43,28 +41,52 @@ class PerNavbar extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style1,
+      navBarStyle: NavBarStyle.style15,
     );
   }
 }
 
-List<Widget> _buildScreens() {
-  return [const Home(), const Library(), const Task(), const Settings()];
+List<Widget> buildScreens() {
+  return [
+    const Home(),
+    const Library(),
+    const Camera(),
+    const Task(),
+    const Settings()
+  ];
 }
 
-List<PersistentBottomNavBarItem> _navBarsItems() {
+List<PersistentBottomNavBarItem> navBarsItems() {
   return [
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.home),
       title: ("Home"),
       activeColorPrimary: icColor,
-      inactiveColorPrimary: btColor,
+      inactiveColorPrimary: gColor,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.library_add_check),
+      title: ("Library"),
+      activeColorPrimary: icColor,
+      inactiveColorPrimary: gColor,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.camera_alt_outlined),
+      title: ("Camera"),
+      activeColorPrimary: icColor,
+      inactiveColorPrimary: gColor,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.task),
+      title: ("Tasks"),
+      activeColorPrimary: icColor,
+      inactiveColorPrimary: gColor,
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.settings),
-      title: ("Library"),
+      title: ("Settings"),
       activeColorPrimary: icColor,
-      inactiveColorPrimary: btColor,
+      inactiveColorPrimary: gColor,
     ),
   ];
 }

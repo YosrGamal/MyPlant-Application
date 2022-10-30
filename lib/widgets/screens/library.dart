@@ -9,7 +9,7 @@ class Library extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: LibraryBody(),
-      bottomNavigationBar: BottomNavBar(),
+      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }
