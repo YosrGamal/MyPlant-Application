@@ -22,6 +22,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       // bottomNavigationBar: const BottomNavBar(),
+
       body: Container(
         padding: const EdgeInsets.all(20),
         decoration: const BoxDecoration(
@@ -32,7 +33,7 @@ class _SettingsState extends State<Settings> {
         child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            Row(
+            Row(mainAxisAlignment: MainAxisAlignment.start,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const Icon(
