@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
   bool isHiddenPassword = true;
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   Login({super.key});
 
   @override
@@ -28,7 +28,7 @@ class Login extends StatelessWidget {
         Container(
             padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
             child: Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(
                   children: <Widget>[
                     TextFormField(
@@ -58,7 +58,7 @@ class Login extends StatelessWidget {
                       height: 20.0,
                     ),
                     TextFormField(
-                      obscureText: isHiddenPassword,
+                      obscureText: true,
 
                       ///to make the dots in the password
                       validator: (value) {
@@ -100,7 +100,7 @@ class Login extends StatelessWidget {
                       height: 60,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (formKey.currentState!.validate()) {
                             context.go('/home');
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Processing Data')),
