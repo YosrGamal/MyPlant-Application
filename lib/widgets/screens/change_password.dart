@@ -106,8 +106,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         });
                       },
                       child: Icon(isHiddenPassword_TFF1
-                          ? Icons.visibility
-                          : Icons.visibility_off),
+                          ? Icons.visibility_off
+                          : Icons.visibility),
                     ),
                     hintText: 'Old Password',
                   ),
@@ -138,10 +138,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         });
                       },
                       child: Icon(isHiddenPassword_TFF2
-                          ? Icons.visibility
-                          : Icons.visibility_off),
+                          ? Icons.visibility_off
+                          : Icons.visibility),
                     ),
-                    hintText: 'Old Password',
+                    hintText: 'new Password',
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -169,21 +169,23 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     }
                   },
                   decoration: InputDecoration(
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isHiddenPassword_TFF3 = !isHiddenPassword_TFF3;
-                          });
-                        },
-                        child: Icon(isHiddenPassword_TFF3
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                      ),
-                      hintText: 'Confirm Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide:
-                              BorderSide(color: Colors.green, width: 5))),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    filled: true,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isHiddenPassword_TFF2 = !isHiddenPassword_TFF2;
+                        });
+                      },
+                      child: Icon(isHiddenPassword_TFF2
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                    hintText: 'Confirm new Password',
+                  ),
                 ),
                 const SizedBox(height: 30),
 
