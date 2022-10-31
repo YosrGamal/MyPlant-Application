@@ -104,8 +104,8 @@ class _LoginState extends State<Login> {
                                   });
                                 },
                                 child: Icon(isHiddenPassword
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
                               ),
                               fillColor: Color(0XFFD3D3D3),
                               hintText: 'Password',
