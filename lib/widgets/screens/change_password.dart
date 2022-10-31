@@ -16,7 +16,9 @@ UserModel user = UserModel(
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final _formKey = GlobalKey<FormState>();
-  bool isHiddenPassword = true;
+  bool isHiddenPassword_TFF1 = true;
+  bool isHiddenPassword_TFF2 = true;
+  bool isHiddenPassword_TFF3 = true;
 
   final oldPass = TextEditingController();
   final newPass = TextEditingController();
@@ -71,7 +73,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 //TextField == 1
                 TextFormField(
                   controller: oldPass, //controller
-                  obscureText: isHiddenPassword,
+                  obscureText: isHiddenPassword_TFF1,
+
                   validator: (value) {
                     RegExp regex = RegExp(
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
@@ -90,13 +93,24 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       }
                     }
                   },
-                  decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.remove_red_eye),
-                      hintText: 'Old Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide:
-                              BorderSide(color: Colors.green, width: 5))),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    filled: true,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isHiddenPassword_TFF1 = !isHiddenPassword_TFF1;
+                        });
+                      },
+                      child: Icon(isHiddenPassword_TFF1
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
+                    hintText: 'Old Password',
+                  ),
                 ),
                 const SizedBox(height: 15),
 
@@ -104,27 +118,38 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
                 TextFormField(
                   controller: newPass,
-                  obscureText: isHiddenPassword,
+                  obscureText: isHiddenPassword_TFF2,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.remove_red_eye),
-                      hintText: 'New Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide:
-                              BorderSide(color: Colors.green, width: 5))),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    filled: true,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isHiddenPassword_TFF2 = !isHiddenPassword_TFF2;
+                        });
+                      },
+                      child: Icon(isHiddenPassword_TFF2
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
+                    hintText: 'Old Password',
+                  ),
                 ),
                 const SizedBox(height: 15),
 
                 //TextField == 3
                 TextFormField(
                   controller: confirmPass,
-                  obscureText: isHiddenPassword,
+                  obscureText: isHiddenPassword_TFF3,
                   validator: (value) {
                     RegExp regex = RegExp(
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
@@ -147,10 +172,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       suffixIcon: GestureDetector(
                         onTap: () {
                           setState(() {
-                            isHiddenPassword = !isHiddenPassword;
+                            isHiddenPassword_TFF3 = !isHiddenPassword_TFF3;
                           });
                         },
-                        child: Icon(isHiddenPassword
+                        child: Icon(isHiddenPassword_TFF3
                             ? Icons.visibility
                             : Icons.visibility_off),
                       ),
