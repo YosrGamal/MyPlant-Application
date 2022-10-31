@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -31,7 +32,11 @@ class _NavbarState extends State<Navbar> {
         visible: !showFab,
         child: FloatingActionButton(
           backgroundColor: btColor,
-          onPressed: () {},
+          onPressed: () async {
+            final ImagePicker _picker = ImagePicker();
+            final XFile? photo =
+                await _picker.pickImage(source: ImageSource.camera);
+          },
           child: const Icon(
             Icons.camera_alt_rounded,
           ),
