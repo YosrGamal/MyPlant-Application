@@ -57,7 +57,7 @@ class BodyReminder extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 297),
+            margin: const EdgeInsets.only(top: 302),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -68,7 +68,7 @@ class BodyReminder extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 345),
+            margin: const EdgeInsets.only(top: 355),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -79,7 +79,7 @@ class BodyReminder extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 393),
+            margin: const EdgeInsets.only(top: 415),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -90,7 +90,7 @@ class BodyReminder extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 440),
+            margin: const EdgeInsets.only(top: 470),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
