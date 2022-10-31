@@ -3,7 +3,6 @@ import 'package:my_plant_application/widgets/components/setting_reminder_header.
 
 class Settingreminder extends StatelessWidget {
   const Settingreminder({super.key});
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -12,7 +11,7 @@ class Settingreminder extends StatelessWidget {
         children: [
           Stack(children: [
             Container(
-              padding: EdgeInsets.only(top: 250),
+              padding: const EdgeInsets.only(top: 250),
               height: MediaQuery.of(context).size.height - 80,
               width: double.infinity,
             ),
