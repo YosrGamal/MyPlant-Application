@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../model/userlogic.dart';
+
 // ignore: camel_case_types
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -9,12 +11,24 @@ class EditProfile extends StatefulWidget {
   State<EditProfile> createState() => EditProfileState();
 }
 
+UserModel user = UserModel(
+    id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
+
 // ignore: camel_case_types
 class EditProfileState extends State<EditProfile> {
   final double coverHeight = 280;
   final double profileHeight = 144;
 
   final _formKey = GlobalKey<FormState>();
+  final newNickname = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    newNickname.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +103,8 @@ class EditProfileState extends State<EditProfile> {
             child: Padding(
               padding: EdgeInsets.all(25),
               child: TextFormField(
+                controller: newNickname, //controller
+
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter some text';
@@ -132,6 +148,19 @@ class EditProfileState extends State<EditProfile> {
                 if (_formKey.currentState!.validate()) {
                   //when valiadted
                 }
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      // Retrieve the text the that user has entered by using the
+                      // TextEditingController.
+                      content: Text('nickname changed from ' +
+                          user.username +
+                          ' to ' +
+                          newNickname.text),
+                    );
+                  },
+                );
               },
               style: ElevatedButton.styleFrom(
                 // ignore: deprecated_member_use
