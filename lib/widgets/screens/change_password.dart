@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/model/userlogic.dart';
+
+import '../../model/userlogic.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -9,12 +11,26 @@ class ChangePasswordScreen extends StatefulWidget {
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
 }
 
+UserModel user = UserModel(
+    id: 0, email: 'omar@gmail.com', password: 'bB09@!', username: 'Omega');
+
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   bool isHiddenPassword = true;
 
-  UserModel user = UserModel(
-      id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
+  final oldPass = TextEditingController();
+  final newPass = TextEditingController();
+  final confirmPass = TextEditingController();
+  bool Allgood = false;
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    oldPass.dispose();
+    newPass.dispose();
+    confirmPass.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +47,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: InkWell(
-                      //instead of TextField
+                      //instead of Textbutton
                       onTap: () {
                         context.go('/settings');
                       },
@@ -52,13 +68,20 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.bold)),
                 const SizedBox(height: 35),
+                //TextField == 1
                 TextFormField(
+                  controller: oldPass, //controller
                   obscureText: isHiddenPassword,
                   validator: (value) {
                     RegExp regex = RegExp(
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
                       return 'Please enter a password';
+                    } else if (oldPass.text != user.password) {
+                      Allgood = false;
+                      return 'old password is not correct';
+                    } else if (oldPass.text == user.password) {
+                      Allgood = true;
                     } else {
                       if (!regex.hasMatch(value)) {
                         return 'Enter valid password';
@@ -76,7 +99,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               BorderSide(color: Colors.green, width: 5))),
                 ),
                 const SizedBox(height: 15),
+
+                //TextField == 2
+
                 TextFormField(
+                  controller: newPass,
                   obscureText: isHiddenPassword,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -93,13 +120,21 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               BorderSide(color: Colors.green, width: 5))),
                 ),
                 const SizedBox(height: 15),
+
+                //TextField == 3
                 TextFormField(
+                  controller: confirmPass,
                   obscureText: isHiddenPassword,
                   validator: (value) {
                     RegExp regex = RegExp(
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
                       return 'Please enter a password';
+                    } else if (confirmPass.text != newPass.text) {
+                      Allgood = false;
+                      return 'new passwords do not match';
+                    } else if (confirmPass.text == newPass.text) {
+                      Allgood = true;
                     } else {
                       if (!regex.hasMatch(value)) {
                         return 'Enter valid password';
@@ -135,6 +170,22 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         //when valiadted
+                      }
+                      if (Allgood) {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              // Retrieve the text the that user has entered by using the
+                              // TextEditingController.
+                              // ignore: prefer_interpolation_to_compose_strings
+                              content: Text('password changed from ' +
+                                  oldPass.text +
+                                  ' to ' +
+                                  newPass.text),
+                            );
+                          },
+                        );
                       }
                     },
                     style: ElevatedButton.styleFrom(
