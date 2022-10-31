@@ -11,6 +11,8 @@ class EditProfile extends StatefulWidget {
   State<EditProfile> createState() => EditProfileState();
 }
 
+bool isHiddenPassword_TFF1 = true;
+
 UserModel user = UserModel(
     id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
 
@@ -71,10 +73,18 @@ class EditProfileState extends State<EditProfile> {
                     child: Text(
                       'Settings',
                       style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          fontFamily: 'Inter',
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontFamily: 'Inter',
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 1,
+                            color: Colors.black,
+                            offset: Offset(1, 1),
+                          ),
+                        ],
+                      ),
                     ),
                   )),
               const SizedBox(width: 220), //the space before settings
@@ -84,19 +94,28 @@ class EditProfileState extends State<EditProfile> {
             margin: const EdgeInsets.only(top: 120),
             child: const Text('Edit Profile',
                 style: TextStyle(
-                    fontSize: 30,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.bold)),
+                  fontSize: 30,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.bold,
+                )),
           ),
           Container(
             margin: EdgeInsets.only(top: 380),
             child: const Text('Change Avatar',
                 style: TextStyle(
-                    fontSize: 25,
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.bold)),
+                  fontSize: 25,
+                  color: Color.fromRGBO(0, 0, 0, 1),
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 1,
+                      color: Colors.black,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
+                )),
           ),
           Container(
             margin: EdgeInsets.only(top: 425),
@@ -111,11 +130,14 @@ class EditProfileState extends State<EditProfile> {
                   }
                   return null;
                 },
-                decoration: const InputDecoration(
-                    hintText: 'Change Nickname',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.green, width: 5))),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  filled: true,
+                  hintText: 'new Password',
+                ),
               ),
             ),
           ),
@@ -124,18 +146,31 @@ class EditProfileState extends State<EditProfile> {
             child: Padding(
               padding: EdgeInsets.all(25),
               child: TextFormField(
+                obscureText: isHiddenPassword_TFF1,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter some text';
                   }
                   return null;
                 },
-                decoration: const InputDecoration(
-                    suffixIcon: Icon(Icons.remove_red_eye),
-                    hintText: 'Confirm Password',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.green, width: 5))),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  filled: true,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isHiddenPassword_TFF1 = !isHiddenPassword_TFF1;
+                      });
+                    },
+                    child: Icon(isHiddenPassword_TFF1
+                        ? Icons.visibility_off
+                        : Icons.visibility),
+                  ),
+                  hintText: 'Enter Password',
+                ),
               ),
             ),
           ),
