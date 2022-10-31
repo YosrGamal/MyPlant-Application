@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/model/userlogic.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
@@ -10,6 +11,11 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final _formKey = GlobalKey<FormState>();
+  bool isHiddenPassword = true;
+
+  UserModel user = UserModel(
+      id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,11 +53,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         fontWeight: FontWeight.bold)),
                 const SizedBox(height: 35),
                 TextFormField(
+                  obscureText: isHiddenPassword,
                   validator: (value) {
+                    RegExp regex = RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
-                      return 'Please enter some text';
+                      return 'Please enter a password';
+                    } else {
+                      if (!regex.hasMatch(value)) {
+                        return 'Enter valid password';
+                      } else {
+                        return null;
+                      }
                     }
-                    return null;
                   },
                   decoration: const InputDecoration(
                       suffixIcon: Icon(Icons.remove_red_eye),
@@ -63,6 +77,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
                 const SizedBox(height: 15),
                 TextFormField(
+                  obscureText: isHiddenPassword,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
@@ -79,14 +94,31 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
                 const SizedBox(height: 15),
                 TextFormField(
+                  obscureText: isHiddenPassword,
                   validator: (value) {
+                    RegExp regex = RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
-                      return 'Please enter some text';
+                      return 'Please enter a password';
+                    } else {
+                      if (!regex.hasMatch(value)) {
+                        return 'Enter valid password';
+                      } else {
+                        return null;
+                      }
                     }
-                    return null;
                   },
-                  decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.remove_red_eye),
+                  decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isHiddenPassword = !isHiddenPassword;
+                          });
+                        },
+                        child: Icon(isHiddenPassword
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      ),
                       hintText: 'Confirm Password',
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
