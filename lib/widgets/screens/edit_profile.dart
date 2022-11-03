@@ -13,9 +13,6 @@ class EditProfile extends StatefulWidget {
 
 bool isHiddenPassword_TFF1 = true;
 
-UserModel user = UserModel(
-    id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
-
 // ignore: camel_case_types
 class EditProfileState extends State<EditProfile> {
   final double coverHeight = 280;
@@ -189,10 +186,8 @@ class EditProfileState extends State<EditProfile> {
                     return AlertDialog(
                       // Retrieve the text the that user has entered by using the
                       // TextEditingController.
-                      content: Text('nickname changed from ' +
-                          user.username +
-                          ' to ' +
-                          newNickname.text),
+                      content: Text(
+                          'nickname changed to ' + ' to ' + newNickname.text),
                     );
                   },
                 );

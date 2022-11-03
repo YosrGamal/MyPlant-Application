@@ -1,18 +1,19 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/data/userdata.dart';
 
 import '../../model/userlogic.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({super.key});
+  final UserModel user;
+  const ChangePasswordScreen({required this.user, super.key});
 
   @override
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
 }
-
-UserModel user = UserModel(
-    id: 0, email: 'omar@gmail.com', password: 'bB09@!', username: 'Omega');
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final _formKey = GlobalKey<FormState>();
@@ -80,10 +81,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
                       return 'Please enter a password';
-                    } else if (oldPass.text != user.password) {
+                    } else if (oldPass.text != widget.user.password) {
                       Allgood = false;
                       return 'old password is not correct';
-                    } else if (oldPass.text == user.password) {
+                    } else if (oldPass.text == widget.user.password) {
                       Allgood = true;
                     } else {
                       if (!regex.hasMatch(value)) {
@@ -202,6 +203,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         showDialog(
                           context: context,
                           builder: (context) {
+                            widget.user.password = newPass.text;
                             return AlertDialog(
                               // Retrieve the text the that user has entered by using the
                               // TextEditingController.
