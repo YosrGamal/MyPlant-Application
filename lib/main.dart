@@ -14,6 +14,8 @@ import 'package:my_plant_application/widgets/screens/task.dart';
 import 'package:my_plant_application/widgets/screens/edit_profile.dart';
 import 'package:my_plant_application/widgets/screens/change_password.dart';
 
+import 'data/userdata.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -83,7 +85,9 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/changepassword',
       builder: (BuildContext context, GoRouterState state) {
-        return ChangePasswordScreen();
+        return ChangePasswordScreen(
+          user: users[0],
+        );
       },
     ),
   ],
