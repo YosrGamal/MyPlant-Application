@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/model/plantlogic.dart';
 import 'package:favorite_button/favorite_button.dart';
-import 'package:my_plant_application/widgets/components/plant_details.dart';
 
 class ItemCard extends StatelessWidget {
   final PlantModel plant;
@@ -15,7 +14,8 @@ class ItemCard extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Padding(
-        padding: EdgeInsets.only(top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
+        padding: const EdgeInsets.only(
+            top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
@@ -28,7 +28,7 @@ class ItemCard extends StatelessWidget {
               color: Colors.white),
           child: Column(children: [
             Padding(
-              padding: EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(5.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
