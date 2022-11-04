@@ -178,10 +178,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     suffixIcon: GestureDetector(
                       onTap: () {
                         setState(() {
-                          isHiddenPassword_TFF2 = !isHiddenPassword_TFF2;
+                          isHiddenPassword_TFF3 = !isHiddenPassword_TFF3;
                         });
                       },
-                      child: Icon(isHiddenPassword_TFF2
+                      child: Icon(isHiddenPassword_TFF3
                           ? Icons.visibility_off
                           : Icons.visibility),
                     ),
@@ -197,13 +197,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        //when valiadted
+                        widget.user.password = newPass.text;
                       }
                       if (Allgood) {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            widget.user.password = newPass.text;
                             return AlertDialog(
                               // Retrieve the text the that user has entered by using the
                               // TextEditingController.
