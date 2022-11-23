@@ -14,8 +14,8 @@ class PlantsGrid extends StatelessWidget {
       ),
       Container(
           padding: const EdgeInsets.all(15.0),
-          width: MediaQuery.of(context).size.width - 30,
-          height: MediaQuery.of(context).size.width - 10,
+          width: MediaQuery.of(context).size.width - 40,
+          height: MediaQuery.of(context).size.height - 80,
           child: GridView.builder(
             itemCount: plants.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
