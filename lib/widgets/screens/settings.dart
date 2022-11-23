@@ -4,6 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/widgets/screens/change_password.dart';
+import 'package:my_plant_application/widgets/screens/edit_profile.dart';
+import 'package:my_plant_application/data/userdata.dart';
 
 // ignore: camel_case_types
 class Settings extends StatefulWidget {
@@ -95,9 +98,16 @@ class _SettingsState extends State<Settings> {
     return GestureDetector(
       onTap: () {
         if (title == 'Edit Profile') {
-          context.go('/editprofile');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const EditProfile()),
+          );
         } else if (title == 'Change password') {
-          context.go('/changepassword');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ChangePasswordScreen(user: users[0])),
+          );
         }
       },
       child: Padding(
