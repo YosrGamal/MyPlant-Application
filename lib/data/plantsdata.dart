@@ -20,6 +20,21 @@ List<PlantModel> plants = [
       id: 4,
       name: 'Monstera Deliciosa',
       imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 5,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 6,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 7,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
       isfavorite: true)
 ];
 
