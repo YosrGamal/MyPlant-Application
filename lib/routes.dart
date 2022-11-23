@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/widgets/components/per_navbar.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
@@ -7,6 +8,7 @@ import 'package:my_plant_application/widgets/screens/settings.dart';
 import 'package:my_plant_application/widgets/screens/task.dart';
 import 'package:my_plant_application/widgets/screens/edit_profile.dart';
 import 'package:my_plant_application/widgets/screens/change_password.dart';
+import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:go_router/go_router.dart';
 import 'data/userdata.dart';
 
@@ -15,13 +17,20 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
+        //return const Login();
+        return const StartPage();
+      },
+    ),
+    GoRoute(
+      path: '/start',
+      builder: (BuildContext context, GoRouterState state) {
+        return const StartPage();
       },
     ),
     GoRoute(
       path: '/home',
       builder: (BuildContext context, GoRouterState state) {
-        return const PerNavbar();
+        return const Home();
       },
     ),
     GoRoute(
