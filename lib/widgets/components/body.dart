@@ -12,19 +12,21 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Stack(children: [
-            Container(
-              height: size.height,
-              width: size.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/Bg.png"),
-                    fit: BoxFit.contain),
+            FittedBox(
+              child: Container(
+                height: size.height,
+                width: size.width,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/Bg.png"),
+                      fit: BoxFit.contain),
+                ),
               ),
             ),
             Container(
               // ignore: prefer_const_constructors
               padding: EdgeInsets.only(top: 250),
-              height: MediaQuery.of(context).size.height - 50,
+              height: size.height - 50,
               width: double.infinity,
               child: const PlantsGrid(),
             ),
