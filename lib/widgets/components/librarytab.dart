@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/screens/home.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/widgets/screens/library.dart';
+import 'package:my_plant_application/widgets/screens/reminder.dart';
 
 class TabLibrary extends StatefulWidget {
   @override
@@ -8,18 +12,21 @@ class TabLibrary extends StatefulWidget {
 
 class _TabLibraryState extends State<TabLibrary>
     with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController tabController;
 
   @override
   void initState() {
-    _tabController = TabController(length: 2, vsync: this);
     super.initState();
+    tabController = TabController(length: 3, vsync: this);
+    // tabController.addListener(() {
+    //   setState(() {});
+    // });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _tabController!.dispose();
+    tabController.dispose();
   }
 
   @override
@@ -39,7 +46,7 @@ class _TabLibraryState extends State<TabLibrary>
                 ),
               ),
               child: TabBar(
-                controller: _tabController,
+                controller: tabController,
                 // give the indicator a decoration (color and border radius)
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -49,17 +56,27 @@ class _TabLibraryState extends State<TabLibrary>
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                tabs: const [
                   Tab(
-                    text: 'Library',
+                    child: Text('Library'),
                   ),
                   Tab(
-                    text: 'Collections',
+                    child: Text('Collections'),
+                  ),
+                  Tab(
+                    child: Text('Favorites'),
                   ),
                 ],
               ),
             ),
             // tab bar view here
+            // Container(
+            //   width: double.maxFinite,
+            //   child: TabBarView(
+            //     controller: tabController,
+            //     children: [Library(), Home(), Reminder()],
+            //   ),
+            // )
           ],
         ),
       ),
