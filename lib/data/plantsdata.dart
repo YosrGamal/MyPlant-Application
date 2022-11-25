@@ -3,7 +3,7 @@ import 'package:my_plant_application/model/plantlogic.dart';
 List<PlantModel> plants = [
   PlantModel(
       id: 1,
-      name: 'Snake Plant Sansevieria',
+      name: 'Snake Plant',
       imageUrl: 'assets/images/SnakePlant-Sansevieria.jpg',
       isfavorite: false),
   PlantModel(
