@@ -13,6 +13,11 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  // ignore: unused_element
+  Future<FirebaseApp> _initializerFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    return firebaseApp;
+  }
 
   @override
   Widget build(BuildContext context) {
