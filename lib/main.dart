@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/routes.dart';
 
-void main() async {
+Future<void> main() async {
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
