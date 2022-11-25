@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/screens/home.dart';
-import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/widgets/screens/library.dart';
-import 'package:my_plant_application/widgets/screens/reminder.dart';
 
 class TabLibrary extends StatefulWidget {
   @override
-  _TabLibraryState createState() => _TabLibraryState();
+  TabLibraryState createState() => TabLibraryState();
 }
 
-class _TabLibraryState extends State<TabLibrary>
+class TabLibraryState extends State<TabLibrary>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
 
@@ -52,10 +49,11 @@ class _TabLibraryState extends State<TabLibrary>
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color(0XFFA0AE88),
+                  color: icColor,
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
+                // isScrollable: false,
                 tabs: const [
                   Tab(
                     child: Text('Library'),
@@ -70,13 +68,34 @@ class _TabLibraryState extends State<TabLibrary>
               ),
             ),
             // tab bar view here
-            // Container(
-            //   width: double.maxFinite,
-            //   child: TabBarView(
-            //     controller: tabController,
-            //     children: [Library(), Home(), Reminder()],
-            //   ),
-            // )
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  SizedBox(
+                    // padding: const EdgeInsets.only(bottom: 60),
+                    height: MediaQuery.of(context).size.height,
+                    width: double.infinity,
+                    child: const PlantsGrid(),
+                  ),
+                  Container(
+                    height: 1000,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          25.0,
+                        ),
+                        color: Colors.blue),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          25.0,
+                        ),
+                        color: Colors.redAccent),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
