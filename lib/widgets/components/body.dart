@@ -8,10 +8,10 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(children: [
+    return Column(
+      children: [
+        Expanded(
+          child: Stack(children: [
             FittedBox(
               child: Container(
                 height: size.height,
@@ -32,8 +32,8 @@ class Body extends StatelessWidget {
             ),
             HeaderWithSearchBar(size: size),
           ]),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
