@@ -8,15 +8,16 @@ class PlantsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
+    return ListView(shrinkWrap: true, children: [
       const SizedBox(
         height: 15.0,
       ),
       Container(
           padding: const EdgeInsets.all(15.0),
-          width: MediaQuery.of(context).size.width - 30,
-          height: MediaQuery.of(context).size.width - 10,
+          width: MediaQuery.of(context).size.width - 40,
+          height: MediaQuery.of(context).size.height - 80,
           child: GridView.builder(
+            // physics: const NeverScrollableScrollPhysics(),
             itemCount: plants.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

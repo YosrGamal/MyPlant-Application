@@ -124,7 +124,7 @@ class _LoginState extends State<Login> {
                           child: ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                context.go('/home');
+                                context.go('/start');
                               }
                             },
                             style: ElevatedButton.styleFrom(

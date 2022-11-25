@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/constants.dart';
 
 class TabLibrary extends StatefulWidget {
   @override
-  _TabLibraryState createState() => _TabLibraryState();
+  TabLibraryState createState() => TabLibraryState();
 }
 
-class _TabLibraryState extends State<TabLibrary>
+class TabLibraryState extends State<TabLibrary>
     with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController tabController;
 
   @override
   void initState() {
-    _tabController = TabController(length: 2, vsync: this);
     super.initState();
+    tabController = TabController(length: 3, vsync: this);
+    // tabController.addListener(() {
+    //   setState(() {});
+    // });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _tabController!.dispose();
+    tabController.dispose();
   }
 
   @override
@@ -39,27 +43,59 @@ class _TabLibraryState extends State<TabLibrary>
                 ),
               ),
               child: TabBar(
-                controller: _tabController,
+                controller: tabController,
                 // give the indicator a decoration (color and border radius)
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     25.0,
                   ),
-                  color: Color(0XFFA0AE88),
+                  color: icColor,
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                // isScrollable: false,
+                tabs: const [
                   Tab(
-                    text: 'Library',
+                    child: Text('Library'),
                   ),
                   Tab(
-                    text: 'Collections',
+                    child: Text('Collections'),
+                  ),
+                  Tab(
+                    child: Text('Favorites'),
                   ),
                 ],
               ),
             ),
             // tab bar view here
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  SizedBox(
+                    // padding: const EdgeInsets.only(bottom: 60),
+                    height: MediaQuery.of(context).size.height,
+                    width: double.infinity,
+                    child: const PlantsGrid(),
+                  ),
+                  Container(
+                    height: 1000,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          25.0,
+                        ),
+                        color: Colors.blue),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          25.0,
+                        ),
+                        color: Colors.redAccent),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

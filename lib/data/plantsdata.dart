@@ -3,7 +3,7 @@ import 'package:my_plant_application/model/plantlogic.dart';
 List<PlantModel> plants = [
   PlantModel(
       id: 1,
-      name: 'Snake Plant Sansevieria',
+      name: 'Snake Plant',
       imageUrl: 'assets/images/SnakePlant-Sansevieria.jpg',
       isfavorite: false),
   PlantModel(
@@ -18,6 +18,21 @@ List<PlantModel> plants = [
       isfavorite: true),
   PlantModel(
       id: 4,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 5,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 6,
+      name: 'Monstera Deliciosa',
+      imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
+      isfavorite: true),
+  PlantModel(
+      id: 7,
       name: 'Monstera Deliciosa',
       imageUrl: 'assets/images/MonsteraDeliciosa.jpg',
       isfavorite: true)
