@@ -13,9 +13,6 @@ class EditProfile extends StatefulWidget {
 
 bool isHiddenPassword_TFF1 = true;
 
-UserModel user = UserModel(
-    id: 0, email: 'omar@gmail.com', password: 'aA09@!', username: 'Omega');
-
 // ignore: camel_case_types
 class EditProfileState extends State<EditProfile> {
   final double coverHeight = 280;
@@ -35,9 +32,9 @@ class EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: const EdgeInsets.all(5),
+      // minimum: const EdgeInsets.all(5),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
         body: buildTop(),
       ),
     );
@@ -66,7 +63,7 @@ class EditProfileState extends State<EditProfile> {
               InkWell(
                   //instead of TextField
                   onTap: () {
-                    context.go('/settings');
+                    Navigator.pop(context);
                   },
                   child: const Padding(
                     padding: EdgeInsets.only(left: 20),
@@ -77,13 +74,6 @@ class EditProfileState extends State<EditProfile> {
                         fontFamily: 'Inter',
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        shadows: [
-                          Shadow(
-                            blurRadius: 1,
-                            color: Colors.black,
-                            offset: Offset(1, 1),
-                          ),
-                        ],
                       ),
                     ),
                   )),
@@ -108,13 +98,6 @@ class EditProfileState extends State<EditProfile> {
                   color: Color.fromRGBO(0, 0, 0, 1),
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.bold,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 1,
-                      color: Colors.black,
-                      offset: Offset(1, 1),
-                    ),
-                  ],
                 )),
           ),
           Container(
@@ -189,10 +172,8 @@ class EditProfileState extends State<EditProfile> {
                     return AlertDialog(
                       // Retrieve the text the that user has entered by using the
                       // TextEditingController.
-                      content: Text('nickname changed from ' +
-                          user.username +
-                          ' to ' +
-                          newNickname.text),
+                      content: Text(
+                          'nickname changed to ' + ' to ' + newNickname.text),
                     );
                   },
                 );

@@ -8,30 +8,32 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(children: [
-            Container(
-              height: size.height,
-              width: size.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/Bg.png"),
-                    fit: BoxFit.contain),
+    return Column(
+      children: [
+        Expanded(
+          child: Stack(children: [
+            FittedBox(
+              child: Container(
+                height: size.height,
+                width: size.width,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/Bg.png"),
+                      fit: BoxFit.contain),
+                ),
               ),
             ),
             Container(
               // ignore: prefer_const_constructors
               padding: EdgeInsets.only(top: 250),
-              height: MediaQuery.of(context).size.height - 50,
+              height: size.height - 50,
               width: double.infinity,
               child: const PlantsGrid(),
             ),
             HeaderWithSearchBar(size: size),
           ]),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
