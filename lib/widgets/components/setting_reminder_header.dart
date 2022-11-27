@@ -43,13 +43,14 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
         ),
         Container(
           // ignore: prefer_const_constructors
-          padding: EdgeInsets.fromLTRB(0.0, 10.0, 270.0, .0),
+           padding: EdgeInsets.fromLTRB(230.0, 0.0, 0.0, 15.0),
+          // padding: const EdgeInsets.all(20.0),
           // ignore: prefer_const_constructors
           child: const Text(
             "Water ",
             //textAlign: TextAlign.left,
             style: TextStyle(
-                height: 3,
+                height: 2,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.bold,
                 fontSize: 35.0,
@@ -145,7 +146,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 39, 80, 51),
+                  backgroundColor: const Color.fromARGB(255, 71, 133, 89),
                   foregroundColor: Colors.white,
                 ),
                 child: const Text(
