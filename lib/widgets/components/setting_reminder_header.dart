@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/widgets/components/time_picker.dart';
 
 class HeaderSettingReminder extends StatefulWidget {
   const HeaderSettingReminder({
@@ -81,38 +82,58 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
             ),
           ),
         ),
-        SwitchListTile(
-          activeColor: const Color.fromARGB(255, 67, 105, 68),
-          value: s1,
-          onChanged: (bool value) {
-            setState(() {
-              s1 = value;
-            });
-          },
-          title: const Text(
-            'Morning',
-            style: TextStyle(
-              color: Color.fromARGB(255, 60, 100, 73),
-              fontSize: 22,
+          SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s1,
+              onChanged: (bool value) {
+                setState(() {
+                  s1 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          height: 100,
+                          child: Time(),
+                        );
+                      });
+                });
+              },
+              title: const Text(
+                'Morinig',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
             ),
-          ),
-        ),
-        SwitchListTile(
-          activeColor: const Color.fromARGB(255, 67, 105, 68),
-          value: s2,
-          onChanged: (bool value) {
-            setState(() {
-              s2 = value;
-            });
-          },
-          title: const Text(
-            'Evening',
-            style: TextStyle(
-              color: Color.fromARGB(255, 60, 100, 73),
-              fontSize: 22,
+       SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s2,
+              onChanged: (bool value) {
+                setState(() {
+                  s2 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          height: 100,
+                          child: Time(),
+                        );
+                      });
+                });
+              },
+              title: const Text(
+                'Evening',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
             ),
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 60),
           child: Center(
