@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:my_plant_application/data/userdata.dart';
 
 class HomeAdmin extends StatelessWidget {
