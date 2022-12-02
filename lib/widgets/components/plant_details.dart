@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/widgets/components/body_reminder.dart';
 
 class PlantDetail extends StatelessWidget {
-  final PlantModel plant;
+  final Plant plant;
   const PlantDetail({required this.plant, super.key});
   @override
   Widget build(BuildContext context) {
