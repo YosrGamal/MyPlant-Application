@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/data/plantsdata.dart';
 import 'package:my_plant_application/widgets/components/itemcard.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
+
+import '../../model/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
   const PlantsGrid({super.key});
@@ -16,22 +20,42 @@ class PlantsGrid extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
-          child: GridView.builder(
-            // physics: const NeverScrollableScrollPhysics(),
-            itemCount: plants.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.8,
-                mainAxisSpacing: 15.0,
-                crossAxisSpacing: 10.0),
-            itemBuilder: (context, index) => ItemCard(
-                plant: plants[index],
-                press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PlantDetail(plant: plants[index])),
-                    )),
+          child: FutureBuilder(
+            future:
+                FirebaseFirestore.instance.collection('plantsLibrary').get(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return GridView.builder(
+                  // physics: const NeverScrollableScrollPhysics(),
+                  itemCount: snapshot.data!.docs.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.8,
+                      mainAxisSpacing: 15.0,
+                      crossAxisSpacing: 10.0),
+                  itemBuilder: (context, index) {
+                    QueryDocumentSnapshot<Map<String, dynamic>> document =
+                        snapshot.data!.docs[index];
+
+                    Plant myplant = Plant(
+                        id: document.id,
+                        name: document['plant_name'],
+                        imageUrl: document['plant_image']);
+                    return ItemCard(
+                        plant: myplant,
+                        press: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      PlantDetail(plant: myplant)),
+                            ));
+                  },
+                );
+              }
+              return CircularProgressIndicator(
+                color: Colors.green,
+              );
+            },
           )),
     ]);
   }
