@@ -3,12 +3,15 @@ class UserModel {
   String email;
   String username;
   String password;
+  String regDate;
 
-  UserModel(
-      {required this.id,
-      required this.email,
-      required this.username,
-      required this.password});
+  UserModel({
+    required this.id,
+    required this.email,
+    required this.username,
+    required this.password,
+    required this.regDate,
+  });
   // save() {
   //   //code to save to database or server
   //   print('saving user data');
