@@ -1,14 +1,11 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/data/userdata.dart';
 
-import '../../model/userlogic.dart';
+import '../../model/user.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  final UserModel user;
+  final User user;
   const ChangePasswordScreen({required this.user, super.key});
 
   @override
