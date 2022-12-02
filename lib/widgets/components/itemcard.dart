@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:favorite_button/favorite_button.dart';
 
 class ItemCard extends StatelessWidget {
-  final PlantModel plant;
+  final Plant plant;
   final VoidCallback press;
 
   const ItemCard({required this.plant, required this.press, super.key});
@@ -33,7 +33,7 @@ class ItemCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8.0),
                           child: AspectRatio(
                             aspectRatio: 16 / 16,
-                            child: Image.asset(
+                            child: Image.network(
                               plant.imageUrl,
                               fit: BoxFit.cover,
                             ),
@@ -45,7 +45,7 @@ class ItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       FavoriteButton(
-                        isFavorite: plant.isfavorite,
+                        // isFavorite: plant.isfavorite,
                         iconSize: 40,
                         iconColor: btColor,
                         valueChanged: (isFavorite) {
