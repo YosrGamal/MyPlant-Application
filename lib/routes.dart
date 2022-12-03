@@ -10,6 +10,8 @@ import 'package:my_plant_application/widgets/screens/edit_profile.dart';
 import 'package:my_plant_application/widgets/screens/change_password.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'data/userdata.dart';
 
 final GoRouter router = GoRouter(
@@ -54,7 +56,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {
-        return const Settings();
+        // return const Settings();
       },
     ),
     GoRoute(
