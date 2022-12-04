@@ -21,6 +21,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                     padding: EdgeInsets.only(left: defaultPadding),
                     height: size.height * 0.6 - 10,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Welcome,',
@@ -30,6 +31,17 @@ class HeaderWithSearchBar extends StatelessWidget {
                                     fontFamily: 'Inter',
                                     fontWeight: FontWeight.w500,
                                   ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 20),
+                          child: CircleAvatar(
+                            backgroundColor: Color(0xffE6E6E6),
+                            radius: 30,
+                            child: Icon(
+                              Icons.person,
+                              color: Color(0xffCCCCCC),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -54,7 +66,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 60,
+                    bottom: 10,
                     left: 0,
                     right: 0,
                     child: Container(
