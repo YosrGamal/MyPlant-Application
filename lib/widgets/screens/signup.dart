@@ -190,7 +190,7 @@ class _SignupState extends State<Signup> {
                             'email': EmailController.text,
                             'password': PasswordController.text,
                           });
-                          context.go('/');
+                          context.go('/home');
                           // }
                         },
                         style: ElevatedButton.styleFrom(
