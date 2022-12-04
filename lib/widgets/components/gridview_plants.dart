@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +10,11 @@ import 'package:my_plant_application/widgets/components/plant_details.dart';
 import '../../model/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
-  final textController = TextEditingController();
   PlantsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView(shrinkWrap: true, children: [
-      const SizedBox(
-        height: 15.0,
-      ),
       Container(
           padding: const EdgeInsets.all(15.0),
           width: MediaQuery.of(context).size.width - 40,
@@ -34,6 +32,7 @@ class PlantsGrid extends StatelessWidget {
                       childAspectRatio: 0.8,
                       mainAxisSpacing: 15.0,
                       crossAxisSpacing: 10.0),
+
                   itemBuilder: (context, index) {
                     QueryDocumentSnapshot<Map<String, dynamic>> document =
                         snapshot.data!.docs[index];
