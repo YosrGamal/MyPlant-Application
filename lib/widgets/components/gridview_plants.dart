@@ -8,7 +8,8 @@ import 'package:my_plant_application/widgets/components/plant_details.dart';
 import '../../model/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
-  const PlantsGrid({super.key});
+  final textController = TextEditingController();
+  PlantsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
