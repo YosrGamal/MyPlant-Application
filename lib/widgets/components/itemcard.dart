@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/data/plantsdata.dart';
-import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 
 class ItemCard extends StatefulWidget {
-  final PlantModel plant;
+  final Plant plant;
 
   const ItemCard({required this.plant, super.key});
 
@@ -68,14 +68,14 @@ class _ItemCardState extends State<ItemCard> {
                       //         isfavorite: widget.plant.isfavorite));
                       //   },
                       // ),
-                      FavoriteButton(
-                        isFavorite: widget.plant.isfavorite,
-                        iconSize: 40,
-                        iconColor: btColor,
-                        valueChanged: (isFavorite) {
-                          widget.plant.togglefav();
-                        },
-                      ),
+                      // FavoriteButton(
+                      //   isFavorite: widget.plant.isfavorite,
+                      //   iconSize: 40,
+                      //   iconColor: btColor,
+                      //   valueChanged: (isFavorite) {
+                      //     widget.plant.togglefav();
+                      //   },
+                      // ),
                       // widget.plant.isfavorite
                       //     ? Icon(Icons.favorite, color: Colors.red[800])
                       //     : Icon(Icons.favorite_border, color: Colors.red[800])

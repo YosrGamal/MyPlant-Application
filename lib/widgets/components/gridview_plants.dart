@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/data/plantsdata.dart';
-import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/widgets/components/itemcard.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
 import 'package:go_router/go_router.dart';
