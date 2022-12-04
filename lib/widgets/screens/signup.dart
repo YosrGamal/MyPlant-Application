@@ -177,7 +177,22 @@ class _SignupState extends State<Signup> {
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // if (formKey.currentState!.validate()) {
+                          final splitted = NameController.text.split(' ');
+                          String firstName = splitted[0];
+                          String lastName = splitted[1];
+                          CollectionReference usersRef =
+                              FirebaseFirestore.instance.collection('users');
+                          usersRef.add({
+                            'firstName': firstName,
+                            'lastName': lastName,
+                            'email': EmailController.text,
+                            'password': PasswordController.text,
+                          });
+                          context.go('/');
+                          // }
+                        },
                         style: ElevatedButton.styleFrom(
                           // ignore: deprecated_member_use
                           primary: Color.fromARGB(255, 52, 78, 65),
