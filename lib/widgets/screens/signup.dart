@@ -1,11 +1,17 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 // ignore: unused_import
 // import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/data/userdata.dart';
+
+final NameController = TextEditingController();
+final EmailController = TextEditingController();
+final PasswordController = TextEditingController();
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -76,6 +82,7 @@ class _SignupState extends State<Signup> {
                 child: Column(
                   children: <Widget>[
                     TextFormField(
+                      controller: NameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter correct name';
@@ -102,6 +109,7 @@ class _SignupState extends State<Signup> {
                       height: 20.0,
                     ),
                     TextFormField(
+                      controller: EmailController,
                       validator: (value) {
                         RegExp regex = RegExp(r'^(?=.*?[@])');
                         if (value!.isEmpty) {
@@ -133,6 +141,7 @@ class _SignupState extends State<Signup> {
                       height: 20.0,
                     ),
                     TextFormField(
+                      controller: PasswordController,
                       obscureText: true,
                       validator: (value) {
                         RegExp regex = RegExp(
@@ -168,11 +177,7 @@ class _SignupState extends State<Signup> {
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       child: ElevatedButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            context.go('/');
-                          }
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           // ignore: deprecated_member_use
                           primary: Color.fromARGB(255, 52, 78, 65),
