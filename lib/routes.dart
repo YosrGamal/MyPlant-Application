@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/data/plantsdata.dart';
-import 'package:my_plant_application/model/plantlogic.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/widgets/components/per_navbar.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
@@ -78,7 +77,7 @@ final GoRouter router = GoRouter(
       path: '/plant_detail',
       builder: (BuildContext context, GoRouterState state) {
         return PlantDetail(
-          plant: state.extra as PlantModel,
+          plant: state.extra as Plant,
         );
       },
     ),
