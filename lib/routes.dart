@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/data/plantsdata.dart';
+import 'package:my_plant_application/model/plantlogic.dart';
 import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/widgets/components/per_navbar.dart';
+import 'package:my_plant_application/widgets/components/plant_details.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -68,6 +71,14 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return ChangePasswordScreen(
           user: users[0],
+        );
+      },
+    ),
+    GoRoute(
+      path: '/plant_detail',
+      builder: (BuildContext context, GoRouterState state) {
+        return PlantDetail(
+          plant: state.extra as PlantModel,
         );
       },
     ),
