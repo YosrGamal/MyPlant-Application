@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
               padding: EdgeInsets.only(top: 250),
               height: size.height - 50,
               width: double.infinity,
-              child: const PlantsGrid(),
+              child: PlantsGrid(),
             ),
             HeaderWithSearchBar(size: size),
           ]),

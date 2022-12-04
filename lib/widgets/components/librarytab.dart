@@ -76,7 +76,7 @@ class TabLibraryState extends State<TabLibrary>
                     // padding: const EdgeInsets.only(bottom: 60),
                     height: MediaQuery.of(context).size.height,
                     width: double.infinity,
-                    child: const PlantsGrid(),
+                    child: PlantsGrid(),
                   ),
                   Container(
                     height: 1000,
