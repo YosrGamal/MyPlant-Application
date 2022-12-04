@@ -9,6 +9,7 @@ class HeaderAddingCollections extends StatelessWidget {
   }) : super(key: key);
   final Size size;
   final textController = TextEditingController();
+  final textController1 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class HeaderAddingCollections extends StatelessWidget {
                       FirebaseFirestore.instance.collection('plantsLibrary');
                   plants.add({
                     'plant_name': textController.text,
+                    'plant_image': textController1.text,
                   });
                 },
               ),
@@ -84,6 +86,28 @@ class HeaderAddingCollections extends StatelessWidget {
             controller: textController,
             decoration: InputDecoration(
                 hintText: "Plant name",
+                hintStyle: TextStyle(
+                  color: tColor.withOpacity(0.5),
+                  fontFamily: "Inter",
+                ),
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none),
+          ),
+        ),
+        const SizedBox(height: 30),
+        Container(
+          alignment: Alignment.center,
+          height: 54,
+          margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          decoration: BoxDecoration(
+            color: bpColor,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: TextField(
+            controller: textController1,
+            decoration: InputDecoration(
+                hintText: "Plant image url",
                 hintStyle: TextStyle(
                   color: tColor.withOpacity(0.5),
                   fontFamily: "Inter",
