@@ -1,12 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 
 class HeaderAddingCollections extends StatelessWidget {
-  const HeaderAddingCollections({
+  HeaderAddingCollections({
     Key? key,
     required this.size,
   }) : super(key: key);
   final Size size;
+  final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +33,23 @@ class HeaderAddingCollections extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-              Text(
-                'Add',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontSize: 17,
-                      color: tColor,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                    ),
+              InkWell(
+                child: Text(
+                  'Add',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 17,
+                        color: tColor,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
+                onTap: () {
+                  CollectionReference plants =
+                      FirebaseFirestore.instance.collection('plantsLibrary');
+                  plants.add({
+                    'plant_name': textController.text,
+                  });
+                },
               ),
             ],
           ),
@@ -70,6 +81,7 @@ class HeaderAddingCollections extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: TextField(
+            controller: textController,
             decoration: InputDecoration(
                 hintText: "Plant name",
                 hintStyle: TextStyle(
