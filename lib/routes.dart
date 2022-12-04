@@ -3,6 +3,7 @@ import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/widgets/components/per_navbar.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
+import 'package:my_plant_application/widgets/screens/camera.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -57,6 +58,12 @@ final GoRouter router = GoRouter(
       path: '/settings',
       builder: (BuildContext context, GoRouterState state) {
         return const Settings();
+      },
+    ),
+    GoRoute(
+      path: '/camera',
+      builder: (BuildContext context, GoRouterState state) {
+        return const Camera();
       },
     ),
     GoRoute(
