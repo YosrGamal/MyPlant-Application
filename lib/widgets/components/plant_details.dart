@@ -27,7 +27,7 @@ class PlantDetail extends StatelessWidget {
             padding: const EdgeInsets.all(30.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
-              child: Image.asset(
+              child: Image.network(
                 plant.imageUrl,
                 fit: BoxFit.cover,
                 height: 300,

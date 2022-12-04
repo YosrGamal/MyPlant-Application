@@ -39,7 +39,7 @@ class _ItemCardState extends State<ItemCard> {
                       borderRadius: BorderRadius.circular(8.0),
                       child: AspectRatio(
                         aspectRatio: 16 / 16,
-                        child: Image.asset(
+                        child: Image.network(
                           widget.plant.imageUrl,
                           fit: BoxFit.cover,
                         ),
