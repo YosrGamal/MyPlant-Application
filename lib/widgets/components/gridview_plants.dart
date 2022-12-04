@@ -1,16 +1,12 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/data/plantsdata.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/widgets/components/itemcard.dart';
-import 'package:my_plant_application/widgets/components/plant_details.dart';
-
 import '../../model/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
-  PlantsGrid({super.key});
+  // final PlantModel plant;
+  const PlantsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +15,28 @@ class PlantsGrid extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
+          // child: GridView.builder(
+          //     // physics: const NeverScrollableScrollPhysics(),
+          //     itemCount: plants.length,
+          //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 2,
+          //         childAspectRatio: 0.8,
+          //         mainAxisSpacing: 15.0,
+          //         crossAxisSpacing: 10.0),
+          //     itemBuilder: (context, index) {
+          //       return ItemCard(
+          //         plant: plants[index],
+          //         // press: () => Navigator.push(
+          //         //       context,
+          //         //       MaterialPageRoute(
+          //         //           builder: (context) =>
+          //         //               PlantDetail(plant: plants[index])),
+          //         //     )
+          //         // press: () {
+          //         //   GoRouter.of(context).push("/plant_detail", extra: plants);
+          //         // },
+          //       );
+          //     })),
           child: FutureBuilder(
             future:
                 FirebaseFirestore.instance.collection('plantsLibrary').get(),
@@ -42,13 +60,14 @@ class PlantsGrid extends StatelessWidget {
                         name: document['plant_name'],
                         imageUrl: document['plant_image']);
                     return ItemCard(
-                        plant: myplant,
-                        press: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      PlantDetail(plant: myplant)),
-                            ));
+                      plant: myplant,
+                      // press: () => Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               PlantDetail(plant: myplant)),
+                      //     )
+                    );
                   },
                 );
               }

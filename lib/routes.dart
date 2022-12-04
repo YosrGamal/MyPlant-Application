@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/widgets/components/per_navbar.dart';
+import 'package:my_plant_application/widgets/components/plant_details.dart';
+import 'package:my_plant_application/widgets/screens/camera.dart';
 import 'package:my_plant_application/widgets/screens/login.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import 'package:my_plant_application/widgets/screens/library.dart';
@@ -60,6 +63,12 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
+      path: '/camera',
+      builder: (BuildContext context, GoRouterState state) {
+        return const Camera();
+      },
+    ),
+    GoRoute(
       path: '/editprofile',
       builder: (BuildContext context, GoRouterState state) {
         return const EditProfile();
@@ -70,6 +79,14 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return ChangePasswordScreen(
           user: users[0],
+        );
+      },
+    ),
+    GoRoute(
+      path: '/plant_detail',
+      builder: (BuildContext context, GoRouterState state) {
+        return PlantDetail(
+          plant: state.extra as Plant,
         );
       },
     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/widgets/components/home_header.dart';
+import 'package:my_plant_application/data/plantsdata.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -12,16 +13,9 @@ class Body extends StatelessWidget {
       children: [
         Expanded(
           child: Stack(children: [
-            FittedBox(
-              child: Container(
-                height: size.height,
-                width: size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/Bg.png"),
-                      fit: BoxFit.contain),
-                ),
-              ),
+            Image.asset(
+              'assets/images/Bg.png',
+              fit: BoxFit.contain,
             ),
             Container(
               // ignore: prefer_const_constructors

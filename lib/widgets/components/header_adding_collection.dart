@@ -49,7 +49,7 @@ class HeaderAddingCollections extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                'Add Collection',
+                'Add Plant',
                 style: Theme.of(context).textTheme.headline4?.copyWith(
                       color: tColor,
                       fontFamily: 'Inter',
@@ -71,7 +71,7 @@ class HeaderAddingCollections extends StatelessWidget {
           ),
           child: TextField(
             decoration: InputDecoration(
-                hintText: "Collection name",
+                hintText: "Plant name",
                 hintStyle: TextStyle(
                   color: tColor.withOpacity(0.5),
                   fontFamily: "Inter",

@@ -23,20 +23,18 @@ class PlantDetail extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 15),
-          Hero(
-              tag: plant.imageUrl,
-              child: Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image.asset(
-                    plant.imageUrl,
-                    fit: BoxFit.cover,
-                    height: 300,
-                    width: 20,
-                  ),
-                ),
-              )),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30.0),
+              child: Image.asset(
+                plant.imageUrl,
+                fit: BoxFit.cover,
+                height: 300,
+                width: 20,
+              ),
+            ),
+          ),
           const SizedBox(
             height: 5,
           ),
