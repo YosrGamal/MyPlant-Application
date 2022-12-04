@@ -23,7 +23,7 @@ class BodyReminder extends StatelessWidget {
         child: Stack(children: <Widget>[
           const Switchreminder(),
           Container(
-            padding: const EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(100.0, 10.0, 50.0, 0.0),
             height: 210,
             width: 340,
             child: Image.asset(

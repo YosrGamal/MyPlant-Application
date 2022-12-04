@@ -1,6 +1,10 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
+import 'package:firebase_core/firebase_core.dart';
+// ignore: unused_import
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:go_router/go_router.dart';
 
 class Signup extends StatefulWidget {
@@ -8,6 +12,39 @@ class Signup extends StatefulWidget {
 
   @override
   State<Signup> createState() => _SignupState();
+}
+
+Container? signInSignUpButton(
+    BuildContext context, bool isLogin, Function onTap) {
+  return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 50,
+      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
+      child: ElevatedButton(
+          onPressed: () {
+            onTap();
+          },
+// ignore: sort_child_properties_last
+          child: Text(
+            isLogin ? 'LOG IN' : 'SIGN UP',
+            style: const TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 16),
+          ),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Colors.black26;
+                }
+                return Colors.white;
+              }),
+
+// ignore: dead_code
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30))))));
 }
 
 class _SignupState extends State<Signup> {

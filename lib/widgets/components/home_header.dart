@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/model/userlogic.dart';
 
 class HeaderWithSearchBar extends StatelessWidget {
   final Size size;
