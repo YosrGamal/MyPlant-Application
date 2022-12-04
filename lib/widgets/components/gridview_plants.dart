@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/data/plantsdata.dart';
+import 'package:my_plant_application/model/plantlogic.dart';
 import 'package:my_plant_application/widgets/components/itemcard.dart';
 import 'package:my_plant_application/widgets/components/plant_details.dart';
+import 'package:go_router/go_router.dart';
 
 class PlantsGrid extends StatelessWidget {
+  // final PlantModel plant;
   const PlantsGrid({super.key});
 
   @override
@@ -17,22 +20,27 @@ class PlantsGrid extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
           child: GridView.builder(
-            // physics: const NeverScrollableScrollPhysics(),
-            itemCount: plants.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.8,
-                mainAxisSpacing: 15.0,
-                crossAxisSpacing: 10.0),
-            itemBuilder: (context, index) => ItemCard(
-                plant: plants[index],
-                press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PlantDetail(plant: plants[index])),
-                    )),
-          )),
+              // physics: const NeverScrollableScrollPhysics(),
+              itemCount: plants.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.8,
+                  mainAxisSpacing: 15.0,
+                  crossAxisSpacing: 10.0),
+              itemBuilder: (context, index) {
+                return ItemCard(
+                  plant: plants[index],
+                  // press: () => Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) =>
+                  //               PlantDetail(plant: plants[index])),
+                  //     )
+                  // press: () {
+                  //   GoRouter.of(context).push("/plant_detail", extra: plants);
+                  // },
+                );
+              })),
     ]);
   }
 }
