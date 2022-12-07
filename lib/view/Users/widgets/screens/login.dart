@@ -5,9 +5,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/widgets/screens/home.dart';
-import 'package:my_plant_application/widgets/screens/signup.dart';
-import '../../model/user.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/signup.dart';
+import '../../../../model/user.dart';
 import '../components/itemcard.dart';
 import '../components/per_navbar.dart';
 

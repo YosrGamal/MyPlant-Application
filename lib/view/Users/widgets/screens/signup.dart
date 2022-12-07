@@ -7,7 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/data/userdata.dart';
+import 'package:my_plant_application/repositories/userdata.dart';
 
 final NameController = TextEditingController();
 final EmailController = TextEditingController();

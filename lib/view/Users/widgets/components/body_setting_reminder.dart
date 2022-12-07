@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/setting_reminder_header.dart';
+import 'package:my_plant_application/view/Users/widgets/components/setting_reminder_header.dart';
 
 class Settingreminder extends StatelessWidget {
   const Settingreminder({super.key});

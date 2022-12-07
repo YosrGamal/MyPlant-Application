@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/screens/home.dart';
-import 'package:my_plant_application/widgets/screens/library.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/library.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({this.shape = const CircularNotchedRectangle()});

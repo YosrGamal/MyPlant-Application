@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/body_task.dart';
-import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
+import 'package:my_plant_application/view/Users/widgets/components/body_task.dart';
+import 'package:my_plant_application/view/Users/widgets/components/bottom_navbar.dart';
 
 class Task extends StatefulWidget {
   const Task({super.key});

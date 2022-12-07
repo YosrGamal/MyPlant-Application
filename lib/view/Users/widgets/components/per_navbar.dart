@@ -1,8 +1,8 @@
-import 'package:my_plant_application/widgets/screens/home.dart';
-import 'package:my_plant_application/widgets/screens/library.dart';
-import 'package:my_plant_application/widgets/screens/settings.dart';
-import 'package:my_plant_application/widgets/screens/task.dart';
-import 'package:my_plant_application/widgets/screens/camera.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/library.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/settings.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/task.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/camera.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';

@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/itemcard.dart';
-import '../../model/plant.dart';
+import 'package:my_plant_application/view/Users/widgets/components/itemcard.dart';
+import '../../../../model/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
   PlantsGrid({super.key});

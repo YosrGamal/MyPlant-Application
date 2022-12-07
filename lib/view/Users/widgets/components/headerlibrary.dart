@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/adding_collection_body.dart';
-import 'package:my_plant_application/widgets/components/header_adding_collection.dart';
-import 'package:my_plant_application/widgets/components/librarytab.dart';
+import 'package:my_plant_application/view/Users/widgets/components/adding_collection_body.dart';
+import 'package:my_plant_application/view/Users/widgets/components/header_adding_collection.dart';
+import 'package:my_plant_application/view/Users/widgets/components/librarytab.dart';
 
 class Headerlibrary extends StatelessWidget {
   const Headerlibrary({

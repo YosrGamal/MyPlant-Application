@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/data/userdata.dart';
+import 'package:my_plant_application/repositories/userdata.dart';
 
 class HomeAdmin extends StatelessWidget {
   const HomeAdmin({super.key});

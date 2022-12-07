@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/task_tab.dart';
-import 'package:my_plant_application/widgets/components/panel.dart';
+import 'package:my_plant_application/view/Users/widgets/components/task_tab.dart';
+import 'package:my_plant_application/view/Users/widgets/components/panel.dart';
 
 class BodyTask extends StatefulWidget {
   const BodyTask({super.key});

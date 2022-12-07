@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/components/gridview_plants.dart';
-import 'package:my_plant_application/widgets/components/home_header.dart';
-import 'package:my_plant_application/widgets/components/headerlibrary.dart';
+import 'package:my_plant_application/view/Users/widgets/components/gridview_plants.dart';
+import 'package:my_plant_application/view/Users/widgets/components/home_header.dart';
+import 'package:my_plant_application/view/Users/widgets/components/headerlibrary.dart';
 
 class LibraryBody extends StatelessWidget {
   const LibraryBody({super.key});

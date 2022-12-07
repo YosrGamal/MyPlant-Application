@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/librarybody.dart';
-import 'package:my_plant_application/widgets/components/bottom_navbar.dart';
+import 'package:my_plant_application/view/Users/widgets/components/librarybody.dart';
+import 'package:my_plant_application/view/Users/widgets/components/bottom_navbar.dart';
 
 class Library extends StatelessWidget {
   const Library({super.key});

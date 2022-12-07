@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/widgets/tfmodel/loadingscreen.dart';
-import 'package:my_plant_application/widgets/tfmodel/showingresult.dart';
+import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
+import 'package:my_plant_application/view/Users/widgets/tfmodel/showingresult.dart';
 // import 'package:tflite/tflite.dart';
 
 class ChooseImage extends StatefulWidget {

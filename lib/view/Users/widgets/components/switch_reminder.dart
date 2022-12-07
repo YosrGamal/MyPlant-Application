@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/widgets/components/body_setting_reminder.dart';
+import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
 
 // ignore: camel_case_types
 class Switchreminder extends StatefulWidget {
