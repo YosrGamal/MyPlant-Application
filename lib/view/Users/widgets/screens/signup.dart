@@ -9,6 +9,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
+import 'package:my_plant_application/services/reusable_widget.dart';
+import 'home.dart';
 
 final NameController = TextEditingController();
 final EmailController = TextEditingController();
