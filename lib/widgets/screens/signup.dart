@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, non_constant_identifier_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -172,38 +172,8 @@ class _SignupState extends State<Signup> {
                               borderSide: BorderSide(color: Colors.grey))),
                     ),
                     SizedBox(height: 20.0),
-                    Container(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // if (formKey.currentState!.validate()) {
-                          final splitted = NameController.text.split(' ');
-                          String firstName = splitted[0];
-                          String lastName = splitted[1];
-                          CollectionReference usersRef =
-                              FirebaseFirestore.instance.collection('users');
-                          usersRef.add({
-                            'firstName': firstName,
-                            'lastName': lastName,
-                            'email': EmailController.text,
-                            'password': PasswordController.text,
-                          });
-                          context.go('/navbar');
-                          // }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          // ignore: deprecated_member_use
-                          primary: Color.fromARGB(255, 52, 78, 65),
-                          // ignore: deprecated_member_use
-                          onPrimary: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                        ),
-                        child: Text('SignUp'),
-                      ),
-                    ),
+                    //  signInSignUpButton(context, false, () {
+                    //  }),
                     SizedBox(height: 20.0),
                     Center(
                       child: InkWell(

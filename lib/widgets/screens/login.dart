@@ -126,27 +126,9 @@ class _LoginState extends State<Login> {
                                 borderSide: BorderSide(color: Colors.grey))),
                       ),
                       SizedBox(height: 100.0),
-                      Container(
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        width: MediaQuery.of(context).size.width,
-                        height: 60,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              context.go('/start');
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            // ignore: deprecated_member_use
-                            primary: Color(0XFF588157),
-                            // ignore: deprecated_member_use
-                            onPrimary: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                          child: Text('Login'),
-                        ),
-                      ),
+
+                      // signInSignUpButton(context, true, () {}),
+
                       SizedBox(height: 30.0),
                       Center(
                         child: InkWell(
@@ -177,48 +159,6 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      FutureBuilder(
-                        future: FirebaseFirestore.instance
-                            .collection('users')
-                            .get(),
-                        builder: (context, snapshot) {
-                          print('1');
-
-                          if (snapshot.hasData) {
-                            return GridView.builder(
-                              // physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data!.docs.length,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      childAspectRatio: 0.8,
-                                      mainAxisSpacing: 15.0,
-                                      crossAxisSpacing: 10.0),
-
-                              itemBuilder: (context, index) {
-                                QueryDocumentSnapshot<Map<String, dynamic>>
-                                    document = snapshot.data!.docs[index];
-                                User myuser = User(
-                                    id: document[''],
-                                    email: document['email'],
-                                    username: document[''],
-                                    password: document['password'],
-                                    regDate: document['']);
-
-                                if (document['email'] == EmailController &&
-                                    document['password'] ==
-                                        PasswordController) {
-                                  return PerNavbar();
-                                }
-                                return AlertDialog();
-                              },
-                            );
-                          }
-                          return CircularProgressIndicator(
-                            color: Colors.green,
-                          );
-                        },
-                      )
                     ],
                   ),
                 ))

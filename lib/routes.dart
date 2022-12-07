@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
+        // return const Login();
         return const StartPage();
       },
     ),
@@ -62,12 +62,12 @@ final GoRouter router = GoRouter(
         return const Settings();
       },
     ),
-    GoRoute(
-      path: '/camera',
-      builder: (BuildContext context, GoRouterState state) {
-        return const Camera();
-      },
-    ),
+    // GoRoute(
+    //   path: '/camera',
+    //   builder: (BuildContext context, GoRouterState state) {
+    //     return const Camera();
+    //   },
+    // ),
     GoRoute(
       path: '/editprofile',
       builder: (BuildContext context, GoRouterState state) {
