@@ -126,27 +126,9 @@ class _LoginState extends State<Login> {
                                 borderSide: BorderSide(color: Colors.grey))),
                       ),
                       SizedBox(height: 100.0),
-                      Container(
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        width: MediaQuery.of(context).size.width,
-                        height: 60,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              context.go('/start');
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            // ignore: deprecated_member_use
-                            primary: Color(0XFF588157),
-                            // ignore: deprecated_member_use
-                            onPrimary: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                          child: Text('Login'),
-                        ),
-                      ),
+
+                      // signInSignUpButton(context, true, () {}),
+
                       SizedBox(height: 30.0),
                       Center(
                         child: InkWell(
