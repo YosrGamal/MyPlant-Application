@@ -55,7 +55,7 @@ class _ChooseImageState extends State<ChooseImage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 700),
+      padding: const EdgeInsets.only(top: 500),
       child: Column(
         children: [
           ElevatedButton(
