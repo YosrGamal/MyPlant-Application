@@ -177,48 +177,6 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      FutureBuilder(
-                        future: FirebaseFirestore.instance
-                            .collection('users')
-                            .get(),
-                        builder: (context, snapshot) {
-                          print('1');
-
-                          if (snapshot.hasData) {
-                            return GridView.builder(
-                              // physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data!.docs.length,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      childAspectRatio: 0.8,
-                                      mainAxisSpacing: 15.0,
-                                      crossAxisSpacing: 10.0),
-
-                              itemBuilder: (context, index) {
-                                QueryDocumentSnapshot<Map<String, dynamic>>
-                                    document = snapshot.data!.docs[index];
-                                User myuser = User(
-                                    id: document[''],
-                                    email: document['email'],
-                                    username: document[''],
-                                    password: document['password'],
-                                    regDate: document['']);
-
-                                if (document['email'] == EmailController &&
-                                    document['password'] ==
-                                        PasswordController) {
-                                  return PerNavbar();
-                                }
-                                return AlertDialog();
-                              },
-                            );
-                          }
-                          return CircularProgressIndicator(
-                            color: Colors.green,
-                          );
-                        },
-                      )
                     ],
                   ),
                 ))
