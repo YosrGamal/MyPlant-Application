@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,6 +11,7 @@ import '../../model/user.dart';
 import '../../services/reusable_widget.dart';
 import '../components/itemcard.dart';
 import '../components/per_navbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -127,7 +128,23 @@ class _LoginState extends State<Login> {
                                 borderSide: BorderSide(color: Colors.grey))),
                       ),
                       SizedBox(height: 100.0),
-                      SignInSignUpButton(isLogin: true, onTap: () {}),
+                      SignInSignUpButton(
+                          isLogin: true,
+                          onTap: () {
+                            FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                                    email: EmailController.text,
+                                    password: PasswordController.text)
+                                .then((value) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Home()));
+                            }).onError((error, stackTrace) {
+                              // ignore: avoid_print
+                              print("Error ${error.toString()}");
+                            });
+                          }),
                       SizedBox(height: 30.0),
                       Center(
                         child: InkWell(
