@@ -1,0 +1,19 @@
+0 Aglaonema
+1 Alocasia
+2 Aphelandra squarrosa
+3 Araucaria heterophylla
+4 Aspidistra elatior
+5 Calathea
+6 Chamaedorea elegans
+7 Chlorophytum comosum
+8 Dieffenbachia
+9 Dracaena
+10 Dypsis lutescens
+11 Epipremnum aureum
+12 Ficus
+13 Monstera
+14 Peperomia
+15 Philodendron
+16 Philea peperomioides
+17 Scindapsus pictus
+18 Syngonium

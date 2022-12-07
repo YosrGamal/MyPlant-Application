@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/widgets/components/time_picker.dart';
 
@@ -43,7 +44,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
         ),
         Container(
           // ignore: prefer_const_constructors
-           padding: EdgeInsets.fromLTRB(230.0, 0.0, 0.0, 15.0),
+           padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 15.0),
           // padding: const EdgeInsets.all(20.0),
           // ignore: prefer_const_constructors
           child: const Text(
@@ -61,7 +62,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
           //margin: const EdgeInsets.only(top: 5),
           padding: const EdgeInsets.only(left: 10, right: 10),
           width: MediaQuery.of(context).size.width,
-          height: 60,
+          height: 70,
           //alignment: Alignment.bottomCenter,
           child: ElevatedButton(
             onPressed: () {},
@@ -80,9 +81,11 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
                   fontFamily: 'Inter',
                   fontSize: 25.0,
                   color: Color.fromARGB(255, 60, 100, 73)),
+                  
             ),
           ),
         ),
+       
           SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s1,
@@ -104,9 +107,9 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
                 });
               },
               title: const Text(
-                'Morinig',
+                'Morning',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22,height: 4),
               ),
             ),
        SwitchListTile(

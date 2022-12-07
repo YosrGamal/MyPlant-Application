@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/widgets/components/expansiontile.dart';
 
 class TabTask extends StatefulWidget {
   const TabTask({super.key});
@@ -65,6 +66,28 @@ class _TabTaskState extends State<TabTask> with SingleTickerProviderStateMixin {
               ),
             ),
             // tab bar view here
+             Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  SizedBox(
+                    // padding: const EdgeInsets.only(bottom: 60),
+                    height: MediaQuery.of(context).size.height,
+                    width: double.infinity,
+                    child: const Expansiontile(),
+                  ),
+                  Container(
+                    height: 1000,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          25.0,
+                        ),
+                        color: const Color.fromARGB(255, 93, 140, 94)),
+                  ),
+                  
+                ],
+              ),
+            )
           ],
         ),
       ),
