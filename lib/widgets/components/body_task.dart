@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/widgets/components/task_tab.dart';
-import 'package:my_plant_application/widgets/components/panel.dart';
-import 'package:my_plant_application/widgets/components/expansiontile.dart';
-
 class BodyTask extends StatefulWidget {
   const BodyTask({super.key});
-
   @override
-  // ignore: library_private_types_in_public_api
   _BodyTaskState createState() => _BodyTaskState();
 }
-
 class _BodyTaskState extends State<BodyTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Stack(children: <Widget>[
-          const Steps(),
           const TabTask(),
-          const Expansiontile(),
+         // const Expansiontile(),
           Container(
             //alignment: Alignment.bottomLeft,
             margin: const EdgeInsets.only(top: 350),
@@ -45,63 +38,6 @@ class _BodyTaskState extends State<BodyTask> {
                   color: Color.fromARGB(255, 60, 100, 73)),
             ),
           ),
-
-          
-
-
-
-          // Container(
-          //   margin: const EdgeInsets.only(top: 200),
-          //   padding: const EdgeInsets.only(left: 10, right: 10),
-          //   width: MediaQuery.of(context).size.width,
-          //   height: 40,
-          //   //alignment: Alignment.bottomCenter,
-          //   child: ElevatedButton(
-          //     onPressed: () {},
-          //     style: ElevatedButton.styleFrom(
-          //       // ignore: deprecated_member_use
-          //       primary: const Color.fromARGB(255, 251, 252, 251),
-          //       // ignore: deprecated_member_use
-          //       onPrimary: Colors.white,
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(10)),
-          //     ),
-          //     child: const Text(
-          //       'Water',
-          //       textAlign: TextAlign.left,
-          //       style: TextStyle(
-          //           fontFamily: 'Inter',
-          //           fontSize: 20.0,
-          //           color: Color.fromARGB(255, 60, 100, 73)),
-          //     ),
-          //   ),
-          // ),
-          // Container(
-          //   margin: const EdgeInsets.only(top: 255),
-          //   padding: const EdgeInsets.only(left: 10, right: 10),
-          //   width: MediaQuery.of(context).size.width,
-          //   height: 40,
-          //   //alignment: Alignment.bottomCenter,
-          //   child: ElevatedButton(
-          //     onPressed: () {},
-          //     style: ElevatedButton.styleFrom(
-          //       // ignore: deprecated_member_use
-          //       primary: const Color.fromARGB(255, 251, 252, 251),
-          //       // ignore: deprecated_member_use
-          //       onPrimary: Colors.white,
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(10)),
-          //     ),
-          //     child: const Text(
-          //       'Fertilizer',
-          //       textAlign: TextAlign.left,
-          //       style: TextStyle(
-          //           fontFamily: 'Inter',
-          //           fontSize: 20.0,
-          //           color: Color.fromARGB(255, 60, 100, 73)),
-          //     ),
-          //   ),
-          // ),
         ]),
       ),
     );
