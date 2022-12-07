@@ -77,6 +77,11 @@ android {
        }
    }
 
+//    aaptOptions {
+//         noCompress 'tflite'
+//         noCompress 'lite'
+//     }
+
 }
 
 flutter {
