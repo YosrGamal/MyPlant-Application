@@ -17,7 +17,9 @@ class _ExpansiontileState extends State<Expansiontile> {
           title: Text('Water',
             textAlign: TextAlign.center,
                              style: TextStyle(
-                    color: Color.fromARGB(255, 83, 118, 94)
+                    color: Color.fromARGB(255, 83, 118, 94),
+                     fontSize: 22,
+                    
                     ),
           ),
           //subtitle: Text('Trailing expansion arrow icon'),
@@ -29,10 +31,11 @@ class _ExpansiontileState extends State<Expansiontile> {
           ))],
         ),
          ExpansionTile(
-          title: Text('Water',
+          title: Text('Prune',
            textAlign: TextAlign.center,
                              style: TextStyle(
-                    color: Color.fromARGB(255, 83, 118, 94)
+                    color: Color.fromARGB(255, 83, 118, 94),
+                     fontSize: 22,
                     ),),
           //subtitle: Text('Trailing expansion arrow icon'),
           children: [ListTile(title: Text('Snake Plant Sansevieria 7:00 am',
@@ -43,17 +46,18 @@ class _ExpansiontileState extends State<Expansiontile> {
           ))],
         ),
          ExpansionTile(
-          title: Text('Water',
+          title: Text('Fertilizer',
            textAlign: TextAlign.center,
                              style: TextStyle(
-                    color: Color.fromARGB(255, 83, 118, 94)
+                    color: Color.fromARGB(255, 83, 118, 94),
+                     fontSize: 22,
                     ),
                     ),
           //subtitle: Text('Trailing expansion arrow icon'),
           children: [ListTile(title: Text('Snake Plant Sansevieria 7:00 am',
            textAlign: TextAlign.center,
                              style: TextStyle(
-                    color: Color.fromARGB(255, 83, 118, 94)
+                    color: Color.fromARGB(255, 83, 118, 94),
                     ),
           ))],
         ),
