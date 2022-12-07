@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, non_constant_identifier_names, depend_on_referenced_packages
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 // ignore: unused_import
 // import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
@@ -172,8 +173,25 @@ class _SignupState extends State<Signup> {
                               borderSide: BorderSide(color: Colors.grey))),
                     ),
                     SizedBox(height: 20.0),
-                    //  signInSignUpButton(context, false, () {
-                    //  }),
+                    SignInSignUpButton(
+                        isLogin: false,
+                        onTap: () {
+                          FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: EmailController.text,
+                                  password: PasswordController.text)
+                              .then((value) {
+                            // ignore: avoid_print
+                            print("Created New Account");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Home()));
+                          }).onError((error, stackTrace) {
+                            // ignore: avoid_print
+                            print("Error ${error.toString()}");
+                          });
+                        }),
                     SizedBox(height: 20.0),
                     Center(
                       child: InkWell(
