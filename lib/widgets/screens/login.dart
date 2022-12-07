@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/widgets/screens/home.dart';
 import 'package:my_plant_application/widgets/screens/signup.dart';
 import '../../model/user.dart';
+import '../../services/reusable_widget.dart';
 import '../components/itemcard.dart';
 import '../components/per_navbar.dart';
 
@@ -126,9 +127,7 @@ class _LoginState extends State<Login> {
                                 borderSide: BorderSide(color: Colors.grey))),
                       ),
                       SizedBox(height: 100.0),
-
-                      // signInSignUpButton(context, true, () {}),
-
+                      SignInSignUpButton(isLogin: true, onTap: () {}),
                       SizedBox(height: 30.0),
                       Center(
                         child: InkWell(
