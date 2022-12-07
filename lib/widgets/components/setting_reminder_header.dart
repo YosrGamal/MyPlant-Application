@@ -107,7 +107,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
                 });
               },
               title: const Text(
-                'Morinig',
+                'Morning',
                 style: TextStyle(
                     color: Color.fromARGB(255, 60, 100, 73), fontSize: 22,height: 4),
               ),
