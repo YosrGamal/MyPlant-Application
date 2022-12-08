@@ -185,10 +185,7 @@ class _SignupState extends State<Signup> {
                               .then((value) {
                             // ignore: avoid_print
                             print("Created New Account");
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Login()));
+                            context.go('/');
                           }).onError((error, stackTrace) {
                             // ignore: avoid_print
                             print("Error ${error.toString()}");
