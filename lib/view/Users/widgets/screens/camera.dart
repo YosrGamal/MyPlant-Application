@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+// ignore: unused_import
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
@@ -11,9 +14,6 @@ class Camera extends StatefulWidget {
 }
 
 class _CameraState extends State<Camera> {
-  late List<CameraDescription> cameras;
-  late CameraController cameraController;
-
   @override
   Widget build(BuildContext context) {
     return Container();
