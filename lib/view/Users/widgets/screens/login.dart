@@ -137,10 +137,7 @@ class _LoginState extends State<Login> {
                                     email: EmailController.text,
                                     password: PasswordController.text)
                                 .then((value) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => StartPage()));
+                              context.go('/start');
                             }).onError((error, stackTrace) {
                               // ignore: avoid_print
                               print("Error ${error.toString()}");
