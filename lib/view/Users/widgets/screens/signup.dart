@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
 import 'package:my_plant_application/services/reusable_widget.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/login.dart';
 import 'home.dart';
 
 final NameController = TextEditingController();
@@ -34,7 +35,8 @@ Container? signInSignUpButton(
           onPressed: () {
             onTap();
           },
-// ignore: sort_child_properties_last
+
+          // ignore: sort_child_properties_last
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
@@ -49,8 +51,6 @@ Container? signInSignUpButton(
                 }
                 return Colors.white;
               }),
-
-// ignore: dead_code
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30))))));
@@ -188,7 +188,7 @@ class _SignupState extends State<Signup> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Home()));
+                                    builder: (context) => Login()));
                           }).onError((error, stackTrace) {
                             // ignore: avoid_print
                             print("Error ${error.toString()}");
