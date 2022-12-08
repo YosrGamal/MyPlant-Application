@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -132,6 +132,9 @@ class _LoginState extends State<Login> {
                       SignInSignUpButton(
                           isLogin: true,
                           onTap: () {
+                            print(EmailController.text);
+                            print(PasswordController.text);
+
                             FirebaseAuth.instance
                                 .createUserWithEmailAndPassword(
                                     email: EmailController.text,
