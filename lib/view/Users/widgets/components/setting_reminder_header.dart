@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
 import 'package:my_plant_application/view/Users/widgets/components/time_picker.dart';
 
 class HeaderSettingReminder extends StatefulWidget {
@@ -13,11 +14,11 @@ class HeaderSettingReminder extends StatefulWidget {
   @override
   State<HeaderSettingReminder> createState() => _HeaderSettingReminderState();
 }
-
 class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
   bool s1 = false, s2 = false;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+  //  const Switchsettingreminder();
     return Column(
       children: [
         Padding(
@@ -85,7 +86,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
             ),
           ),
         ),
-       
+        
           SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s1,

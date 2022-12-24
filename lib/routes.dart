@@ -1,3 +1,4 @@
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/model/plant.dart';
 import 'package:my_plant_application/startpage.dart';
@@ -22,7 +23,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
+        return const StartPage();
       },
     ),
     GoRoute(
