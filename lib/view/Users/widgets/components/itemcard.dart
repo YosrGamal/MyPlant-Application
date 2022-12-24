@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/repositories/plantsdata.dart';
-import 'package:my_plant_application/model/plant.dart';
+import 'package:my_plant_application/domain/plant.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
