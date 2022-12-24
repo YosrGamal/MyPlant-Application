@@ -34,7 +34,8 @@ Container? signInSignUpButton(
           onPressed: () {
             onTap();
           },
-// ignore: sort_child_properties_last
+
+          // ignore: sort_child_properties_last
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
@@ -49,8 +50,6 @@ Container? signInSignUpButton(
                 }
                 return Colors.white;
               }),
-
-// ignore: dead_code
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30))))));
@@ -185,10 +184,7 @@ class _SignupState extends State<Signup> {
                               .then((value) {
                             // ignore: avoid_print
                             print("Created New Account");
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Home()));
+                            context.go('/');
                           }).onError((error, stackTrace) {
                             // ignore: avoid_print
                             print("Error ${error.toString()}");

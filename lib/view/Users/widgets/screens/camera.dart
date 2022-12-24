@@ -1,4 +1,9 @@
+import 'dart:ffi';
+
+// ignore: unused_import
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:my_plant_application/view/Users/widgets/tfmodel/chooseimage.dart';
 
 class Camera extends StatefulWidget {

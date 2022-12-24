@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/startpage.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/signup.dart';
 import 'package:my_plant_application/view/reusable_widget.dart';
@@ -131,15 +132,15 @@ class _LoginState extends State<Login> {
                       SignInSignUpButton(
                           isLogin: true,
                           onTap: () {
+                            print(EmailController.text);
+                            print(PasswordController.text);
+
                             FirebaseAuth.instance
                                 .createUserWithEmailAndPassword(
                                     email: EmailController.text,
                                     password: PasswordController.text)
                                 .then((value) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()));
+                              context.go('/start');
                             }).onError((error, stackTrace) {
                               // ignore: avoid_print
                               print("Error ${error.toString()}");
