@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/model/plant.dart';
-import 'package:my_plant_application/startpage.dart';
+import 'package:my_plant_application/domain/plant.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
 import 'package:my_plant_application/view/Users/widgets/components/per_navbar.dart';
 import 'package:my_plant_application/view/Users/widgets/components/plant_details.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/camera.dart';
@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
+        return const StartPage();
       },
     ),
     GoRoute(
