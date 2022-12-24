@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
 import 'package:my_plant_application/view/Users/widgets/components/time_picker.dart';
@@ -110,7 +109,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
               title: const Text(
                 'Morning',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22,height: 4),
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
               ),
             ),
        SwitchListTile(
