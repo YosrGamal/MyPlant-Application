@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "817346392625",
-    "project_id": "myplant-tanlpym",
-    "storage_bucket": "myplant-tanlpym.appspot.com"
+    "project_number": "1026498971621",
+    "project_id": "my-plant-64953",
+    "storage_bucket": "my-plant-64953.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:817346392625:android:a52fbb6e7035b644ce9b10",
+        "mobilesdk_app_id": "1:1026498971621:android:ba5bc8e8746e6358b6510c",
         "android_client_info": {
           "package_name": "com.myplant.myplant"
         }
       },
       "oauth_client": [
         {
-          "client_id": "817346392625-0gs59uuj3fgmtj76he7e4tho9p4hqv1d.apps.googleusercontent.com",
+          "client_id": "1026498971621-2uqm2m409cbv35fjt3ikl4om7vi19jmi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC9Fi089G-yMLVANe8KHJqhyLKjdRTRnc0"
+          "current_key": "AIzaSyCgK2GRzgj53zzfVzLmaEtzLSTBiwsaceU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "817346392625-0gs59uuj3fgmtj76he7e4tho9p4hqv1d.apps.googleusercontent.com",
+              "client_id": "1026498971621-2uqm2m409cbv35fjt3ikl4om7vi19jmi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
