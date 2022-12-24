@@ -1,4 +1,4 @@
-import 'package:my_plant_application/model/user.dart';
+import 'package:my_plant_application/domain/user.dart';
 
 List<User> users = [
   User(

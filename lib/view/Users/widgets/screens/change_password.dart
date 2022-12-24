@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../model/user.dart';
+import '../../../../domain/user.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   final User user;
