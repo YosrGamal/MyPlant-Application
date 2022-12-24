@@ -1,3 +1,4 @@
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/domain/plant.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
