@@ -1,28 +1,28 @@
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/model/plant.dart';
-import 'package:my_plant_application/startpage.dart';
-import 'package:my_plant_application/widgets/components/per_navbar.dart';
-import 'package:my_plant_application/widgets/components/plant_details.dart';
-import 'package:my_plant_application/widgets/screens/camera.dart';
-import 'package:my_plant_application/widgets/screens/login.dart';
-import 'package:my_plant_application/widgets/screens/signup.dart';
-import 'package:my_plant_application/widgets/screens/library.dart';
-import 'package:my_plant_application/widgets/screens/settings.dart';
-import 'package:my_plant_application/widgets/screens/task.dart';
-import 'package:my_plant_application/widgets/screens/edit_profile.dart';
-import 'package:my_plant_application/widgets/screens/change_password.dart';
-import 'package:my_plant_application/widgets/screens/home.dart';
+import 'package:my_plant_application/domain/plant.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
+import 'package:my_plant_application/view/Users/widgets/components/per_navbar.dart';
+import 'package:my_plant_application/view/Users/widgets/components/plant_details.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/camera.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/login.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/signup.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/library.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/settings.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/task.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/edit_profile.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/change_password.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
 import 'package:go_router/go_router.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_core/firebase_core.dart';
-import 'data/userdata.dart';
+import 'repositories/userdata.dart';
 
 final GoRouter router = GoRouter(
   routes: <GoRoute>[
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
         return const StartPage();
       },
     ),
@@ -62,12 +62,12 @@ final GoRouter router = GoRouter(
         return const Settings();
       },
     ),
-    GoRoute(
-      path: '/camera',
-      builder: (BuildContext context, GoRouterState state) {
-        return const Camera();
-      },
-    ),
+    // GoRoute(
+    //   path: '/camera',
+    //   builder: (BuildContext context, GoRouterState state) {
+    //     return const Camera();
+    //   },
+    // ),
     GoRoute(
       path: '/editprofile',
       builder: (BuildContext context, GoRouterState state) {
