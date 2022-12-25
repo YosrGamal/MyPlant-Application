@@ -17,8 +17,7 @@ class PlantsGrid extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
           child: FutureBuilder(
-            future:
-                FirebaseFirestore.instance.collection('plantsLibrary').get(),
+            future: FirebaseFirestore.instance.collection('plants').get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return GridView.builder(
@@ -35,8 +34,8 @@ class PlantsGrid extends StatelessWidget {
                         snapshot.data!.docs[index];
                     Plant myplant = Plant(
                         id: document.id,
-                        name: document['plant_name'],
-                        imageUrl: document['plant_image']);
+                        name: document['name'],
+                        imageUrl: document['image']);
                     return ItemCard(
                       plant: myplant,
                     );
