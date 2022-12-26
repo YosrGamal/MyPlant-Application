@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/view/Users/widgets/components/itemcard.dart';
-import '../../../../domain/plant.dart';
+
+import '../../domain/plant.dart';
+import '../../view/Users/widgets/components/itemcard.dart';
 
 class PlantsGrid extends StatelessWidget {
   PlantsGrid({super.key});
@@ -43,16 +43,8 @@ class PlantsGrid extends StatelessWidget {
                   },
                 );
               }
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 200),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CircularProgressIndicator(
-                      color: btColor,
-                    ),
-                  ],
-                ),
+              return CircularProgressIndicator(
+                color: Colors.green,
               );
             },
           )),
