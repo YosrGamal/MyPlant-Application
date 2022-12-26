@@ -1,18 +1,20 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
+
+import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/signup.dart';
-import 'package:my_plant_application/view/reusable_widget.dart';
+import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
+import 'package:my_plant_application/view/signinsignup_buttoms.dart';
+
 import '../../../../domain/user.dart';
 import '../components/itemcard.dart';
 import '../components/per_navbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
