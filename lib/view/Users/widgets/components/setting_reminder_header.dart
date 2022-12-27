@@ -42,13 +42,9 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
           ),
         ),
         Container(
-          // ignore: prefer_const_constructors
            padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 15.0),
-          // padding: const EdgeInsets.all(20.0),
-          // ignore: prefer_const_constructors
           child: const Text(
             "Water ",
-            //textAlign: TextAlign.left,
             style: TextStyle(
                 height: 2,
                 fontFamily: 'Inter',
@@ -58,17 +54,13 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
           ),
         ),
         Container(
-          //margin: const EdgeInsets.only(top: 5),
           padding: const EdgeInsets.only(left: 10, right: 10),
           width: MediaQuery.of(context).size.width,
           height: 70,
-          //alignment: Alignment.bottomCenter,
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              // ignore: deprecated_member_use
               primary: const Color.fromARGB(255, 251, 252, 251),
-              // ignore: deprecated_member_use
               onPrimary: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
