@@ -38,7 +38,9 @@ class _SwitchreminderState extends State<Switchreminder> {
                           child: Settingreminder(),
                         );
                       });
+                      
                 });
+                
               },
               title: const Text(
                 'Water',
