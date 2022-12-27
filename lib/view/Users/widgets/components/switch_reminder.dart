@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
 
-// ignore: camel_case_types
 class Switchreminder extends StatefulWidget {
   const Switchreminder({super.key});
 
@@ -9,7 +8,6 @@ class Switchreminder extends StatefulWidget {
   State<Switchreminder> createState() => _SwitchreminderState();
 }
 
-// ignore: camel_case_types
 class _SwitchreminderState extends State<Switchreminder> {
   bool s1 = false, s2 = false, s3 = false, s4 = false, s5 = false;
 
