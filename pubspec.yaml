@@ -49,6 +49,10 @@ dependencies:
   flutter_riverpod: ^2.1.2
   firebase_auth: ^4.2.1
   formz: ^0.4.1
+  equatable: ^2.0.5
+  form_validators: ^0.3.0
+  authentication_repository: ^2.0.0+3
+  auto_exporter: ^1.4.4
 
 dev_dependencies:
 

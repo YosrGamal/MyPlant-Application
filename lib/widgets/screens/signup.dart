@@ -1,16 +1,13 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, non_constant_identifier_names, depend_on_referenced_packages
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 // ignore: unused_import
 // import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
 import 'package:go_router/go_router.dart';
-import 'package:my_plant_application/repositories/userdata.dart';
-import 'package:my_plant_application/view/signinsignup_buttoms.dart';
-import 'home.dart';
+// import 'package:my_plant_application/data/userdata.dart';
 
 final NameController = TextEditingController();
 final EmailController = TextEditingController();
@@ -34,8 +31,7 @@ Container? signInSignUpButton(
           onPressed: () {
             onTap();
           },
-
-          // ignore: sort_child_properties_last
+// ignore: sort_child_properties_last
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
@@ -50,6 +46,8 @@ Container? signInSignUpButton(
                 }
                 return Colors.white;
               }),
+
+// ignore: dead_code
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30))))));
@@ -174,22 +172,38 @@ class _SignupState extends State<Signup> {
                               borderSide: BorderSide(color: Colors.grey))),
                     ),
                     SizedBox(height: 20.0),
-                    SignInSignUpButton(
-                        isLogin: false,
-                        onTap: () {
-                          FirebaseAuth.instance
-                              .createUserWithEmailAndPassword(
-                                  email: EmailController.text,
-                                  password: PasswordController.text)
-                              .then((value) {
-                            // ignore: avoid_print
-                            print("Created New Account");
-                            context.go('/');
-                          }).onError((error, stackTrace) {
-                            // ignore: avoid_print
-                            print("Error ${error.toString()}");
+                    Container(
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // if (formKey.currentState!.validate()) {
+                          final splitted = NameController.text.split(' ');
+                          String firstName = splitted[0];
+                          String lastName = splitted[1];
+                          CollectionReference usersRef =
+                              FirebaseFirestore.instance.collection('users');
+                          usersRef.add({
+                            'firstName': firstName,
+                            'lastName': lastName,
+                            'email': EmailController.text,
+                            'password': PasswordController.text,
                           });
-                        }),
+                          context.go('/navbar');
+                          // }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          // ignore: deprecated_member_use
+                          primary: Color.fromARGB(255, 52, 78, 65),
+                          // ignore: deprecated_member_use
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        child: Text('SignUp'),
+                      ),
+                    ),
                     SizedBox(height: 20.0),
                     Center(
                       child: InkWell(
