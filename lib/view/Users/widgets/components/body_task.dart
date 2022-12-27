@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/task_tab.dart';
-import 'package:my_plant_application/view/Users/widgets/components/panel.dart';
 
 class BodyTask extends StatefulWidget {
   const BodyTask({super.key});
   @override
+  // ignore: library_private_types_in_public_api
   _BodyTaskState createState() => _BodyTaskState();
 }
 
