@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/setting_reminder_header.dart';
-import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
 
 class Settingreminder extends StatelessWidget {
   const Settingreminder({super.key});
   @override
   Widget build(BuildContext context) {
-     const Switchsettingreminder();
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
@@ -18,7 +16,7 @@ class Settingreminder extends StatelessWidget {
               width: double.infinity,
             ),
             Container(
-            margin: const EdgeInsets.only(top: 302),
+            margin: const EdgeInsets.only(top: 330),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -29,7 +27,7 @@ class Settingreminder extends StatelessWidget {
             ),
           ),
             Container(
-            margin: const EdgeInsets.only(top: 250),
+            margin: const EdgeInsets.only(top: 270),
             padding: const EdgeInsets.all(60),
             height: 30,
             width: 70,
@@ -39,7 +37,7 @@ class Settingreminder extends StatelessWidget {
                   fit: BoxFit.contain),
             ),
           ),
-            HeaderSettingReminder(size: size),
+            const HeaderSettingReminder(),
           ]),
         ],
       ),
