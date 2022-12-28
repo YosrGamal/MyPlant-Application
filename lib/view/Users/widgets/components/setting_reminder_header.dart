@@ -75,8 +75,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
           ),
         ),
         Container(
-          padding: const EdgeInsets.fromLTRB(50.0, 20.0, 0.0, 0.0),
-          height: 60,
+          padding: const EdgeInsets.fromLTRB(50.0, 90.0, 0.0, 0.0),
         child:  SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s1,
@@ -104,7 +103,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
               ),
             ),),
             Container(
-             padding: const EdgeInsets.fromLTRB(50.0, 20.0, 0.0, 0.0),
+             padding: const EdgeInsets.fromLTRB(50.0, 10.0, 0.0, 0.0),
             child:SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s2,
