@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
 import 'package:my_plant_application/view/Users/widgets/components/time_picker.dart';
 
 class HeaderSettingReminder extends StatefulWidget {
