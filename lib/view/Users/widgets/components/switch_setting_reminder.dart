@@ -3,11 +3,9 @@ import 'package:my_plant_application/view/Users/widgets/components/time_picker.d
 
 class Switchsettingreminder extends StatefulWidget {
   const Switchsettingreminder({super.key});
-
   @override
   State<Switchsettingreminder> createState() => _SwitchsettingreminderState();
 }
-
 class _SwitchsettingreminderState extends State<Switchsettingreminder> {
   bool s1 = false, s2 = false;
 
