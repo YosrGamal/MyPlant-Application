@@ -12,7 +12,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
   bool s1 = false, s2 = false;
   @override
   Widget build(BuildContext context) { 
-    const Switchsettingreminder();
+   
     return Column(
       
       children: [
