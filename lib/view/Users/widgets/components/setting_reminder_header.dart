@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
+import 'package:my_plant_application/view/Users/widgets/components/time_picker.dart';
 
 class HeaderSettingReminder extends StatefulWidget {
-  const HeaderSettingReminder({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-  final Size size;
-
+  const HeaderSettingReminder({super.key});
   @override
   State<HeaderSettingReminder> createState() => _HeaderSettingReminderState();
 }
@@ -16,8 +12,9 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
   bool s1 = false, s2 = false;
   @override
   Widget build(BuildContext context) { 
-    //const Switchsettingreminder();
+    const Switchsettingreminder();
     return Column(
+      
       children: [
         Padding(
           padding: const EdgeInsets.all(30.0),
@@ -53,6 +50,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
                 color: Color.fromARGB(255, 60, 100, 73)),
           ),
         ),
+       
         Container(
           padding: const EdgeInsets.only(left: 10, right: 10),
           width: MediaQuery.of(context).size.width,
@@ -76,6 +74,63 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
             ),
           ),
         ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(50.0, 20.0, 0.0, 0.0),
+          height: 60,
+        child:  SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s1,
+              onChanged: (bool value) {
+                setState(() {
+                  s1 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          height: 100,
+                          child: Time(),
+                        );
+                      });
+                });
+              },
+              title: const Text(
+                'Morning',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),),
+            Container(
+             padding: const EdgeInsets.fromLTRB(50.0, 20.0, 0.0, 0.0),
+            child:SwitchListTile(
+              activeColor: const Color.fromARGB(255, 67, 105, 68),
+              value: s2,
+              onChanged: (bool value) {
+                setState(() {
+                  s2 = value;
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0))),
+                      builder: (BuildContext context) {
+                        return const SizedBox(
+                          height: 100,
+                          child: Time(),
+                        );
+                      });
+                });
+              },
+              title: const Text(
+                'Evening',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 60, 100, 73), fontSize: 22),
+              ),
+            ),),
         // Padding(
         //   padding: const EdgeInsets.only(top: 20, bottom: 60),
         //   child: Center(
