@@ -34,6 +34,15 @@ class Time extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   DatePicker.showTime12hPicker(context, showTitleActions: true,
+                    theme: const DatePickerTheme(
+                          headerColor: Color.fromARGB(255, 77, 114, 87),
+                          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                          itemStyle: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          doneStyle:
+                              TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {
                   }, onConfirm: (date) {
                   }, currentTime: DateTime.now());
