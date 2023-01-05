@@ -60,9 +60,6 @@ class TabLibraryState extends State<TabLibrary>
                     child: Text('Library'),
                   ),
                   Tab(
-                    child: Text('Collections'),
-                  ),
-                  Tab(
                     child: Text('Favorites'),
                   ),
                 ],
@@ -78,14 +75,6 @@ class TabLibraryState extends State<TabLibrary>
                     height: MediaQuery.of(context).size.height,
                     width: double.infinity,
                     child: PlantsGrid(),
-                  ),
-                  Container(
-                    height: 1000,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          25.0,
-                        ),
-                        color: Colors.blue),
                   ),
                   Container(
                     decoration: BoxDecoration(
