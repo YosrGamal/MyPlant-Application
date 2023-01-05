@@ -15,7 +15,7 @@ class TabLibraryState extends State<TabLibrary>
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
     // tabController.addListener(() {
     //   setState(() {});
     // });
