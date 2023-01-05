@@ -5,7 +5,6 @@ class Settingreminder extends StatelessWidget {
   const Settingreminder({super.key});
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
         children: [
