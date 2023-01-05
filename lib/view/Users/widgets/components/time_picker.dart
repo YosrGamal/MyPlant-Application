@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter/cupertino.dart';
 class CustomPicker extends CommonPickerModel {
   String digits(int value, int length) {
     return '$value'.padLeft(length, "0");
@@ -51,6 +52,16 @@ class Time extends StatelessWidget {
                   'Tap to set time',
                   style: TextStyle(color: Color.fromARGB(255, 54, 99, 52)),
                 )),
+            //         SizedBox(
+            //   height: 330,
+            //   child: CupertinoDatePicker(
+            //     mode: CupertinoDatePickerMode.date,
+            //     initialDateTime: DateTime(1969, 1, 1),
+            //     onDateTimeChanged: (DateTime newDateTime) {
+            //       // Do something
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
