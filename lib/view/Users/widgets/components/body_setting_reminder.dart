@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/view/Users/widgets/components/setting_reminder_header.dart';
+import 'package:my_plant_application/view/Users/widgets/components/switch_setting_reminder.dart';
 
 class Settingreminder extends StatelessWidget {
   const Settingreminder({super.key});
@@ -60,7 +60,7 @@ class Settingreminder extends StatelessWidget {
                   fit: BoxFit.contain),
             ),
           ),
-            const HeaderSettingReminder(),
+            const Switchsettingreminder(),
           ]),
         ],
       ),

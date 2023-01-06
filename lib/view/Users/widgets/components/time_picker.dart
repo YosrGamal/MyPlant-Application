@@ -47,20 +47,10 @@ class Time extends StatelessWidget {
                   }, onConfirm: (date) {
                   }, currentTime: DateTime.now());
                 },
-        child: Text(
+        child: const Text(
           'tap to set time',
         ),
                 ),
-            //         SizedBox(
-            //   height: 330,
-            //   child: CupertinoDatePicker(
-            //     mode: CupertinoDatePickerMode.date,
-            //     initialDateTime: DateTime(1969, 1, 1),
-            //     onDateTimeChanged: (DateTime newDateTime) {
-            //       // Do something
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

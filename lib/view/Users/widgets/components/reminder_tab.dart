@@ -4,7 +4,6 @@ class TabReminder extends StatefulWidget {
   const TabReminder({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _TabReminderState createState() => _TabReminderState();
 }
 
@@ -31,7 +30,6 @@ class _TabReminderState extends State<TabReminder>
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // give the tab bar a height [can change hheight to preferred height]
             Container(
               margin: const EdgeInsets.only(top: 275),
               height: 45,
@@ -43,7 +41,6 @@ class _TabReminderState extends State<TabReminder>
               ),
               child: TabBar(
                 controller: _tabController,
-                // give the indicator a decoration (color and border radius)
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     25.0,
@@ -53,19 +50,15 @@ class _TabReminderState extends State<TabReminder>
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black,
                 tabs: const [
-                  // first tab [you can add an icon using the icon property]
                   Tab(
                     text: 'Reminder',
                   ),
-
-                  // second tab [you can add an icon using the icon property]
                   Tab(
                     text: 'Note',
                   ),
                 ],
               ),
             ),
-            // tab bar view here
           ],
         ),
       ),
