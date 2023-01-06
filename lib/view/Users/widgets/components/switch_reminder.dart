@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
-
 class Switchreminder extends StatefulWidget {
   const Switchreminder({super.key});
 
   @override
   State<Switchreminder> createState() => _SwitchreminderState();
 }
-
 class _SwitchreminderState extends State<Switchreminder> {
   bool s1 = false, s2 = false, s3 = false, s4 = false, s5 = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
