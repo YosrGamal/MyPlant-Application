@@ -25,8 +25,9 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s1 = value;
+                  if(s1 == true){
                   showModalBottomSheet(
-                      isScrollControlled: true,
+                      isScrollControlled: true,                   
                       context: context,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
@@ -36,7 +37,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                           child: Settingreminder(),
                         );
                       });
-                      
+                    }
                 });
                 
               },
@@ -52,6 +53,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s2 = value;
+                  if(s2 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -62,7 +64,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
@@ -77,6 +79,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s3 = value;
+                  if(s3 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -87,7 +90,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
@@ -102,6 +105,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s4 = value;
+                  if(s4 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -112,7 +116,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
