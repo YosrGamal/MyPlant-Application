@@ -36,7 +36,8 @@ class PlantsGrid extends StatelessWidget {
                     Plant myplant = Plant(
                         id: document.id,
                         name: document['name'],
-                        imageUrl: document['image']);
+                        imageUrl: document['image'],
+                        isfavorite: document['isfav']);
                     return ItemCard(
                       plant: myplant,
                     );

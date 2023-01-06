@@ -68,17 +68,17 @@ class _ItemCardState extends State<ItemCard> {
                       //         isfavorite: widget.plant.isfavorite));
                       //   },
                       // ),
-                      // FavoriteButton(
-                      //   isFavorite: widget.plant.isfavorite,
-                      //   iconSize: 40,
-                      //   iconColor: btColor,
-                      //   valueChanged: (isFavorite) {
-                      //     widget.plant.togglefav();
-                      //   },
-                      // ),
-                      // widget.plant.isfavorite
-                      //     ? Icon(Icons.favorite, color: Colors.red[800])
-                      //     : Icon(Icons.favorite_border, color: Colors.red[800])
+                      FavoriteButton(
+                        isFavorite: widget.plant.isfavorite,
+                        iconSize: 40,
+                        iconColor: btColor,
+                        valueChanged: (isFavorite) {
+                          widget.plant.isfavorite;
+                        },
+                      ),
+                      widget.plant.isfavorite
+                          ? Icon(Icons.favorite, color: Colors.red[800])
+                          : Icon(Icons.favorite_border, color: Colors.red[800])
                     ],
                   ),
                 ),
