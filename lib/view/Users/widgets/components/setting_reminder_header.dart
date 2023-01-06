@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/view/Users/widgets/components/time_picker.dart';
-
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+class CustomPicker extends CommonPickerModel {
+  String digits(int value, int length) {
+    return '$value'.padLeft(length, "0");
+  }
+  @override
+  DateTime finalTime() {
+    return currentTime.isUtc
+        ? DateTime.utc(
+            currentTime.year,
+            currentTime.month,
+            currentTime.day,
+            currentLeftIndex(),
+            currentMiddleIndex(),
+            currentRightIndex())
+        : DateTime(
+            currentTime.year,
+            currentTime.month,
+            currentTime.day,
+            currentLeftIndex(),
+            currentMiddleIndex(),
+            currentRightIndex());
+  }
+}
 class HeaderSettingReminder extends StatefulWidget {
   const HeaderSettingReminder({super.key});
   @override
@@ -57,8 +79,7 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              primary: const Color.fromARGB(255, 251, 252, 251),
-              onPrimary: Colors.white,
+              foregroundColor: Colors.white, backgroundColor: const Color.fromARGB(255, 251, 252, 251),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
             ),
@@ -78,23 +99,27 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
         child:  SwitchListTile(
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s1,
-              onChanged: (bool value) {
+              
+              onChanged: (bool value)
+               {
+                 DatePicker.showTime12hPicker(context, showTitleActions: true,
+                    theme: const DatePickerTheme(
+                          headerColor: Color.fromARGB(255, 77, 114, 87),
+                          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                          itemStyle: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          doneStyle:
+                              TextStyle(color: Colors.white, fontSize: 16)),
+                      onChanged: (date) {
+                  }, onConfirm: (date) {
+                  }, currentTime: DateTime.now());
                 setState(() {
                   s1 = value;
-                  showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          height: 100,
-                          child: Time(),
-                        );
-                      });
-                });
-              },
+                }); 
+              }, 
+               
               title: const Text(
                 'Morning',
                 style: TextStyle(
@@ -107,20 +132,21 @@ class _HeaderSettingReminderState extends State<HeaderSettingReminder> {
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s2,
               onChanged: (bool value) {
+                                 DatePicker.showTime12hPicker(context, showTitleActions: true,
+                    theme: const DatePickerTheme(
+                          headerColor: Color.fromARGB(255, 77, 114, 87),
+                          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                          itemStyle: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                          doneStyle:
+                              TextStyle(color: Colors.white, fontSize: 16)),
+                      onChanged: (date) {
+                  }, onConfirm: (date) {
+                  }, currentTime: DateTime.now());
                 setState(() {
                   s2 = value;
-                  showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          height: 100,
-                          child: Time(),
-                        );
-                      });
                 });
               },
               title: const Text(
