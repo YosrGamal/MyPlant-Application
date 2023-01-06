@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
-
 class Switchreminder extends StatefulWidget {
   const Switchreminder({super.key});
 
   @override
   State<Switchreminder> createState() => _SwitchreminderState();
 }
-
 class _SwitchreminderState extends State<Switchreminder> {
   bool s1 = false, s2 = false, s3 = false, s4 = false, s5 = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +22,9 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s1 = value;
+                  if(s1 == true){
                   showModalBottomSheet(
-                      isScrollControlled: true,
+                      isScrollControlled: true,                   
                       context: context,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
@@ -36,7 +34,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                           child: Settingreminder(),
                         );
                       });
-                      
+                    }
                 });
                 
               },
@@ -52,6 +50,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s2 = value;
+                  if(s2 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -62,7 +61,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
@@ -77,6 +76,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s3 = value;
+                  if(s3 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -87,7 +87,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
@@ -102,6 +102,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s4 = value;
+                  if(s4 == true){
                   showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -112,7 +113,7 @@ class _SwitchreminderState extends State<Switchreminder> {
                         return const SizedBox(
                           child: Settingreminder(),
                         );
-                      });
+                      }); }
                 });
               },
               title: const Text(
