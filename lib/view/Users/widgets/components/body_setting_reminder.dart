@@ -40,7 +40,7 @@ class _SettingreminderState extends State<Settingreminder> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(130.0, 85.0, 0.0, 15.0),
+              padding: const EdgeInsets.fromLTRB(136.0, 85.0, 0.0, 15.0),
               child: const Text(
                 "Water ",
                 style: TextStyle(
