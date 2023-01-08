@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/domain/plant.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
+
 class Switchreminder extends StatefulWidget {
-  const Switchreminder({super.key});
+  final Plant plant;
+  const Switchreminder({required this.plant, super.key});
 
   @override
   State<Switchreminder> createState() => _SwitchreminderState();
 }
+
 class _SwitchreminderState extends State<Switchreminder> {
   bool s1 = false, s2 = false, s3 = false, s4 = false, s5 = false;
   @override
@@ -22,21 +26,20 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s1 = value;
-                  if(s1 == true){
-                  showModalBottomSheet(
-                      isScrollControlled: true,                   
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          child: Settingreminder(),
-                        );
-                      });
-                    }
+                  if (s1 == true) {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0))),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            child: Settingreminder(plant: widget.plant),
+                          );
+                        });
+                  }
                 });
-                
               },
               title: const Text(
                 'Water',
@@ -50,18 +53,19 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s2 = value;
-                  if(s2 == true){
-                  showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          child: Settingreminder(),
-                        );
-                      }); }
+                  if (s2 == true) {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0))),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            child: Settingreminder(plant: widget.plant),
+                          );
+                        });
+                  }
                 });
               },
               title: const Text(
@@ -76,18 +80,21 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s3 = value;
-                  if(s3 == true){
-                  showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          child: Settingreminder(),
-                        );
-                      }); }
+                  if (s3 == true) {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0))),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            child: Settingreminder(
+                              plant: widget.plant,
+                            ),
+                          );
+                        });
+                  }
                 });
               },
               title: const Text(
@@ -102,18 +109,19 @@ class _SwitchreminderState extends State<Switchreminder> {
               onChanged: (bool value) {
                 setState(() {
                   s4 = value;
-                  if(s4 == true){
-                  showModalBottomSheet(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25.0))),
-                      builder: (BuildContext context) {
-                        return const SizedBox(
-                          child: Settingreminder(),
-                        );
-                      }); }
+                  if (s4 == true) {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(25.0))),
+                        builder: (BuildContext context) {
+                          return SizedBox(
+                            child: Settingreminder(plant: widget.plant),
+                          );
+                        });
+                  }
                 });
               },
               title: const Text(

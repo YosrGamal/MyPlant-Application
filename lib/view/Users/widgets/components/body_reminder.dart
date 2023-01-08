@@ -20,8 +20,8 @@ class BodyReminder extends StatelessWidget {
             },
           )),
       body: SafeArea(
-        child: Stack(children: <Widget>[
-          const Switchreminder(),
+        child: Stack(children: [
+          Switchreminder(plant: plant),
           Container(
             padding: const EdgeInsets.fromLTRB(100.0, 10.0, 50.0, 0.0),
             height: 210,
