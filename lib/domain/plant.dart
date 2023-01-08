@@ -1,8 +1,10 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 class Plant {
   final String? id;
-  final String name;
-  final String imageUrl;
-  final bool isfavorite;
+  final String? name;
+  final String? imageUrl;
+  bool? isfavorite = false;
 
   Plant(
       {required this.id,
@@ -18,5 +20,10 @@ class Plant {
 
   Map<String, dynamic> toMap() {
     return {'id': id, 'name': name, 'imageurl': imageUrl, 'isfav': isfavorite};
+  }
+
+  @override
+  String toString() {
+    return 'Plant{id:$id, name: $name, imageUrl: $imageUrl, isfavorite: $isfavorite}';
   }
 }
