@@ -40,7 +40,7 @@ class _ItemCardState extends State<ItemCard> {
                       child: AspectRatio(
                         aspectRatio: 16 / 16,
                         child: Image.network(
-                          widget.plant.imageUrl,
+                          widget.plant.imageUrl!,
                           fit: BoxFit.cover,
                         ),
                       )),
@@ -76,7 +76,7 @@ class _ItemCardState extends State<ItemCard> {
                           widget.plant.isfavorite;
                         },
                       ),
-                      widget.plant.isfavorite
+                      widget.plant.isfavorite!
                           ? Icon(Icons.favorite, color: Colors.red[800])
                           : Icon(Icons.favorite_border, color: Colors.red[800])
                     ],
@@ -86,7 +86,7 @@ class _ItemCardState extends State<ItemCard> {
               Padding(
                 padding: const EdgeInsets.all(0),
                 child: Text(
-                  widget.plant.name,
+                  widget.plant.name!,
                   style: const TextStyle(
                       color: tColor, fontFamily: 'Inter', fontSize: 14),
                 ),
