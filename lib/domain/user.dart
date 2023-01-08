@@ -1,8 +1,10 @@
 class User {
-  int id;
+  String id;
   String email;
   String username;
   String password;
+  String dob;
+  String profilepic;
   String regDate;
 
   User({
@@ -10,27 +12,29 @@ class User {
     required this.email,
     required this.username,
     required this.password,
+    required this.dob,
+    required this.profilepic,
     required this.regDate,
   });
-  // save() {
-  //   //code to save to database or server
-  //   print('saving user data');
-  //   print('$firstName $lastName');
-  //   if (interests[reading]!) {
-  //     print(reading);
-  //   }
 
-  //   if (interests[chess]!) {
-  //     print(chess);
-  //   }
+  factory User.fromMap(Map<String, dynamic> json) => User(
+      id: json['id'],
+      email: json['email'],
+      username: json['username'],
+      password: json['password'],
+      dob: json['dob'],
+      profilepic: json['profilepic'],
+      regDate: json['regDate']);
 
-  //   if (interests[traveling]!) {
-  //     print(traveling);
-  //   }
-
-  //   if (newsletter) {
-  //     print('get newsletter');
-  //   }
-  // }
-
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'email': email,
+      'username': username,
+      'password': password,
+      'dob': dob,
+      'profilepic': profilepic,
+      'regDate': regDate
+    };
+  }
 }
