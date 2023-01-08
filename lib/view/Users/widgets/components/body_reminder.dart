@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/domain/plant.dart';
 import 'package:my_plant_application/view/Users/widgets/components/switch_reminder.dart';
 
 class BodyReminder extends StatelessWidget {
-  final String name;
-  final String imgUrl;
-  const BodyReminder({required this.name, required this.imgUrl, super.key});
+  final Plant plant;
+  const BodyReminder({required this.plant, super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +26,8 @@ class BodyReminder extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(100.0, 10.0, 50.0, 0.0),
             height: 210,
             width: 340,
-            child: Image.asset(
-              imgUrl,
+            child: Image.network(
+              plant.imageUrl!,
               fit: BoxFit.cover,
             ),
           ),
@@ -47,7 +47,7 @@ class BodyReminder extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
               ),
               child: Text(
-                name,
+                plant.name!,
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                     fontFamily: 'Inter',

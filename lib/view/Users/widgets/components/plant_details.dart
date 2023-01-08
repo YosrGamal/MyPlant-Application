@@ -28,7 +28,7 @@ class PlantDetail extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Image.network(
-                plant.imageUrl,
+                plant.imageUrl!,
                 fit: BoxFit.cover,
                 height: 300,
                 width: 20,
@@ -40,7 +40,7 @@ class PlantDetail extends StatelessWidget {
           ),
           Center(
             child: Text(
-              plant.name,
+              plant.name!,
               style: const TextStyle(
                   color: tColor, fontFamily: 'Inter', fontSize: 30),
             ),
@@ -59,7 +59,8 @@ class PlantDetail extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => BodyReminder(
-                              name: plant.name, imgUrl: plant.imageUrl)),
+                                plant: plant,
+                              )),
                     );
                   },
                   style: ElevatedButton.styleFrom(
