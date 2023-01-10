@@ -15,6 +15,7 @@ import 'home.dart';
 final NameController = TextEditingController();
 final EmailController = TextEditingController();
 final PasswordController = TextEditingController();
+final dateController = TextEditingController();
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -57,6 +58,24 @@ Container? signInSignUpButton(
 
 class _SignupState extends State<Signup> {
   final formKey = GlobalKey<FormState>();
+
+  Future createUser({
+    required String name,
+    required String email,
+    required String date,
+  }) async {
+    final userInsatnce = FirebaseFirestore.instance.collection('users').doc();
+
+    final userData = {
+      'name': name,
+      'email': email,
+      'Date of birth': date,
+      'profile picture ': "",
+    };
+
+    await userInsatnce.set(userData);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,6 +192,30 @@ class _SignupState extends State<Signup> {
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey))),
                     ),
+                    TextFormField(
+                      controller: dateController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter date';
+                        } else {
+                          return null;
+                        }
+                      },
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color(0XFFD3D3D3),
+                          hintText: 'Date of birth',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey))),
+                    ),
                     SizedBox(height: 20.0),
                     SignInSignUpButton(
                         isLogin: false,
@@ -182,6 +225,10 @@ class _SignupState extends State<Signup> {
                                   email: EmailController.text,
                                   password: PasswordController.text)
                               .then((value) {
+                            createUser(
+                                name: NameController.text,
+                                email: EmailController.text,
+                                date: dateController.text);
                             // ignore: avoid_print
                             print("Created New Account");
                             context.go('/');
