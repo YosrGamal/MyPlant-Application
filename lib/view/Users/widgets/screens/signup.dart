@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
 import 'package:my_plant_application/view/signinsignup_buttoms.dart';
+import '../../../../data/repository/user_repo.dart';
 import 'home.dart';
 
 final NameController = TextEditingController();
@@ -58,24 +59,6 @@ Container? signInSignUpButton(
 
 class _SignupState extends State<Signup> {
   final formKey = GlobalKey<FormState>();
-
-  Future createUser({
-    required String name,
-    required String email,
-    required String date,
-  }) async {
-    final userInsatnce = FirebaseFirestore.instance.collection('users').doc();
-
-    final userData = {
-      'name': name,
-      'email': email,
-      'Date of birth': date,
-      'profile picture ': "",
-    };
-
-    await userInsatnce.set(userData);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

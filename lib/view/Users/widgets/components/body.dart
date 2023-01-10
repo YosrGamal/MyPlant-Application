@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/view/Users/widgets/components/gridview_plants.dart';
 import 'package:my_plant_application/view/Users/widgets/components/home_header.dart';
-import 'package:my_plant_application/repositories/plantsdata.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
