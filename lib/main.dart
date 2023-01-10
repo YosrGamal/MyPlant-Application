@@ -16,7 +16,6 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   // ignore: unused_field
-  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
