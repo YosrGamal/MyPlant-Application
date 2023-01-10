@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages, avoid_print
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, dead_code, depend_on_referenced_packages, avoid_print, non_constant_identifier_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,7 +27,8 @@ class _LoginState extends State<Login> {
 //login function
 
   bool isHiddenPassword = true;
-
+  final EmailController = TextEditingController();
+  final PasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -57,6 +58,7 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        controller: EmailController,
                         validator: (value) {
                           RegExp regex = RegExp(r'^(?=.*?[@])');
                           if (value!.isEmpty) {
@@ -89,6 +91,7 @@ class _LoginState extends State<Login> {
                       ),
                       TextFormField(
                         obscureText: isHiddenPassword,
+                        controller: PasswordController,
 
                         ///to make the dots in the password
 
@@ -138,10 +141,11 @@ class _LoginState extends State<Login> {
                             print(PasswordController.text);
 
                             FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
+                                .signInWithEmailAndPassword(
                                     email: EmailController.text,
                                     password: PasswordController.text)
                                 .then((value) {
+                              print(value);
                               context.go('/start');
                             }).onError((error, stackTrace) {
                               // ignore: avoid_print
