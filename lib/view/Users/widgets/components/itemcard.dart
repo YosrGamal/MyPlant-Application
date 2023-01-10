@@ -76,9 +76,6 @@ class _ItemCardState extends State<ItemCard> {
                           widget.plant.isfavorite;
                         },
                       ),
-                      widget.plant.isfavorite!
-                          ? Icon(Icons.favorite, color: Colors.red[800])
-                          : Icon(Icons.favorite_border, color: Colors.red[800])
                     ],
                   ),
                 ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+
 
 class HeaderWithSearchBar extends StatelessWidget {
   final Size size;
@@ -8,6 +11,7 @@ class HeaderWithSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      
       children: [
         Stack(
           children: [
@@ -21,8 +25,8 @@ class HeaderWithSearchBar extends StatelessWidget {
                     height: size.height * 0.6 - 10,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
+                      children:[
+                       const Text(
                           'Welcome',
                           style: TextStyle(
                             fontSize: 40,
@@ -31,6 +35,16 @@ class HeaderWithSearchBar extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
+                       
+                       const SizedBox(height: 10,),
+                      //  FutureBuilder(future: Provider.of(context).auth.getCurrentUser(),
+                      //   builder: (context, snapshot) {
+                      //    if(snapshot.connectionState == ConnectionState.done) {
+                      //     return Text("${snapshot.data.displayName}");
+                      //    }else{
+                      //     return CircularProgressIndicator();
+                      //    }
+                      //  }),
                         const Padding(
                           padding: EdgeInsets.only(right: 20),
                           child: CircleAvatar(
@@ -51,6 +65,7 @@ class HeaderWithSearchBar extends StatelessWidget {
           ],
         ),
       ],
-    );
+    ); 
   }
 }
+

@@ -2,6 +2,7 @@ class Reminder{
     String? id;
     String? taskname;
     String? time;
+    String? plantname;
     String? date;
     String? repeat;
     
