@@ -10,6 +10,7 @@ Reminder({
     this.id,
     this.taskname,
     this.time,
+    this.plantname,
     this.date,
     this.repeat,
 });
@@ -18,6 +19,7 @@ Reminder.fromJson(Map<String, dynamic> json){
     id = json['id'];
     taskname = json['taskname'];
     time = json['time'];
+    plantname = json['plantname'];
     date = json['date'];
     repeat = json['repeat'];
 }
@@ -27,6 +29,7 @@ Map<String, dynamic> toJson() {
     data['id'] = id;
     data['taskname'] = taskname;
     data['time'] = time;
+    data['plantname'] = plantname;
     data['date'] = date;
     data['repeat'] = repeat;
 
