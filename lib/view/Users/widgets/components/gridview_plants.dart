@@ -5,7 +5,7 @@ import 'package:my_plant_application/view/Users/widgets/components/itemcard.dart
 import '../../../../domain/plant.dart';
 
 class PlantsGrid extends StatelessWidget {
-  PlantsGrid({super.key});
+  const PlantsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class PlantsGrid extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 200),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     CircularProgressIndicator(
                       color: btColor,
                     ),
