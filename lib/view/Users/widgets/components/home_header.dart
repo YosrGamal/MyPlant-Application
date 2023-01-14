@@ -22,6 +22,7 @@ class _HeaderWithSearchBarState extends State<HeaderWithSearchBar> {
   Future<void> getData() async {
     name = await getUserName();
     if (name.isNotEmpty) {
+      // ignore: avoid_print
       print('name is $name');
       setState(() {
         isloaded = true;
@@ -52,7 +53,7 @@ class _HeaderWithSearchBarState extends State<HeaderWithSearchBar> {
                           Text(
                             'Welcome $name',
                             style: const TextStyle(
-                              fontSize: 40,
+                              fontSize: 30,
                               color: tColor,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.normal,
@@ -74,7 +75,7 @@ class _HeaderWithSearchBarState extends State<HeaderWithSearchBar> {
                             padding: EdgeInsets.only(right: 20),
                             child: CircleAvatar(
                               backgroundColor: Color(0xffE6E6E6),
-                              radius: 30,
+                              radius: 25,
                               child: Icon(
                                 Icons.person,
                                 color: Color(0xffCCCCCC),
