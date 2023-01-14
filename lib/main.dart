@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_unnecessary_containers, use_key_in_widget_constructors
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
@@ -15,7 +13,6 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // ignore: unused_field
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

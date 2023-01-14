@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
-import 'package:my_plant_application/view/Users/widgets/tfmodel/showingresult.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:tflite/tflite.dart';
 
 class ChooseImage extends StatefulWidget {
@@ -16,6 +15,8 @@ class ChooseImage extends StatefulWidget {
 
 class _ChooseImageState extends State<ChooseImage> {
   File? image;
+
+  String imageUrl = '';
 
   Future uploadImage() async {
     // final path = '';
@@ -67,9 +68,27 @@ class _ChooseImageState extends State<ChooseImage> {
               ),
               child: const Text('Pick From Gallery',
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')),
-              onPressed: (() {
-                pickImage(ImageSource.gallery);
-              })),
+              onPressed: () async {
+                XFile? file = await pickImage(ImageSource.gallery);
+
+                if (file == null) return;
+                String uniqueFileName =
+                    DateTime.now().millisecondsSinceEpoch.toString();
+                Reference referenceRoot = FirebaseStorage.instance.ref();
+                Reference referenceDirImages = referenceRoot.child('images');
+
+                Reference referenceImageToUpload =
+                    referenceDirImages.child(uniqueFileName);
+
+                try {
+                  await referenceImageToUpload.putFile(File(file.path));
+
+                  imageUrl = await referenceImageToUpload.getDownloadURL();
+                } catch (error) {
+                  //some error occured
+                  throw Exception('Error Occured').toString();
+                }
+              }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: btColor,

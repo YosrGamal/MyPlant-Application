@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/data/providers/fav_provider.dart';
 import 'package:my_plant_application/repositories/plantsdata.dart';
 import 'package:my_plant_application/domain/plant.dart';
 import 'package:favorite_button/favorite_button.dart';
-import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ItemCard extends StatefulWidget {
+class ItemCard extends ConsumerStatefulWidget {
   final Plant plant;
 
   const ItemCard({required this.plant, super.key});
 
   @override
-  State<ItemCard> createState() => _ItemCardState();
+  ConsumerState<ItemCard> createState() => _ItemCardState();
 }
 
-class _ItemCardState extends State<ItemCard> {
+class _ItemCardState extends ConsumerState<ItemCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -45,40 +46,56 @@ class _ItemCardState extends State<ItemCard> {
                         ),
                       )),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      // IconButton(
-                      //   splashColor: Colors.blueAccent,
-                      //   icon: provider.isExist(PlantModel(
-                      //           id: widget.plant.id,
-                      //           name: widget.plant.name,
-                      //           imageUrl: widget.plant.imageUrl,
-                      //           isfavorite: widget.plant.isfavorite))
-                      //       ? const Icon(Icons.favorite)
-                      //       : const Icon(Icons.favorite_border_outlined),
-                      //   color: Color.fromARGB(255, 185, 39, 28),
-                      //   onPressed: () {
-                      //     provider.toggleFavorite(PlantModel(
-                      //         id: widget.plant.id,
-                      //         name: widget.plant.name,
-                      //         imageUrl: widget.plant.imageUrl,
-                      //         isfavorite: widget.plant.isfavorite));
-                      //   },
-                      // ),
-                      FavoriteButton(
-                        isFavorite: widget.plant.isfavorite,
-                        iconSize: 40,
-                        iconColor: btColor,
-                        valueChanged: (isFavorite) {
-                          widget.plant.isfavorite;
-                        },
-                      ),
-                    ],
-                  ),
-                ),
+                Consumer(builder: (context, WidgetRef ref, __) {
+                  ref.watch(favProvider);
+                  bool isfav =
+                      ref.watch(favProvider.notifier).isFav(widget.plant.id!);
+
+                  return Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          splashColor: Colors.blueAccent,
+                          icon: isfav
+                              ? const Icon(Icons.favorite)
+                              : const Icon(Icons.favorite_border_outlined),
+                          color: const Color.fromARGB(255, 185, 39, 28),
+                          onPressed: () {
+                            if (isfav) {
+                              isfav = false;
+                            } else {
+                              isfav = true;
+                            }
+                            if (isfav) {
+                              ref
+                                  .read(favProvider.notifier)
+                                  .addItem(widget.plant.id!);
+                            } else {
+                              ref
+                                  .read(favProvider.notifier)
+                                  .removeItem(widget.plant.id!);
+                            }
+                            // provider.toggleFavorite(PlantModel(
+                            //     id: widget.plant.id,
+                            //     name: widget.plant.name,
+                            //     imageUrl: widget.plant.imageUrl,
+                            //     isfavorite: widget.plant.isfavorite));
+                          },
+                        ),
+                        // FavoriteButton(
+                        //   isFavorite: widget.plant.isfavorite,
+                        //   iconSize: 40,
+                        //   iconColor: btColor,
+                        //   valueChanged: (isFavorite) {
+                        //     widget.plant.isfavorite;
+                        //   },
+                        // ),
+                      ],
+                    ),
+                  );
+                }),
               ]),
               Padding(
                 padding: const EdgeInsets.all(0),
