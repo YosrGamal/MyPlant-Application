@@ -102,7 +102,7 @@ class EditProfileState extends State<EditProfile> {
             child: Padding(
               padding: EdgeInsets.all(25),
               child: TextFormField(
-                controller: newNickname, //controller
+                controller: newNickname,
 
                 validator: (value) {
                   if (value!.isEmpty) {
