@@ -31,17 +31,15 @@ Future<String> getUserName() async {
 
 Future<String> getUserId() async {
   List<String> userId = [];
-  await FirebaseFirestore.instance
+  final snapShot = await FirebaseFirestore.instance
       .collection('users')
       .where('email', isEqualTo: FirebaseAuth.instance.currentUser!.email)
       .limit(1)
-      .get()
-      .then(
-        // ignore: avoid_function_literals_in_foreach_calls
-        (snapShot) => snapShot.docs.forEach((user) {
-          userId.add(user.id);
-        }),
-      );
+      .get();
+
+  for (var user in snapShot.docs) {
+    userId.add(user.id);
+  }
 
   return userId[0];
 }
