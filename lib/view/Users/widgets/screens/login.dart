@@ -150,12 +150,13 @@ class _LoginState extends State<Login> {
                                       password: PasswordController.text)
                                   .then((value) {
                                 print(value);
-                                if(userdata!.type == 'u'){
+                                // if(userdata!.type == 'u'){
+                                // context.go('/start');
+                                // }
+                                // else{
+                                //   context.go('/admin');
+                                // }
                                 context.go('/start');
-                                }
-                                else{
-                                  context.go('/admin');
-                                }
                               }).onError((error, stackTrace) {
                                 // ignore: avoid_print
                                 print("Error ${error.toString()}");
