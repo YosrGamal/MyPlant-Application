@@ -4,13 +4,13 @@ import 'package:my_plant_application/domain/user.dart';
 import 'package:my_plant_application/view/Users/widgets/components/home_header.dart';
 
 //class UserRepo{
- // UserModel ?user;
+// UserModel ?user;
 Future createUser({
   required String name,
   required String email,
   required String date,
-  String ?profilepicture,
-  String ?type,
+  String? profilepicture,
+  String? type,
 }) async {
   final userInstance = FirebaseFirestore.instance.collection('users').doc();
 
@@ -21,15 +21,15 @@ Future createUser({
     'profile picture ': "",
     'type': 'u',
   };
-    //  user = UserModel(
-    //       email: email,
-    //       username: name,
-    //       dob: date,
-    //       profilepic: profilepicture!,
-    //       type: type!,                     
-    //  );
+  //  user = UserModel(
+  //       email: email,
+  //       username: name,
+  //       dob: date,
+  //       profilepic: profilepicture!,
+  //       type: type!,
+  //  );
 
- // await userInstance.set(user!.toMap());
+  // await userInstance.set(user!.toMap());
   await userInstance.set(userData);
 }
 
@@ -57,5 +57,15 @@ Future<String> getUserId() async {
   }
 
   return userId[0];
+}
+
+Future<String> getUserType() async {
+  String userType;
+  String myuserid = await getUserId();
+  DocumentSnapshot user =
+      await FirebaseFirestore.instance.collection('users').doc(myuserid).get();
+
+  userType = user.get('type');
+  return userType;
 }
 //}
