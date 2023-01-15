@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../domain/user.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  final User user;
+  final UserModel user;
   const ChangePasswordScreen({required this.user, super.key});
 
   @override

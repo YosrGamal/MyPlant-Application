@@ -16,6 +16,9 @@ import '../../../../domain/user.dart';
 import '../components/itemcard.dart';
 import '../components/per_navbar.dart';
 
+
+UserModel ?userdata;
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -147,7 +150,12 @@ class _LoginState extends State<Login> {
                                       password: PasswordController.text)
                                   .then((value) {
                                 print(value);
+                                if(userdata!.type == 'u'){
                                 context.go('/start');
+                                }
+                                else{
+                                  context.go('/admin');
+                                }
                               }).onError((error, stackTrace) {
                                 // ignore: avoid_print
                                 print("Error ${error.toString()}");

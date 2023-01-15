@@ -1,21 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_plant_application/domain/user.dart';
+import 'package:my_plant_application/view/Users/widgets/components/home_header.dart';
 
+//class UserRepo{
+ // UserModel ?user;
 Future createUser({
   required String name,
   required String email,
   required String date,
+  String ?profilepicture,
+  String ?type,
 }) async {
-  final userInsatnce = FirebaseFirestore.instance.collection('users').doc();
+  final userInstance = FirebaseFirestore.instance.collection('users').doc();
 
   final userData = {
     'name': name,
     'email': email,
     'Date of birth': date,
     'profile picture ': "",
+    'type': 'u',
   };
+    //  user = UserModel(
+    //       email: email,
+    //       username: name,
+    //       dob: date,
+    //       profilepic: profilepicture!,
+    //       type: type!,                     
+    //  );
 
-  await userInsatnce.set(userData);
+ // await userInstance.set(user!.toMap());
+  await userInstance.set(userData);
 }
 
 // getCurrentUser()
@@ -43,3 +58,4 @@ Future<String> getUserId() async {
 
   return userId[0];
 }
+//}
