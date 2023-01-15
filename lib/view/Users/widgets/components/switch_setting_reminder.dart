@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
 class CustomPicker extends CommonPickerModel {
   String digits(int value, int length) {
     return '$value'.padLeft(length, "0");
@@ -52,8 +53,8 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                               fontSize: 18),
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
-                      onChanged: (date) {
-                  }, onConfirm: (date) {
+                      onChanged: (date) { 
+                  }, onConfirm: (date) { print(date); 
                   }, currentTime: DateTime.now());
                 setState(() {
                   s1 = value;
@@ -83,7 +84,7 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {
-                  }, onConfirm: (date) {
+                  }, onConfirm: (date) { print(date);
                   }, currentTime: DateTime.now());
                 setState(() {
                   s2 = value;
