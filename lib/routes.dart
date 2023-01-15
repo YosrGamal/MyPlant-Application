@@ -50,7 +50,7 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/tasks',
+      path: '/task',
       builder: (BuildContext context, GoRouterState state) {
         return const Task();
       },
