@@ -51,18 +51,18 @@ class _ChooseImageState extends State<ChooseImage> {
 
     //insert url to firestore
 
-    File? file = await pickImage(ImageSource.camera);
+    //File? file = await pickImage(ImageSource.camera);
 
     if (file == null) {
       print('no file found');
       return;
     }
-    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+    //String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
-    Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirImages = referenceRoot.child('images');
+    //Reference referenceRoot = FirebaseStorage.instance.ref();
+    //Reference referenceDirImages = referenceRoot.child('images');
     // ignore: unused_local_variable
-    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+    //Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
 
     try {
       await referenceImageToUpload.putFile(File(file.path));
