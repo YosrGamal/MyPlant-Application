@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,6 +50,33 @@ class _ChooseImageState extends State<ChooseImage> {
     }
 
     //insert url to firestore
+
+    File? file = await pickImage(ImageSource.camera);
+
+    if (file == null) {
+      print('no file found');
+      return;
+    }
+    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImages = referenceRoot.child('images');
+    // ignore: unused_local_variable
+    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+    try {
+      await referenceImageToUpload.putFile(File(file.path));
+
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('success')));
+
+      imageUrl = await referenceImageToUpload.getDownloadURL();
+
+      print(imageUrl);
+    } catch (error) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(error.toString())));
+    }
   }
 
   Future pickImage(source) async {
@@ -105,11 +134,11 @@ class _ChooseImageState extends State<ChooseImage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5)),
               ),
-              child: const Text('Open Camera',
-                  style: TextStyle(fontSize: 20, fontFamily: 'Inter')),
               onPressed: (() {
                 pickImage(ImageSource.camera);
-              }))
+              }),
+              child: const Text('Open Camera',
+                  style: TextStyle(fontSize: 20, fontFamily: 'Inter')))
         ],
       ),
     );
