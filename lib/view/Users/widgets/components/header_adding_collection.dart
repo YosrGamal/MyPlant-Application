@@ -80,12 +80,6 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
                       ),
                 ),
                 onTap: () async {
-                  // CollectionReference plants =
-                  //     FirebaseFirestore.instance.collection('plantsLibrary');
-                  // plants.add({
-                  //   'plant_name': nameController.text,
-                  //   'plant_image': imageurlController.text,
-                  // });
                   createPlant(
                       name: nameController.text,
                       image: imageurlController.text,

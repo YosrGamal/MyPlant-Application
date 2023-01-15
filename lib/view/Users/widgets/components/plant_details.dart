@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/domain/plant.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_reminder.dart';
+import 'package:my_plant_application/data/repository/plant_rep.dart';
 
 class PlantDetail extends StatelessWidget {
   final Plant plant;
@@ -83,7 +84,9 @@ class PlantDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25), color: btColor),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    removePlant(plant.id!);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 187, 43, 32),
                     foregroundColor: Colors.white,
