@@ -61,6 +61,13 @@ final GoRouter router = GoRouter(
         return const Settings();
       },
     ),
+        GoRoute(
+      path: '/admin',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomeAdmin();
+      },
+    ),
+
     // GoRoute(
     //   path: '/camera',
     //   builder: (BuildContext context, GoRouterState state) {
