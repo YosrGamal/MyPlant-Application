@@ -85,7 +85,14 @@ class PlantDetail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25), color: btColor),
                 child: ElevatedButton(
                   onPressed: () {
-                    removePlant(plant.id!);
+                    try {
+                      removePlant(plant.id!);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Deleted')));
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Error Occured')));
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 187, 43, 32),

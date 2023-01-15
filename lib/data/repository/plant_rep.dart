@@ -20,5 +20,5 @@ Future removePlant(String id) async {
   DocumentReference documentReference =
       FirebaseFirestore.instance.collection('plants').doc(id);
 
-  documentReference.delete();
+  await documentReference.delete();
 }
