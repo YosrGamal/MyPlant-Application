@@ -1,13 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:tflite/tflite.dart';
 
 class ChooseImage extends StatefulWidget {
-  const ChooseImage({super.key});
+  String? imageurl;
+  ChooseImage({this.imageurl, super.key});
 
   @override
   State<ChooseImage> createState() => _ChooseImageState();
@@ -21,6 +23,31 @@ class _ChooseImageState extends State<ChooseImage> {
   Future uploadImage() async {
     // final path = '';
     // final file = File(image!.path);
+
+    File? file = await pickImage(ImageSource.gallery);
+
+    if (file == null) return;
+    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImages = referenceRoot.child('images');
+    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+    try {
+      await referenceImageToUpload.putFile(File(file.path));
+
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('success')));
+
+      imageUrl = await referenceImageToUpload.getDownloadURL();
+
+      print(imageUrl);
+    } catch (error) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(error.toString())));
+    }
+
+    //insert url to firestore
   }
 
   Future pickImage(source) async {
@@ -36,11 +63,11 @@ class _ChooseImageState extends State<ChooseImage> {
 
       // classifyImage(img);
     } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
+      throw Exception(e.message);
     }
   }
 
-  // Future classifyImage(XFile image) async {
+  // Future classifyImage(File image) async {
   //   var output = await Tflite.runModelOnImage(
   //       path: image.path,
   //       numResults: 19,
@@ -69,25 +96,7 @@ class _ChooseImageState extends State<ChooseImage> {
               child: const Text('Pick From Gallery',
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')),
               onPressed: () async {
-                XFile? file = await pickImage(ImageSource.gallery);
-
-                if (file == null) return;
-                String uniqueFileName =
-                    DateTime.now().millisecondsSinceEpoch.toString();
-                Reference referenceRoot = FirebaseStorage.instance.ref();
-                Reference referenceDirImages = referenceRoot.child('images');
-
-                Reference referenceImageToUpload =
-                    referenceDirImages.child(uniqueFileName);
-
-                try {
-                  await referenceImageToUpload.putFile(File(file.path));
-
-                  imageUrl = await referenceImageToUpload.getDownloadURL();
-                } catch (error) {
-                  //some error occured
-                  throw Exception('Error Occured').toString();
-                }
+                uploadImage();
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
