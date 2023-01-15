@@ -48,7 +48,7 @@ class PlantsGrid extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 200),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     CircularProgressIndicator(
                       color: btColor,
                     ),
