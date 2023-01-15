@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/data/db_helper.dart';
-import 'package:my_plant_application/view/Users/widgets/components/gridview_plants.dart';
+import 'package:my_plant_application/data/repository/plant_rep.dart';
 
 class HeaderAddingCollections extends StatefulWidget {
   const HeaderAddingCollections({
@@ -81,12 +80,10 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
                       ),
                 ),
                 onTap: () async {
-                  CollectionReference plants =
-                      FirebaseFirestore.instance.collection('plantsLibrary');
-                  plants.add({
-                    'plant_name': nameController.text,
-                    'plant_image': imageurlController.text,
-                  });
+                  createPlant(
+                      name: nameController.text,
+                      image: imageurlController.text,
+                      isfav: false);
 
                   //sqlite database
                   // await addPlant();

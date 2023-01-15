@@ -1,7 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/data/db_helper.dart';
-import 'package:my_plant_application/domain/plant.dart';
 
-class PlantsRepository {}
+Future createPlant({
+  required String name,
+  required String image,
+  required bool isfav,
+}) async {
+  final plantInstance = FirebaseFirestore.instance.collection('plants').doc();
+
+  final plantData = {
+    'name': name,
+    'image': image,
+    'isfav': isfav,
+  };
+
+  await plantInstance.set(plantData);
+}
+
+Future removePlant(String id) async {
+  DocumentReference documentReference =
+      FirebaseFirestore.instance.collection('plants').doc(id);
+
+  await documentReference.delete();
+}

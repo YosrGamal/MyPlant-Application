@@ -13,9 +13,10 @@ import 'package:my_plant_application/view/signinsignup_buttoms.dart';
 import '../../../../data/repository/user_repo.dart';
 import 'home.dart';
 
-final NameController = TextEditingController();
-final EmailController = TextEditingController();
-final PasswordController = TextEditingController();
+//UserRepo ?userdata;
+final nameContoller = TextEditingController();
+final emailController = TextEditingController();
+final passwordController = TextEditingController();
 final dateController = TextEditingController();
 
 class Signup extends StatefulWidget {
@@ -86,7 +87,7 @@ class _SignupState extends State<Signup> {
                 child: Column(
                   children: <Widget>[
                     TextFormField(
-                      controller: NameController,
+                      controller: nameContoller,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter correct name';
@@ -113,7 +114,7 @@ class _SignupState extends State<Signup> {
                       height: 20.0,
                     ),
                     TextFormField(
-                      controller: EmailController,
+                      controller: emailController,
                       validator: (value) {
                         RegExp regex = RegExp(r'^(?=.*?[@])');
                         if (value!.isEmpty) {
@@ -145,7 +146,7 @@ class _SignupState extends State<Signup> {
                       height: 20.0,
                     ),
                     TextFormField(
-                      controller: PasswordController,
+                      controller: passwordController,
                       obscureText: true,
                       validator: (value) {
                         RegExp regex = RegExp(
@@ -205,13 +206,13 @@ class _SignupState extends State<Signup> {
                         onTap: () {
                           FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
-                                  email: EmailController.text,
-                                  password: PasswordController.text)
+                                  email: emailController.text,
+                                  password: passwordController.text)
                               .then((value) {
-                            createUser(
-                                name: NameController.text,
-                                email: EmailController.text,
-                                date: dateController.text);
+                                createUser(
+                                name: nameContoller.text,
+                                email: emailController.text,
+                                date: dateController.text,);
                             // ignore: avoid_print
                             print("Created New Account");
                             context.go('/');

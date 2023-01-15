@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/domain/plant.dart';
+import 'package:my_plant_application/view/Admin/displayUsers.dart';
+import 'package:my_plant_application/view/Admin/home.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/login.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/startpage.dart';
 import 'package:my_plant_application/view/Users/widgets/components/plant_details.dart';
@@ -48,7 +50,7 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/tasks',
+      path: '/task',
       builder: (BuildContext context, GoRouterState state) {
         return const Task();
       },
@@ -59,6 +61,13 @@ final GoRouter router = GoRouter(
         return const Settings();
       },
     ),
+        GoRoute(
+      path: '/admin',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomeAdmin();
+      },
+    ),
+
     // GoRoute(
     //   path: '/camera',
     //   builder: (BuildContext context, GoRouterState state) {
@@ -85,6 +94,12 @@ final GoRouter router = GoRouter(
         return PlantDetail(
           plant: state.extra as Plant,
         );
+      },
+    ),
+    GoRoute(
+      path: '/display_users',
+      builder: (BuildContext context, GoRouterState state) {
+        return const DisplayUsers();
       },
     ),
   ],
