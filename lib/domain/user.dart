@@ -2,19 +2,19 @@ class User {
   String id;
   String email;
   String username;
-  String password;
+  String? password;
   String dob;
   String profilepic;
-  String regDate;
+  String? regDate;
 
   User({
     required this.id,
     required this.email,
     required this.username,
-    required this.password,
+    this.password,
     required this.dob,
     required this.profilepic,
-    required this.regDate,
+    this.regDate,
   });
 
   factory User.fromMap(Map<String, dynamic> json) => User(
