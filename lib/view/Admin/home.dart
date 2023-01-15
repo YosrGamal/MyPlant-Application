@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
+import 'package:my_plant_application/view/Admin/displayUsers.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeAdmin extends StatelessWidget {
   const HomeAdmin({super.key});
@@ -27,7 +29,7 @@ class HomeAdmin extends StatelessWidget {
                     'Dashboard',
                     style: TextStyle(
                         fontFamily: 'Arial',
-                        fontSize: 30,
+                        fontSize: 20,
                         fontWeight: FontWeight.w300,
                         color: bgColor),
                   )),
@@ -38,14 +40,18 @@ class HomeAdmin extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20, fontFamily: 'Arial', color: tColor),
                 ),
-                onTap: () {}),
+                onTap: () {
+                  context.go('/display_users');
+                }),
             ListTile(
                 title: const Text(
-                  'Database',
+                  'Dashboard',
                   style: TextStyle(
                       fontSize: 20, fontFamily: 'Arial', color: tColor),
                 ),
-                onTap: () {}),
+                onTap: () {
+                  context.go('/');
+                }),
           ],
         ),
       ),
