@@ -77,8 +77,8 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.only(left: 15.0),
               child: InkWell(
                 onTap: () {
-                  context.go('/');
                   FirebaseAuth.instance.signOut();
+                  context.go('/');
                 },
                 child: const Text(
                   "LogOut",
