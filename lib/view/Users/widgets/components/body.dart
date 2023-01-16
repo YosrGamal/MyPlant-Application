@@ -13,9 +13,14 @@ class Body extends StatelessWidget {
       children: [
         Expanded(
           child: Stack(children: [
-            Image.asset(
-              'assets/images/Bg.png',
-              fit: BoxFit.contain,
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/Bg1.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: null /* add child content here */,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 350, left: 100),

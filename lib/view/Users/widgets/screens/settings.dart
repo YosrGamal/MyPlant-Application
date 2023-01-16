@@ -24,15 +24,13 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: const BottomNavBar(),
-
       body: Container(
         padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/Plant down right.png"),
-              fit: BoxFit.contain),
-        ),
+        // decoration: const BoxDecoration(
+        //   image: DecorationImage(
+        //       image: AssetImage("assets/images/Plant down right.png"),
+        //       scale: 6),
+        // ),
         child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
@@ -87,6 +85,14 @@ class _SettingsState extends State<Settings> {
                       fontWeight: FontWeight.normal,
                       color: tColor),
                 ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 120, left: 150),
+              child: Image.asset(
+                'assets/images/Plant down right.png',
+                height: 170,
+                width: 400,
               ),
             ),
           ],

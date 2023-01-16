@@ -13,16 +13,14 @@ class _BodyTaskState extends State<BodyTask> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(children: <Widget>[
+        child: Stack(children: [
           const TabTask(),
           Container(
-            //alignment: Alignment.bottomLeft,
-            margin: const EdgeInsets.only(top: 350),
-            padding: const EdgeInsets.all(40),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/Plant down right.png"),
-                  fit: BoxFit.contain),
+            padding: const EdgeInsets.only(top: 520, left: 180),
+            child: Image.asset(
+              'assets/images/Plant down right.png',
+              height: 170,
+              width: 400,
             ),
           ),
           Container(
