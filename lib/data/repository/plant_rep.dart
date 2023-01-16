@@ -16,6 +16,10 @@ Future createPlant({
   await plantInstance.set(plantData);
 }
 
+Future fetchAllPlants() async {
+  FirebaseFirestore.instance.collection('plants').get();
+}
+
 Future removePlant(String id) async {
   DocumentReference documentReference =
       FirebaseFirestore.instance.collection('plants').doc(id);

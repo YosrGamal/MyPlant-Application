@@ -1,12 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/data/repository/plant_rep.dart';
 import 'package:my_plant_application/view/Users/widgets/components/itemcard.dart';
 import '../../../../domain/plant.dart';
 
-class PlantsGrid extends StatelessWidget {
+class PlantsGrid extends StatefulWidget {
   const PlantsGrid({super.key});
 
+  @override
+  State<PlantsGrid> createState() => _PlantsGridState();
+}
+
+class _PlantsGridState extends State<PlantsGrid> {
   @override
   Widget build(BuildContext context) {
     return ListView(shrinkWrap: true, children: [
@@ -18,7 +24,7 @@ class PlantsGrid extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
           child: FutureBuilder(
-            future: FirebaseFirestore.instance.collection('plants').get(),
+            future: fetchAllPlants(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return GridView.builder(
