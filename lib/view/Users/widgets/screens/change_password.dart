@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../domain/user.dart';
@@ -74,6 +75,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   obscureText: isHiddenPassword_TFF1,
 
                   validator: (value) {
+                    oldPass.text = 'omar12!@';
                     RegExp regex = RegExp(
                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])');
                     if (value!.isEmpty) {
@@ -196,6 +198,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       if (_formKey.currentState!.validate()) {
                         widget.user.password = newPass.text;
                       }
+
+                      if (newPass.text == confirmPass.text) {
+                        _changePassword(newPass.text);
+                      }
+
                       if (Allgood) {
                         showDialog(
                           context: context,
@@ -254,4 +261,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       ),
     );
   }
+}
+
+void _changePassword(String password) async {
+  //Create an instance of the current user.
+  var user = await FirebaseAuth.instance.currentUser!;
+
+  //Pass in the password to updatePassword.
+  user.updatePassword(password).then((_) {
+    print("Successfully changed password");
+  }).catchError((error) {
+    print("Password can't be changed" + error.toString());
+    //This might happen, when the wrong password is in, the user isn't found, or if the user hasn't logged in recently.
+  });
 }

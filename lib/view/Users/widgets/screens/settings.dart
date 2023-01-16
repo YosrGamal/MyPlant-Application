@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/change_password.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/edit_profile.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // ignore: camel_case_types
 class Settings extends StatefulWidget {
@@ -76,6 +77,7 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.only(left: 15.0),
               child: InkWell(
                 onTap: () {
+                  FirebaseAuth.instance.signOut();
                   context.go('/');
                 },
                 child: const Text(

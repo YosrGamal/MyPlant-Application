@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_plant_application/data/repository/reminder_repo.dart';
+import 'package:my_plant_application/domain/plant.dart';
 
 class CustomPicker extends CommonPickerModel {
   String digits(int value, int length) {
@@ -26,7 +28,10 @@ class CustomPicker extends CommonPickerModel {
   }
 }
 class Switchsettingreminder extends StatefulWidget {
-  const Switchsettingreminder({super.key});
+     Plant plant;
+     final TextEditingController timeController = TextEditingController();
+
+ Switchsettingreminder({super.key, required this.plant});
   @override
   State<Switchsettingreminder> createState() => _SwitchsettingreminderState();
 }
@@ -56,8 +61,14 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) { 
 
-                  }, onConfirm: (date) { print(date);              
-                            context.go('/task');
+                  }, onConfirm: (date) { print(date);            
+                            context.go('/start');
+                              createReminder(
+                    taskname: 'Water',
+                    plantname: widget.plant.name!,
+                    date: date.toString(),
+                    repeat: false,
+                  );
                   }, currentTime: DateTime.now());
                 setState(() {
                   s1 = value;
@@ -87,7 +98,14 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {
-                  }, onConfirm: (date) { print(date);
+                  }, onConfirm: (date) { print(date); 
+                   context.go('/start');
+                  createReminder(
+                    taskname: 'Water',
+                    plantname: widget.plant.name!,
+                    date: date.toString(),
+                    repeat: false,
+                  );
                   }, currentTime: DateTime.now());
                 setState(() {
                   s2 = value;

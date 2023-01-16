@@ -123,7 +123,7 @@ class _SettingreminderState extends State<Settingreminder> {
                     fit: BoxFit.contain),
               ),
             ),
-            const Switchsettingreminder(),
+             Switchsettingreminder(plant:widget.plant),
           ]),
         ],
       ),
