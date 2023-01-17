@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const StartPage();
+        return const Login();
       },
     ),
     GoRoute(
@@ -61,7 +61,7 @@ final GoRouter router = GoRouter(
         return const Settings();
       },
     ),
-        GoRoute(
+    GoRoute(
       path: '/admin',
       builder: (BuildContext context, GoRouterState state) {
         return const HomeAdmin();

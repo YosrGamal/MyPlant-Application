@@ -9,7 +9,12 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:my_plant_application/constants.dart';
 // ignore: depend_on_referenced_packages
+import 'package:firebase_storage/firebase_storage.dart';
+// import 'package:tflite/tflite.dart';
+// import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
+// import 'package:my_plant_application/view/Users/widgets/tfmodel/showingresult.dart';
 
+// ignore: must_be_immutable
 class ChooseImage extends StatefulWidget {
   String? imageurl;
   ChooseImage({this.imageurl, super.key});
@@ -19,7 +24,7 @@ class ChooseImage extends StatefulWidget {
 }
 
 class _ChooseImageState extends State<ChooseImage> {
-  File? image;
+  XFile? image;
 
   String imageUrl = '';
 
@@ -49,36 +54,6 @@ class _ChooseImageState extends State<ChooseImage> {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(error.toString())));
     }
-
-    //insert url to firestore
-
-    // File? file = await pickImage(ImageSource.camera);
-
-    // if (file == null) {
-    //   print('no file found');
-    //   return;
-    // }
-    // // ignore: unused_local_variable
-    // String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
-
-    // Reference referenceRoot = FirebaseStorage.instance.ref();
-    // Reference referenceDirImages = referenceRoot.child('images');
-    // // ignore: unused_local_variable
-    // Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
-
-    try {
-      await referenceImageToUpload.putFile(File(file.path));
-
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('success')));
-
-      imageUrl = await referenceImageToUpload.getDownloadURL();
-
-      print(imageUrl);
-    } catch (error) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(error.toString())));
-    }
   }
 
   Future pickImage(source) async {
@@ -86,7 +61,7 @@ class _ChooseImageState extends State<ChooseImage> {
       final img = await ImagePicker().pickImage(source: source);
       if (img == null) return null;
 
-      final imageTemporary = File(img.path);
+      final imageTemporary = XFile(img.path);
       setState(() {
         // Loading(loading: true);
         image = imageTemporary;
@@ -98,7 +73,7 @@ class _ChooseImageState extends State<ChooseImage> {
     }
   }
 
-  // Future classifyImage(File image) async {
+  // Future classifyImage(XFile image) async {
   //   var output = await Tflite.runModelOnImage(
   //       path: image.path,
   //       numResults: 19,

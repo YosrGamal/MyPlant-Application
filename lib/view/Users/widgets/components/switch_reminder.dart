@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_plant_application/data/repository/reminder_repo.dart';
 import 'package:my_plant_application/domain/plant.dart';
+import 'package:my_plant_application/domain/reminder.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
 
 class Switchreminder extends StatefulWidget {
   final Plant plant;
-  const Switchreminder({required this.plant, super.key});
+  const Switchreminder({required this.plant ,super.key});
 
   @override
   State<Switchreminder> createState() => _SwitchreminderState();
@@ -24,6 +26,7 @@ class _SwitchreminderState extends State<Switchreminder> {
               activeColor: const Color.fromARGB(255, 67, 105, 68),
               value: s1,
               onChanged: (bool value) {
+                
                 setState(() {
                   s1 = value;
                   if (s1 == true) {
