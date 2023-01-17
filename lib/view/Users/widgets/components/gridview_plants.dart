@@ -24,7 +24,7 @@ class _PlantsGridState extends State<PlantsGrid> {
           width: MediaQuery.of(context).size.width - 40,
           height: MediaQuery.of(context).size.height - 80,
           child: FutureBuilder(
-            future: fetchAllPlants(),
+            future: FirebaseFirestore.instance.collection('plants').get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return GridView.builder(
