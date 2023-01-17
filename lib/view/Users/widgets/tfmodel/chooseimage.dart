@@ -1,13 +1,14 @@
-// ignore_for_file: use_build_context_synchronously, avoid_print
+// ignore_for_file: use_build_context_synchronously, avoid_print, must_be_immutable, unused_local_variable, duplicate_ignore
 
 import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:my_plant_application/constants.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-// import 'package:tflite/tflite.dart';
+// ignore: depend_on_referenced_packages
 
 class ChooseImage extends StatefulWidget {
   String? imageurl;
@@ -51,18 +52,19 @@ class _ChooseImageState extends State<ChooseImage> {
 
     //insert url to firestore
 
-    File? file = await pickImage(ImageSource.camera);
+    // File? file = await pickImage(ImageSource.camera);
 
-    if (file == null) {
-      print('no file found');
-      return;
-    }
-    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+    // if (file == null) {
+    //   print('no file found');
+    //   return;
+    // }
+    // // ignore: unused_local_variable
+    // String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
-    Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirImages = referenceRoot.child('images');
-    // ignore: unused_local_variable
-    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+    // Reference referenceRoot = FirebaseStorage.instance.ref();
+    // Reference referenceDirImages = referenceRoot.child('images');
+    // // ignore: unused_local_variable
+    // Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
 
     try {
       await referenceImageToUpload.putFile(File(file.path));
