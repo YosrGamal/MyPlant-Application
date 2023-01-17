@@ -1,10 +1,14 @@
-// ignore_for_file: use_build_context_synchronously, avoid_print
+// ignore_for_file: use_build_context_synchronously, avoid_print, must_be_immutable, unused_local_variable, duplicate_ignore
 
 import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:my_plant_application/constants.dart';
+// ignore: depend_on_referenced_packages
 import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:tflite/tflite.dart';
 // import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
