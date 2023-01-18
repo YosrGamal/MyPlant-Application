@@ -7,16 +7,15 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ItemCard extends ConsumerStatefulWidget {
+class ItemCard extends StatefulWidget {
   final Plant plant;
-
   const ItemCard({required this.plant, super.key});
 
   @override
-  ConsumerState<ItemCard> createState() => _ItemCardState();
+  State<ItemCard> createState() => _ItemCardState();
 }
 
-class _ItemCardState extends ConsumerState<ItemCard> {
+class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -46,56 +45,60 @@ class _ItemCardState extends ConsumerState<ItemCard> {
                         ),
                       )),
                 ),
-                Consumer(builder: (context, WidgetRef ref, __) {
-                  ref.watch(favProvider);
-                  bool isfav =
-                      ref.watch(favProvider.notifier).isFav(widget.plant.id!);
+                // Consumer(builder: (context, WidgetRef ref, __) {
+                //   ref.watch(favProvider);
+                //   bool isfav =
+                //       ref.watch(favProvider.notifier).isFav(widget.plant.id!);
 
-                  return Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          splashColor: Colors.blueAccent,
-                          icon: isfav
-                              ? const Icon(Icons.favorite)
-                              : const Icon(Icons.favorite_border_outlined),
-                          color: const Color.fromARGB(255, 185, 39, 28),
-                          onPressed: () {
-                            if (isfav) {
-                              isfav = false;
-                            } else {
-                              isfav = true;
-                            }
-                            if (isfav) {
-                              ref
-                                  .read(favProvider.notifier)
-                                  .addItem(widget.plant.id!);
-                            } else {
-                              ref
-                                  .read(favProvider.notifier)
-                                  .removeItem(widget.plant.id!);
-                            }
-                            // provider.toggleFavorite(PlantModel(
-                            //     id: widget.plant.id,
-                            //     name: widget.plant.name,
-                            //     imageUrl: widget.plant.imageUrl,
-                            //     isfavorite: widget.plant.isfavorite));
-                          },
-                        ),
-                        // FavoriteButton(
-                        //   isFavorite: widget.plant.isfavorite,
-                        //   iconSize: 40,
-                        //   iconColor: btColor,
-                        //   valueChanged: (isFavorite) {
-                        //     widget.plant.isfavorite;
-                        //   },
-                        // ),
-                      ],
-                    ),
-                  );
-                }),
+                // return
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        splashColor: Colors.blueAccent,
+                        icon: Icon(Icons.favorite, size: 20),
+                        //     ? const Icon(Icons.favorite)
+                        //     : const Icon(Icons.favorite_border_outlined),
+                        // color: const Color.fromARGB(255, 185, 39, 28),
+                        onPressed: () async {
+                          // if(widget.plant.isfavorite.co)
+
+                          // if (isfav) {
+                          //   isfav = false;
+                          // } else {
+                          //   isfav = true;
+                          // }
+                          // if (isfav) {
+                          //   ref
+                          //       .read(favProvider.notifier)
+                          //       .addItem(widget.plant.id!);
+                          // } else {
+                          //   ref
+                          //       .read(favProvider.notifier)
+                          //       .removeItem(widget.plant.id!);
+                          // }
+
+                          // provider.toggleFavorite(PlantModel(
+                          //     id: widget.plant.id,
+                          //     name: widget.plant.name,
+                          //     imageUrl: widget.plant.imageUrl,
+                          //     isfavorite: widget.plant.isfavorite));
+                        },
+                      ),
+                      // FavoriteButton(
+                      //   isFavorite: widget.plant.isfavorite,
+                      //   iconSize: 40,
+                      //   iconColor: btColor,
+                      //   valueChanged: (isFavorite) {
+                      //     widget.plant.isfavorite;
+                      //   },
+                      // ),
+                    ],
+                  ),
+                )
+                // }),
               ]),
               Padding(
                 padding: const EdgeInsets.all(0),
