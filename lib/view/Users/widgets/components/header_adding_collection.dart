@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/data/db_helper.dart';
 import 'package:my_plant_application/data/repository/plant_rep.dart';
+import 'package:my_plant_application/view/Users/widgets/tfmodel/chooseimage.dart';
 
 class HeaderAddingCollections extends StatefulWidget {
   const HeaderAddingCollections({
@@ -82,7 +83,7 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
                 onTap: () async {
                   createPlant(
                       name: nameController.text,
-                      image: imageurlController.text,
+                      image: imageUrl.toString(),
                       isfav: false);
 
                   //sqlite database

@@ -12,6 +12,9 @@ import 'package:my_plant_application/constants.dart';
 // import 'package:my_plant_application/view/Users/widgets/tfmodel/showingresult.dart';
 
 // ignore: must_be_immutable
+
+Future<String>? imageUrl;
+
 class ChooseImage extends StatefulWidget {
   const ChooseImage({super.key});
 
@@ -85,7 +88,7 @@ class _ChooseImageState extends State<ChooseImage> {
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')),
               onPressed: () {
                 pickImage(ImageSource.gallery);
-                uploadImage();
+                imageUrl = uploadImage();
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
