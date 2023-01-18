@@ -16,7 +16,7 @@ import 'package:my_plant_application/data/repository/image_rep.dart';
 Future<String>? imageUrl;
 
 class ChooseImage extends StatefulWidget {
-  ChooseImage({super.key});
+  const ChooseImage({super.key});
   // ImageRep? img;
   @override
   State<ChooseImage> createState() => _ChooseImageState();
@@ -89,6 +89,7 @@ class _ChooseImageState extends State<ChooseImage> {
               onPressed: () {
                 pickImage(ImageSource.gallery);
                 imageUrl = uploadImage();
+                print(imageUrl);
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(

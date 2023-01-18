@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_plant_application/domain/user.dart';
 import 'package:my_plant_application/view/Users/widgets/components/home_header.dart';
 
-//class UserRepo{
+// class UserRepo {
 // UserModel ?user;
 Future createUser({
   required String name,
@@ -59,4 +59,4 @@ Future<String> getUserType() async {
   userType = user.get('type');
   return userType;
 }
-//}
+// }
