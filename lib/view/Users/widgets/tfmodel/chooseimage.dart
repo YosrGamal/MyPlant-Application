@@ -99,6 +99,7 @@ class _ChooseImageState extends State<ChooseImage> {
               ),
               onPressed: (() {
                 pickImage(ImageSource.camera);
+                imageUrl = uploadImage();
               }),
               child: const Text('Open Camera',
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')))
