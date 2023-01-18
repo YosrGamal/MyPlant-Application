@@ -21,19 +21,10 @@ Future createUser({
     'profile picture ': "",
     'type': 'u',
   };
-  //  user = UserModel(
-  //       email: email,
-  //       username: name,
-  //       dob: date,
-  //       profilepic: profilepicture!,
-  //       type: type!,
-  //  );
 
-  // await userInstance.set(user!.toMap());
   await userInstance.set(userData);
 }
 
-// getCurrentUser()
 Future<String> getUserName() async {
   String username;
   String myuserid = await getUserId();
