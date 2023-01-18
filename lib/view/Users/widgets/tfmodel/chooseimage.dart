@@ -4,8 +4,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:my_plant_application/constants.dart';
+import 'package:my_plant_application/data/repository/image_rep.dart';
 // ignore: depend_on_referenced_packages
 // import 'package:tflite/tflite.dart';
 // import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
@@ -16,47 +16,47 @@ import 'package:my_plant_application/constants.dart';
 Future<String>? imageUrl;
 
 class ChooseImage extends StatefulWidget {
-  const ChooseImage({super.key});
-
+  ChooseImage({super.key});
+  ImageRep? img;
   @override
   State<ChooseImage> createState() => _ChooseImageState();
 }
 
 class _ChooseImageState extends State<ChooseImage> {
-  File? image;
-  Future<String>? imageurl;
+  // File? image;
+  // Future<String>? imageurl;
 
-  Future<String> uploadImage() async {
-    // File? file = await pickImage(ImageSource.gallery);
-    Future<String>? url;
-    FirebaseStorage storage = FirebaseStorage.instance;
-    Reference ref = storage.ref().child("images" + DateTime.now().toString());
-    UploadTask uploadTask = ref.putFile(image!);
-    uploadTask.whenComplete(() {
-      url = ref.getDownloadURL();
-    }).catchError((onError) {
-      print(onError);
-    });
-    print(url);
-    return url!;
-  }
+  // Future<String> uploadImage() async {
+  //   // File? file = await pickImage(ImageSource.gallery);
+  //   Future<String>? url;
+  //   FirebaseStorage storage = FirebaseStorage.instance;
+  //   Reference ref = storage.ref().child("images" + DateTime.now().toString());
+  //   UploadTask uploadTask = ref.putFile(image!);
+  //   uploadTask.whenComplete(() {
+  //     url = ref.getDownloadURL();
+  //   }).catchError((onError) {
+  //     print(onError);
+  //   });
+  //   print(url);
+  //   return url!;
+  // }
 
-  Future pickImage(source) async {
-    try {
-      final img = await ImagePicker().pickImage(source: source);
-      if (img == null) return null;
+  // Future pickImage(source) async {
+  //   try {
+  //     final img = await ImagePicker().pickImage(source: source);
+  //     if (img == null) return null;
 
-      final imageTemporary = File(img.path);
-      setState(() {
-        // Loading(loading: true);
-        image = imageTemporary;
-      });
+  //     final imageTemporary = File(img.path);
+  //     // setState(() {
+  //     // Loading(loading: true);
+  //     image = imageTemporary;
+  //     // });
 
-      // classifyImage(img);
-    } on PlatformException catch (e) {
-      throw Exception(e.message);
-    }
-  }
+  //     // classifyImage(img);
+  //   } on PlatformException catch (e) {
+  //     throw Exception(e.message);
+  //   }
+  // }
 
   // Future classifyImage(XFile image) async {
   //   var output = await Tflite.runModelOnImage(
@@ -87,8 +87,8 @@ class _ChooseImageState extends State<ChooseImage> {
               child: const Text('Pick From Gallery',
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')),
               onPressed: () {
-                pickImage(ImageSource.gallery);
-                imageUrl = uploadImage();
+                widget.img!.pickImage(ImageSource.gallery);
+                imageUrl = widget.img!.uploadImage();
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -98,7 +98,7 @@ class _ChooseImageState extends State<ChooseImage> {
                     borderRadius: BorderRadius.circular(5)),
               ),
               onPressed: (() {
-                pickImage(ImageSource.camera);
+                widget.img!.pickImage(ImageSource.camera);
               }),
               child: const Text('Open Camera',
                   style: TextStyle(fontSize: 20, fontFamily: 'Inter')))
