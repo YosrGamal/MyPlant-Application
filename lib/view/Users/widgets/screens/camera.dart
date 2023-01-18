@@ -16,6 +16,6 @@ class Camera extends StatefulWidget {
 class _CameraState extends State<Camera> {
   @override
   Widget build(BuildContext context) {
-    return ChooseImage();
+    return const ChooseImage();
   }
 }

@@ -19,9 +19,10 @@ import '../components/per_navbar.dart';
 
 UserModel? userdata;
 
+// ignore: must_be_immutable
 class Login extends StatefulWidget {
-  const Login({super.key});
-
+  Login({super.key});
+  // UserRepo? userrepo;
   @override
   State<Login> createState() => _LoginState();
 }
@@ -164,12 +165,6 @@ class _LoginState extends State<Login> {
                                 } else {
                                   context.go('/admin');
                                 }
-                                // if(userdata!.type == 'u'){
-                                // context.go('/start');
-                                // }
-                                // else{
-                                //   context.go('/admin');
-                                // }
                               }).onError((error, stackTrace) {
                                 // ignore: avoid_print
                                 print("Error ${error.toString()}");
