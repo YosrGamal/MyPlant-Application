@@ -6,8 +6,8 @@ import 'package:my_plant_application/data/repository/user_repo.dart';
 
 class HeaderWithSearchBar extends StatefulWidget {
   final Size size;
-  const HeaderWithSearchBar({required this.size, super.key});
-
+  HeaderWithSearchBar({required this.size, super.key});
+  // UserRepo? userrepo;
   @override
   State<HeaderWithSearchBar> createState() => _HeaderWithSearchBarState();
 }

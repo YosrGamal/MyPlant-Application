@@ -50,7 +50,7 @@ class HomeAdmin extends StatelessWidget {
                       fontSize: 20, fontFamily: 'Arial', color: tColor),
                 ),
                 onTap: () {
-                  context.go('/');
+                  context.go('/admin');
                 }),
           ],
         ),

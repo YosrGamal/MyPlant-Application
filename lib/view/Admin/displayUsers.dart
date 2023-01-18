@@ -49,7 +49,7 @@ class DisplayUsers extends StatelessWidget {
                         fontSize: 20, fontFamily: 'Arial', color: tColor),
                   ),
                   onTap: () {
-                    context.go('/');
+                    context.go('/admin');
                   }),
             ],
           ),
@@ -74,9 +74,7 @@ class DisplayUsers extends StatelessWidget {
                       leading: CircleAvatar(
                         backgroundColor: Color(0xffE6E6E6),
                         radius: 30,
-                        child: Image.network(
-                          document['profile picture ']
-                        ),
+                        child: Image.network(document['profile picture ']),
                       ),
                       title: Text(document['name']),
                       subtitle: Text(document['email']),

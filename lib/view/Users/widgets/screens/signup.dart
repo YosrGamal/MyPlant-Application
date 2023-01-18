@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/repositories/userdata.dart';
 import 'package:my_plant_application/view/signinsignup_buttoms.dart';
+import '../../../../constants.dart';
 import '../../../../data/repository/user_repo.dart';
 import 'home.dart';
 
@@ -20,8 +21,8 @@ final passwordController = TextEditingController();
 final dateController = TextEditingController();
 
 class Signup extends StatefulWidget {
-  const Signup({super.key});
-
+  Signup({super.key});
+  // UserRepo? userrepo;
   @override
   State<Signup> createState() => _SignupState();
 }
@@ -42,7 +43,7 @@ Container? signInSignUpButton(
           child: Text(
             isLogin ? 'LOG IN' : 'SIGN UP',
             style: const TextStyle(
-                color: Colors.black87,
+                color: Color.fromARGB(221, 255, 255, 255),
                 fontWeight: FontWeight.bold,
                 fontSize: 16),
           ),
@@ -51,7 +52,7 @@ Container? signInSignUpButton(
                 if (states.contains(MaterialState.pressed)) {
                   return Colors.black26;
                 }
-                return Colors.white;
+                return btColor;
               }),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

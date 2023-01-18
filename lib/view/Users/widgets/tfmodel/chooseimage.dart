@@ -6,18 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_plant_application/constants.dart';
 import 'package:my_plant_application/data/repository/image_rep.dart';
-// ignore: depend_on_referenced_packages
-// import 'package:tflite/tflite.dart';
-// import 'package:my_plant_application/view/Users/widgets/tfmodel/loadingscreen.dart';
-// import 'package:my_plant_application/view/Users/widgets/tfmodel/showingresult.dart';
 
 // ignore: must_be_immutable
-
 Future<String>? imageUrl;
 
 class ChooseImage extends StatefulWidget {
   ChooseImage({super.key});
-  // ImageRep? img;
   @override
   State<ChooseImage> createState() => _ChooseImageState();
 }
@@ -27,7 +21,6 @@ class _ChooseImageState extends State<ChooseImage> {
   Future<String>? imageurl;
 
   Future<String> uploadImage() async {
-    // File? file = await pickImage(ImageSource.gallery);
     Future<String>? url;
     FirebaseStorage storage = FirebaseStorage.instance;
     Reference ref = storage.ref().child("images" + DateTime.now().toString());
@@ -89,6 +82,7 @@ class _ChooseImageState extends State<ChooseImage> {
               onPressed: () {
                 pickImage(ImageSource.gallery);
                 imageUrl = uploadImage();
+                print(imageUrl);
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
