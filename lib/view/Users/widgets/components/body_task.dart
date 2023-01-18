@@ -16,11 +16,11 @@ class _BodyTaskState extends State<BodyTask> {
         child: Stack(children: [
           const TabTask(),
           Container(
-            padding: const EdgeInsets.only(top: 520, left: 180),
+            padding: const EdgeInsets.only(top: 430, left: 80),
             child: Image.asset(
               'assets/images/Plant down right.png',
-              height: 170,
-              width: 400,
+              height: 250,
+              width: 500,
             ),
           ),
           Container(

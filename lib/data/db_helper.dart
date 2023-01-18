@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart' as sql;
 import 'package:path/path.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_plant_application/domain/plant.dart';
-import 'package:my_plant_application/domain/reminder.dart';
+import 'package:my_plant_application/domain/remind.dart';
 import 'package:my_plant_application/domain/user.dart';
 
 class DBHelper {

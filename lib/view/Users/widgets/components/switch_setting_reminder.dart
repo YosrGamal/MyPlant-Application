@@ -94,7 +94,7 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                               fontSize: 18),
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
-                      onChanged: (date) {
+                      onChanged: (date) { 
                   }, onConfirm: (date) { 
                    context.go('/start');
                    createReminder(

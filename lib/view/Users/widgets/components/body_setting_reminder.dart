@@ -40,7 +40,7 @@ class _SettingreminderState extends State<Settingreminder> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(136.0, 85.0, 0.0, 15.0),
+              padding: const EdgeInsets.fromLTRB(140.0, 85.0, 0.0, 15.0),
               child: const Text(
                 "Water ",
                 style: TextStyle(
@@ -68,7 +68,7 @@ class _SettingreminderState extends State<Settingreminder> {
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                       fontFamily: 'Inter',
-                      fontSize: 25.0,
+                      fontSize: 30.0,
                       color: Color.fromARGB(255, 60, 100, 73)),
                 ),
               ),

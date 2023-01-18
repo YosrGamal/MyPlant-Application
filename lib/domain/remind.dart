@@ -6,11 +6,11 @@ class Reminder{
     bool? repeat;
     
 Reminder({
-    this.id,
-    this.taskname,
-    this.plantname,
-    this.date,
-    this.repeat,
+    required this.id,
+    required this.taskname,
+    required this.plantname,
+    required this.date,
+    required this.repeat,
 });
 
 Reminder.fromJson(Map<String, dynamic> json){
@@ -31,6 +31,7 @@ Map<String, dynamic> toJson() {
 
    return data;
  }
+
 }
   enum Taskname{
       water,

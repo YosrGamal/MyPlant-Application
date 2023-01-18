@@ -61,9 +61,18 @@ class _HeaderWithSearchBarState extends State<HeaderWithSearchBar> {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
+
                           const SizedBox(
                             height: 10,
                           ),
+                          //  FutureBuilder(future: Provider.of(context).auth.getCurrentUser(),
+                          //   builder: (context, snapshot) {
+                          //    if(snapshot.connectionState == ConnectionState.done) {
+                          //     return Text("${snapshot.data.displayName}");
+                          //    }else{
+                          //     return CircularProgressIndicator();
+                          //    }
+                          //  }),
                           const Padding(
                             padding: EdgeInsets.only(right: 20),
                             child: CircleAvatar(

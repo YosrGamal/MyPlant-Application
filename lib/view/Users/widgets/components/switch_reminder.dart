@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/data/repository/reminder_repo.dart';
 import 'package:my_plant_application/domain/plant.dart';
-import 'package:my_plant_application/domain/reminder.dart';
+import 'package:my_plant_application/domain/remind.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_setting_reminder.dart';
 
 class Switchreminder extends StatefulWidget {

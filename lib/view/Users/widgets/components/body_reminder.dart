@@ -32,28 +32,17 @@ class BodyReminder extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 220),
-            padding: const EdgeInsets.only(left: 45, right: 45),
+            margin: const EdgeInsets.only(top: 230),
+            padding: const EdgeInsets.only(left: 120, right: 45),
             width: MediaQuery.of(context).size.width,
             height: 45,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: const Color.fromARGB(255, 251, 252, 251),
-                // ignore: deprecated_member_use
-                onPrimary: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              child: Text(
-                plant.name!,
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20.0,
-                    color: Color.fromARGB(255, 40, 65, 48)),
-              ),
+            child: Text(
+              plant.name!,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 25.0,
+                  color: Color.fromARGB(255, 40, 65, 48)),
             ),
           ),
           Container(
