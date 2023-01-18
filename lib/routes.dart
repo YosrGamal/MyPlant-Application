@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const Login();
+        return Login();
       },
     ),
     GoRoute(
@@ -40,7 +40,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/signup',
       builder: (BuildContext context, GoRouterState state) {
-        return const Signup();
+        return Signup();
       },
     ),
     GoRoute(

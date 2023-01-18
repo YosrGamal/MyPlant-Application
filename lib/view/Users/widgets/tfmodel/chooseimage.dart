@@ -82,6 +82,7 @@ class _ChooseImageState extends State<ChooseImage> {
               onPressed: () {
                 pickImage(ImageSource.gallery);
                 imageUrl = uploadImage();
+                print(imageUrl);
               }),
           ElevatedButton(
               style: ElevatedButton.styleFrom(

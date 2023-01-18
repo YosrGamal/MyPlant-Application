@@ -12,7 +12,9 @@ class AddingCollectionBody extends StatelessWidget {
       children: [
         Stack(children: [
           HeaderAddingCollections(size: size),
-          Container(padding: EdgeInsets.only(left: 110), child: ChooseImage()
+          Container(
+              padding: const EdgeInsets.only(left: 110),
+              child: const ChooseImage()
               // height: MediaQuery.of(context).size.height - 80,
               // width: double.infinity,
               // child: const PlantsGrid(),
