@@ -176,6 +176,9 @@ class _SignupState extends State<Signup> {
                           focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey))),
                     ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     TextFormField(
                       controller: dateController,
                       validator: (value) {
@@ -209,10 +212,11 @@ class _SignupState extends State<Signup> {
                                   email: emailController.text,
                                   password: passwordController.text)
                               .then((value) {
-                                createUser(
-                                name: nameContoller.text,
-                                email: emailController.text,
-                                date: dateController.text,);
+                            createUser(
+                              name: nameContoller.text,
+                              email: emailController.text,
+                              date: dateController.text,
+                            );
                             // ignore: avoid_print
                             print("Created New Account");
                             context.go('/');
