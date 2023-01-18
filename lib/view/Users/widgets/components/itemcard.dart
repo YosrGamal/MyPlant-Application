@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/constants.dart';
-import 'package:my_plant_application/data/providers/fav_provider.dart';
-import 'package:my_plant_application/repositories/plantsdata.dart';
 import 'package:my_plant_application/domain/plant.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ItemCard extends StatefulWidget {
   final Plant plant;
@@ -45,10 +42,6 @@ class _ItemCardState extends State<ItemCard> {
                         ),
                       )),
                 ),
-                // Consumer(builder: (context, WidgetRef ref, __) {
-                //   ref.watch(favProvider);
-                //   bool isfav =
-                //       ref.watch(favProvider.notifier).isFav(widget.plant.id!);
 
                 // return
                 Padding(
@@ -61,25 +54,8 @@ class _ItemCardState extends State<ItemCard> {
                         icon: Icon(Icons.favorite, size: 20),
                         //     ? const Icon(Icons.favorite)
                         //     : const Icon(Icons.favorite_border_outlined),
-                        // color: const Color.fromARGB(255, 185, 39, 28),
+                        color: const Color.fromARGB(255, 185, 39, 28),
                         onPressed: () async {
-                          // if(widget.plant.isfavorite.co)
-
-                          // if (isfav) {
-                          //   isfav = false;
-                          // } else {
-                          //   isfav = true;
-                          // }
-                          // if (isfav) {
-                          //   ref
-                          //       .read(favProvider.notifier)
-                          //       .addItem(widget.plant.id!);
-                          // } else {
-                          //   ref
-                          //       .read(favProvider.notifier)
-                          //       .removeItem(widget.plant.id!);
-                          // }
-
                           // provider.toggleFavorite(PlantModel(
                           //     id: widget.plant.id,
                           //     name: widget.plant.name,
@@ -87,14 +63,14 @@ class _ItemCardState extends State<ItemCard> {
                           //     isfavorite: widget.plant.isfavorite));
                         },
                       ),
-                      // FavoriteButton(
-                      //   isFavorite: widget.plant.isfavorite,
-                      //   iconSize: 40,
-                      //   iconColor: btColor,
-                      //   valueChanged: (isFavorite) {
-                      //     widget.plant.isfavorite;
-                      //   },
-                      // ),
+                      FavoriteButton(
+                        isFavorite: widget.plant.isfavorite,
+                        iconSize: 40,
+                        iconColor: btColor,
+                        valueChanged: (isFavorite) {
+                          widget.plant.isfavorite;
+                        },
+                      ),
                     ],
                   ),
                 )
