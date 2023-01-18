@@ -7,7 +7,7 @@ import 'package:my_plant_application/data/repository/plant_rep.dart';
 class PlantDetail extends StatefulWidget {
   final Plant plant;
   PlantDetail({required this.plant, super.key});
-  PlantRep? plantrep;
+
   @override
   State<PlantDetail> createState() => _PlantDetailState();
 }
@@ -92,7 +92,7 @@ class _PlantDetailState extends State<PlantDetail> {
                 child: ElevatedButton(
                   onPressed: () {
                     try {
-                      widget.plantrep!.removePlant(widget.plant.id!);
+                      removePlant(widget.plant.id!);
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Deleted')));
                     } catch (e) {

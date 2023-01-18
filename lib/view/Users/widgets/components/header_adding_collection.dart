@@ -10,7 +10,6 @@ class HeaderAddingCollections extends StatefulWidget {
     required this.size,
   }) : super(key: key);
   final Size size;
-  PlantRep? plantrep;
 
   @override
   State<HeaderAddingCollections> createState() =>
@@ -75,7 +74,7 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
                       ),
                 ),
                 onTap: () async {
-                  widget.plantrep!.createPlant(
+                  createPlant(
                       name: nameController.text,
                       image: imageUrl.toString(),
                       isfav: false);
