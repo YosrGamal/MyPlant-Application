@@ -4,9 +4,15 @@ import 'package:my_plant_application/domain/plant.dart';
 import 'package:my_plant_application/view/Users/widgets/components/body_reminder.dart';
 import 'package:my_plant_application/data/repository/plant_rep.dart';
 
-class PlantDetail extends StatelessWidget {
+class PlantDetail extends StatefulWidget {
   final Plant plant;
-  const PlantDetail({required this.plant, super.key});
+  PlantDetail({required this.plant, super.key});
+  PlantRep? plantrep;
+  @override
+  State<PlantDetail> createState() => _PlantDetailState();
+}
+
+class _PlantDetailState extends State<PlantDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +35,7 @@ class PlantDetail extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Image.network(
-                plant.imageUrl!,
+                widget.plant.imageUrl!,
                 fit: BoxFit.cover,
                 height: 300,
                 width: 20,
@@ -41,7 +47,7 @@ class PlantDetail extends StatelessWidget {
           ),
           Center(
             child: Text(
-              plant.name!,
+              widget.plant.name!,
               style: const TextStyle(
                   color: tColor, fontFamily: 'Inter', fontSize: 30),
             ),
@@ -60,7 +66,7 @@ class PlantDetail extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => BodyReminder(
-                                plant: plant,
+                                plant: widget.plant,
                               )),
                     );
                   },
@@ -86,7 +92,7 @@ class PlantDetail extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     try {
-                      removePlant(plant.id!);
+                      widget.plantrep!.removePlant(widget.plant.id!);
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Deleted')));
                     } catch (e) {
