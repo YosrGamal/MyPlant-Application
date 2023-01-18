@@ -102,21 +102,6 @@ class DBHelper {
       throw Exception(err.toString());
     }
   }
-
-  // Future<void> insert(
-  //     {required String table, required Map<String, Object> data}) async {
-  //   _db!.insert(table, data, conflictAlgorithm: ConflictAlgorithm.replace);
-  // }
-
-// //update plant
-//   Future<void> updatePlant(String table, String id, String name, String imageUrl, bool isfavorite) async {
-//    _db!.rawUpdate('UPDATE $table SET name = ?, imageUrl = ?, isfavorite = ? WHERE id =?', [name, imageUrl, isfavorite, id]);
-
-//   }
-
-  // Future<void> delete(String table, String id) async {
-  //   _db!.rawDelete('DELETE FROM $table WHERE id = ?', [id]);
-  // }
 }
 
 // final dbProvider = Provider<DBHelper>((ref) => DBHelper());
