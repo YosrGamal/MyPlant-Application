@@ -5,11 +5,12 @@ import 'package:my_plant_application/data/repository/plant_rep.dart';
 import 'package:my_plant_application/view/Users/widgets/tfmodel/chooseimage.dart';
 
 class HeaderAddingCollections extends StatefulWidget {
-  const HeaderAddingCollections({
+  HeaderAddingCollections({
     Key? key,
     required this.size,
   }) : super(key: key);
   final Size size;
+  PlantRep? plantrep;
 
   @override
   State<HeaderAddingCollections> createState() =>
@@ -37,15 +38,8 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
     print("number of plants ${plants.length}");
   }
 
-  final TextEditingController idController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController imageurlController = TextEditingController();
-
-  // Future<void> addPlant() async {
-  //   await DBHelper.createPlant(
-  //       idController.text, nameController.text, imageurlController.text);
-  //   refreshPlants();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +75,7 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
                       ),
                 ),
                 onTap: () async {
-                  createPlant(
+                  widget.plantrep!.createPlant(
                       name: nameController.text,
                       image: imageUrl.toString(),
                       isfav: false);
@@ -124,17 +118,6 @@ class _HeaderAddingCollectionsState extends State<HeaderAddingCollections> {
           decoration: BoxDecoration(
             color: bpColor,
             borderRadius: BorderRadius.circular(10),
-          ),
-          child: TextField(
-            controller: idController,
-            decoration: InputDecoration(
-                hintText: "Plant id",
-                hintStyle: TextStyle(
-                  color: tColor.withOpacity(0.5),
-                  fontFamily: "Inter",
-                ),
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none),
           ),
         ),
         const SizedBox(height: 10),
