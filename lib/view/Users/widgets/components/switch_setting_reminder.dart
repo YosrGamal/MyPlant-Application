@@ -3,7 +3,6 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_plant_application/data/repository/reminder_repo.dart';
 import 'package:my_plant_application/domain/plant.dart';
-
 class CustomPicker extends CommonPickerModel {
   String digits(int value, int length) {
     return '$value'.padLeft(length, "0");
@@ -60,21 +59,19 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) { 
-
-                  }, onConfirm: (date) { print(date);            
-                            context.go('/start');
-                              createReminder(
-                    taskname: 'Water',
-                    plantname: widget.plant.name!,
-                    date: date.toString(),
-                    repeat: false,
+                  }, onConfirm: (date) { 
+                  context.go('/start');
+                    createReminder(
+                      taskname: 'Water',
+                      plantname: widget.plant.name!,
+                      date: date.toString(),
+                      repeat: false,
                   );
                   }, currentTime: DateTime.now());
                 setState(() {
                   s1 = value;
                 }); 
               }, 
-               
               title: const Text(
                 'Morning',
                 style: TextStyle(
@@ -98,9 +95,9 @@ class _SwitchsettingreminderState extends State<Switchsettingreminder> {
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {
-                  }, onConfirm: (date) { print(date); 
+                  }, onConfirm: (date) { 
                    context.go('/start');
-                  createReminder(
+                   createReminder(
                     taskname: 'Water',
                     plantname: widget.plant.name!,
                     date: date.toString(),
