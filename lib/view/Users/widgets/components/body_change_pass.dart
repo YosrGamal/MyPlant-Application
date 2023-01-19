@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_plant_application/view/Users/widgets/components/footer_changePass.dart';
-import 'header_changePass.dart';
+import 'package:my_plant_application/view/Users/widgets/components/footer_change_pass.dart';
+import 'header_change_pass.dart';
 
 class ChangePassBody extends StatefulWidget {
   const ChangePassBody({super.key});
