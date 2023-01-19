@@ -83,9 +83,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/changepassword',
       builder: (BuildContext context, GoRouterState state) {
-        return ChangePasswordScreen(
-          user: users[0],
-        );
+        return ChangePasswordScreen();
       },
     ),
     GoRoute(
