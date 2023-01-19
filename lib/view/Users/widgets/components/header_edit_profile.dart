@@ -21,6 +21,27 @@ class EditProfileHeader extends StatelessWidget {
         Positioned(top: 130, right: 120, child: buildProfileImage()),
         Positioned(top: 130, right: 120, child: buildProfileImage2()),
         Positioned(top: 130, right: 120, child: buildProfileImage3()),
+        Positioned(
+          top: 50,
+          left: -30,
+          child: InkWell(
+              //instead of TextField
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Padding(
+                padding: EdgeInsets.only(left: 50),
+                child: Text(
+                  'Settings',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontFamily: 'Inter',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )),
+        ),
       ],
     );
   }

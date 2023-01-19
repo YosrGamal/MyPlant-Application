@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import 'Footer_edit_profile.dart';
+import 'footer_edit_profile.dart';
 import 'header_edit_profile.dart';
 
 class EditProfileBody extends StatefulWidget {
@@ -33,23 +33,6 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             children: [
               const SizedBox(height: 100), //the space before settings
 
-              InkWell(
-                  //instead of TextField
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontFamily: 'Inter',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )),
               const SizedBox(width: 100), //the space before settings
             ],
           )),
@@ -59,16 +42,6 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                 style: TextStyle(
                   fontSize: 30,
                   color: Color.fromARGB(255, 255, 255, 255),
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.bold,
-                )),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 330),
-            child: const Text('Change Avatar',
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Color.fromRGBO(0, 0, 0, 1),
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.bold,
                 )),
@@ -138,6 +111,30 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             left: 0,
             child: Image.asset('assets/images/Plant down left.png'),
           ),
+          Container(
+            margin: const EdgeInsets.only(top: 600),
+            width: 170,
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  //when valiadted
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                // ignore: deprecated_member_use
+                primary: const Color(0XFF588157),
+                // ignore: deprecated_member_use
+                onPrimary: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
+              ),
+              child: const Text(
+                'Save',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+          )
         ],
       ),
     );
