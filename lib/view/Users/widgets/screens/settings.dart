@@ -113,8 +113,7 @@ class _SettingsState extends State<Settings> {
         } else if (title == 'Change password') {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => ChangePasswordScreen(user: users[0])),
+            MaterialPageRoute(builder: (context) => ChangePasswordScreen()),
           );
         }
       },
