@@ -13,7 +13,7 @@ class Footer extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(left: 10, right: 10),
           width: 140,
-          height: 50,
+          height: 45,
           child: ElevatedButton(
             onPressed: () {
               print(newPass.text);
