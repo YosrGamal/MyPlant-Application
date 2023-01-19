@@ -13,9 +13,6 @@ import 'package:my_plant_application/view/Users/widgets/screens/edit_profile.dar
 import 'package:my_plant_application/view/Users/widgets/screens/change_password.dart';
 import 'package:my_plant_application/view/Users/widgets/screens/home.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_core/firebase_core.dart';
-import 'repositories/userdata.dart';
 
 final GoRouter router = GoRouter(
   routes: <GoRoute>[

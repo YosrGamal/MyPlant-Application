@@ -1,11 +1,6 @@
-// ignore_for_file: non_constant_identifier_names
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_plant_application/view/Users/widgets/components/footer_changePass.dart';
-
-import '../../../../domain/user.dart';
-import 'HeaderChangePass.dart';
+import 'header_changePass.dart';
 
 class ChangePassBody extends StatefulWidget {
   const ChangePassBody({super.key});
@@ -94,22 +89,27 @@ class _ChangePassBodyState extends State<ChangePassBody> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide.none,
-                    ),
-                    filled: true,
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          hide1 = !hide1;
-                        });
-                      },
-                      child:
-                          Icon(hide1 ? Icons.visibility_off : Icons.visibility),
-                    ),
-                    hintText: 'new Password',
-                  ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            hide1 = !hide1;
+                          });
+                        },
+                        child: Icon(
+                            hide1 ? Icons.visibility_off : Icons.visibility),
+                      ),
+                      hintText: 'new Password',
+                      labelStyle: TextStyle(
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey),
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey))),
                 ),
                 const SizedBox(height: 15),
 
