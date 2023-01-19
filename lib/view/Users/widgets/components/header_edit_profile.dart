@@ -19,8 +19,8 @@ class EditProfileHeader extends StatelessWidget {
         Positioned(
             right: 25, child: Image.asset('assets/images/Hanging p2.png')),
         Positioned(top: 130, right: 120, child: buildProfileImage()),
-        Positioned(top: 130, right: 120, child: buildProfileImage2()),
-        Positioned(top: 130, right: 120, child: buildProfileImage3()),
+        Positioned(top: 130, right: 120, child: Background()),
+        Positioned(top: 130, right: 120, child: Border()),
         Positioned(
           top: 50,
           left: -30,
@@ -83,9 +83,9 @@ Widget buildProfileImage() => Container(
       ),
     );
 
-Widget buildProfileImage2() => CircleAvatar(
+Widget Background() => CircleAvatar(
     radius: 70, backgroundColor: Color.fromRGBO(255, 255, 255, 0.1));
 
-Widget buildProfileImage3() => CircleAvatar(
+Widget Border() => CircleAvatar(
     radius: (profileHeight / 2),
     backgroundColor: Color.fromRGBO(255, 255, 255, 0.3));
