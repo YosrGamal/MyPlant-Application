@@ -72,7 +72,7 @@ class _ChangePassBodyState extends State<ChangePassBody> {
                       child:
                           Icon(hide0 ? Icons.visibility_off : Icons.visibility),
                     ),
-                    hintText: 'Old Password',
+                    hintText: 'old Password',
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -141,7 +141,7 @@ class _ChangePassBodyState extends State<ChangePassBody> {
                       child:
                           Icon(hide2 ? Icons.visibility_off : Icons.visibility),
                     ),
-                    hintText: 'Confirm new Password',
+                    hintText: 'confirm new Password',
                   ),
                 ),
                 const SizedBox(height: 30),
